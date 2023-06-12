@@ -12,22 +12,22 @@ gtq:EventTypeScheme
   rdfs:comment "Disciplines from GTQ website mapped to Artsdata Event Types http://kg.artsdata.ca/resource/ArtsdataEventTypes"@en ;
   rdf:type skos:ConceptScheme .
 
-gtq:Chanson_francophone   
+gtq:ChansonFrancophone   
   skos:prefLabel "Chanson francophone"@fr ; 
   skos:closeMatch adr:ChansonFrancophone ; 
-  skos:inScheme gtq:EventTypes ;
+  skos:inScheme gtq:EventTypeScheme ;
   rdf:type skos:Concept  .
 
 gtq:Musique   
   skos:prefLabel "Musique"@fr ; 
   skos:closeMatch adr:MusicPerformance ; 
-  skos:inScheme gtq:EventTypes ;
+  skos:inScheme gtq:EventTypeScheme ;
   rdf:type skos:Concept  .
 
 gtq:Jazz   
   skos:prefLabel "Jazz"@fr ; 
   skos:closeMatch adr:JazzShow ; 
-  skos:inScheme gtq:EventTypes ;
+  skos:inScheme gtq:EventTypeScheme ;
   rdf:type skos:Concept  .
 
 
