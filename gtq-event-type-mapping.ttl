@@ -1,0 +1,33 @@
+@prefix gtq: <https://grandtheatre.qc.ca/ontologie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema:  <http://schema.org/> .
+
+# Add new disciplines when then appear on the GTQ website
+# and map them to an Artsdata Event Type
+
+gtq:EventTypeScheme 
+  skos:prefLabel "Types d'evenements Grand Théâtre du Québec"@fr ;
+  rdfs:comment "Disciplines from GTQ website mapped to Artsdata Event Types http://kg.artsdata.ca/resource/ArtsdataEventTypes"@en ;
+  rdf:type skos:ConceptScheme .
+
+gtq:Chanson_francophone   
+  skos:prefLabel "Chanson francophone"@fr ; 
+  skos:closeMatch adr:ChansonFrancophone ; 
+  skos:inScheme gtq:EventTypes ;
+  rdf:type skos:Concept  .
+
+gtq:Musique   
+  skos:prefLabel "Musique"@fr ; 
+  skos:closeMatch adr:MusicPerformance ; 
+  skos:inScheme gtq:EventTypes ;
+  rdf:type skos:Concept  .
+
+gtq:Jazz   
+  skos:prefLabel "Jazz"@fr ; 
+  skos:closeMatch adr:JazzShow ; 
+  skos:inScheme gtq:EventTypes ;
+  rdf:type skos:Concept  .
+
+
