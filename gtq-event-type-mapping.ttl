@@ -6,6 +6,7 @@
 
 # Add new disciplines when they appear on the GTQ website
 # and map them to an Artsdata Event Type
+# Import into graph http://db.artsdata.ca/repositories/artsdata/rdf-graphs/grandtheatre-qc-ca-event-type-mapping
 
 gtq:EventTypeScheme 
   skos:prefLabel "Types d'evenements Grand Théâtre du Québec"@fr ;
