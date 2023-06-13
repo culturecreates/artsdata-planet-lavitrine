@@ -4,7 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema:  <http://schema.org/> .
 
-# Add new disciplines when then appear on the GTQ website
+# Add new disciplines when they appear on the GTQ website
 # and map them to an Artsdata Event Type
 
 gtq:EventTypeScheme 
@@ -31,3 +31,130 @@ gtq:Jazz
   rdf:type skos:Concept  .
 
 
+# Musique du monde
+gtq:MusiqueDuMonde   
+  skos:prefLabel "Musique du monde"@fr ; 
+  skos:closeMatch adr:WorldMusicShow ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Chanson
+gtq:Chanson   
+  skos:prefLabel "Chanson"@fr ; 
+  skos:closeMatch adr:Chanson ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+
+# Art de la parole
+gtq:ArtDeLaParole   
+  skos:prefLabel "Art de la parole"@fr ; 
+  skos:closeMatch adr:SpokenWordPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Humour
+gtq:Humour   
+  skos:prefLabel "Humour"@fr ; 
+  skos:closeMatch adr:ComedyPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Danse
+gtq:Danse   
+  skos:prefLabel "Danse"@fr ; 
+  skos:closeMatch adr:DancePerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Chanson anglophone
+gtq:ChansonAnglophone   
+  skos:prefLabel "Chanson anglophone"@fr ; 
+  skos:closeMatch adr:ChansonAnglophone ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# R&B
+gtq:RB   
+  skos:prefLabel "R&B"@fr ; 
+  skos:closeMatch adr:RhythmAndBluesShow ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Country
+gtq:Country   
+  skos:prefLabel "Country"@fr ; 
+  skos:closeMatch adr:CountryMusicShow ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Comédie musicale
+gtq:ComédieMusicale
+  skos:prefLabel "Comédie musicale"@fr ; 
+  skos:closeMatch adr:MusicalComedyShow ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Hommage
+gtq:Hommage
+  skos:prefLabel "Hommage"@fr ; 
+  skos:relatedMatch adr:MusicPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Conte
+gtq:Conte
+  skos:prefLabel "Conte"@fr ; 
+  skos:closeMatch adr:Storytelling ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Conférence
+gtq:Conférence
+  skos:prefLabel "Conférence"@fr ; 
+  skos:closeMatch adr:Conference ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Musique classique
+gtq:MusiqueClassique
+  skos:prefLabel "Musique classique"@fr ; 
+  skos:closeMatch adr:ClassicalMusicPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Famille
+gtq:Famille
+  skos:prefLabel "Famille"@fr ; 
+  skos:closeMatch adr:ChildrensEvent ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Opéra
+gtq:Opéra
+  skos:prefLabel "Opéra"@fr ; 
+  skos:closeMatch adr:OperaPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# Rock
+gtq:Rock
+  skos:prefLabel "Rock"@fr ; 
+  skos:closeMatch adr:RockMusicShow ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+# A cappella
+gtq:ACappella
+  skos:prefLabel "A cappella"@fr ; 
+  skos:closeMatch adr:AcappellaMusicPerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
+
+
+# Théâtre
+gtq:Théâtre
+  skos:prefLabel "Théâtre"@fr ; 
+  skos:closeMatch adr:TheatrePerformance ; 
+  skos:inScheme gtq:EventTypeScheme ;
+  rdf:type skos:Concept  .
