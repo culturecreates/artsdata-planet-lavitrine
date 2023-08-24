@@ -11,7 +11,7 @@ Each website is loaded into Artsdata and has an input pipeline and output piplin
 
 This website is crawled by an agent on the Artsdata Huginn platform.
 
-It also has a taxonomy [gtq-event-type-mapping.ttl]() to map strings from the original website to Artsdata event types.
+It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-lavitrine/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types.
 
 ### Internal Links
 
