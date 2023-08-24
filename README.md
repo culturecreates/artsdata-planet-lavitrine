@@ -90,8 +90,12 @@ Note: Using frame=event_footlight
 
 # dialog graph of websites
 
+List of graphs http://kg.artsdata.ca/resource/dia-logGraphs
+
+**Question**: should these be loaded indivudally or all together?
+
 ## Output Pipeline
 
-Realtime [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=event_footlight&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/resource/dia-logGraphs) 
+Realtime [chasse-galerie-ca JSON](http://api.artsdata.ca/query.json?limit=5&frame=event_footlight&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/footlight/chasse-galerie-ca) 
 
 
