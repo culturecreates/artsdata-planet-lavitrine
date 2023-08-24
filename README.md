@@ -19,3 +19,10 @@ https://grandtheatre.qc.ca/programmation/
 # Internal Links
 
 Link to Huggin https://huginn-staging.herokuapp.com/scenarios/26/diagram
+
+## Place des Arts
+
+### Compare event images between Artsdata and website
+https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com
+
+https://placedesarts.com/fr/evenements
