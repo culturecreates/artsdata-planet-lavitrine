@@ -2,6 +2,26 @@
 
 Each website is loaded into Artsdata.ca and has an input pipeline and output pipline.  The input pipeline transforms the original website data into the Artsdata data model. The output pipeline transforms Artsdata data model into the LaVitrine data model.
 
+The LaVitrine data model differs from the Artsdata data model as follows:
+- offers are in the subEvents of event series
+  ```
+  {
+    "type": "Offer",
+    "availability": "InStock",
+    "price": "69.00",
+    "priceCurrency": "CAD",
+    "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDEyMzE0MDI%3D",
+    "validFrom": {
+      "type": "xsd:dateTime",
+      "@value": "2022-12-09T14:50:00+00:00"
+    }
+  }
+  ```
+
+The Artsdata data model supports this when available, but in a majority of cases, the offer is at the EventSeries level with an aggregate buy url for all subevents.
+
+**Question**:Should the output pipeline for LaVitrine make the assumption that if the source website only has an aggregate offer then it should be copied into each of the subEvents, along with eventStatus and attendanceMode?
+
 
 # Grand Theatre de Québec
 https://grandtheatre.qc.ca
@@ -41,9 +61,9 @@ https://grandtheatre.qc.ca/programmation/
 
 ## Output pipeline
 
-Download [JSON-LD](http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) or 
-[JSON](http://api.artsdata.ca/query.json?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca)
+Realtime [JSON-LD all events](http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) |  [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) | [all JSON](http://api.artsdata.ca/query.json?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca)
 
+Datadump [all artifacts](https://api.artsdata.ca/databus/artifact?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fhuginn%2Fgrandtheatre-qc-ca-dump) | [latest artifact](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fhuginn%2Fgrandtheatre-qc-ca-dump) 
 
 
 # Place des Arts
