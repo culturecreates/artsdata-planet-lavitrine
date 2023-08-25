@@ -13,10 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download events from Artsdata
-        run: | 
-          curl  --request GET \
-          --header 'Accept: application/json' \
-          --url 'http://api.artsdata.ca/query.jsonld?limit=30&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca' \ 
-          > grandtheatre.qc.ca.json
+        run: curl --header 'Accept:application/json'  'http://api.artsdata.ca/query.jsonld?limit=30&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'  > grandtheatre.qc.ca.json
       - name: Upload to S3
         run: aws s3 sync ./grandtheatre.qc.ca.json s3://${{env.WEBHOSTING_BUCKET_NAME}}/ --acl public-read 
