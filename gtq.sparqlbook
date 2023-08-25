@@ -1,0 +1,26 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "Tools to trace data pipeline\n=======\n\nThis SPARQL lists top level events in Artsdata.",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nPREFIX schema: <http://schema.org/>\n\nselect ?name ?id  (count(?subEvent) as ?subEvents) ?date where {\n ?id a schema:Event .\n  graph <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca> {\n\n   ?id  schema:name ?name ; schema:startDate ?date ; a ?type .\n    filter(not exists {\n        ?superEvent schema:subEvent ?id\n        })\n   OPTIONAL {\n    ?id schema:subEvent ?subEvent .\n   }\n   \n  }\n  \n}group by ?name ?id ?date  order by  ?date  limit 5",
+    "metadata": {}
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "Events in the latest data dump",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nPREFIX schema: <http://schema.org/>  \n\nselect * where {\n  graph <http://kg.artsdata.ca/culture-creates/huginn/grandtheatre-qc-ca-dump> {\n   ?id a <http://kg.artsdata.ca/ontology/EventForIndex> .\n   ?id  schema:name ?name ; schema:startDate ?date  .\n   \n  }\n  \n} \norder by  ?date  \nlimit 5",
+    "metadata": {}
+  }
+]
