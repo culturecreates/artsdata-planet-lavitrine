@@ -3,7 +3,7 @@
 Each website is loaded into Artsdata.ca and has an input pipeline and output pipline.  The input pipeline transforms the original website data into the Artsdata data model. The output pipeline transforms Artsdata data model into the LaVitrine data model.
 
 The LaVitrine data model differs from the Artsdata data model as follows:
-- offers are in the subEvents of event series
+- offers must be in the subEvents of event series
   ```
   {
     "type": "Offer",
@@ -18,9 +18,9 @@ The LaVitrine data model differs from the Artsdata data model as follows:
   }
   ```
 
-The Artsdata data model supports this when available, but in a majority of cases, the offer is at the EventSeries level with an aggregate buy url for all subevents.
+The Artsdata data model supports this when data is available, but in a majority of cases, the offer data is not available from the crawled website. The fallback is to use the buy button url at the EventSeries level with an aggregate buy url for all subevents.
 
-**Question**:Should the output pipeline for LaVitrine make the assumption that if the source website only has an aggregate offer then it should be copied into each of the subEvents, along with eventStatus and attendanceMode?
+**Question**: Should the output pipeline for LaVitrine make the assumption that if the source website only has an aggregate offer then it should be copied into each of the subEvents, along with eventStatus and attendanceMode?
 
 
 # Grand Theatre de Québec
