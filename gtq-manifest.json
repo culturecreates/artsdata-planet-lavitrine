@@ -1,0 +1,5 @@
+{
+  "sparql":"sparql/lavitine.sparql",
+  "frame":"frame/lavitrine.frame",
+  "graph":"http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca"
+}

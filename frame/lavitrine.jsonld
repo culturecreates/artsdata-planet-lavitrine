@@ -1,0 +1,99 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "@base": "http://schema.org/",
+    "id": {
+      "@id": "@id"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ado": "http://kg.artsdata.ca/ontology/",
+    "wdt": "http://www.wikidata.org/prop/direct/",
+    "facebook": {
+      "@id": "wdt:P2013"
+    },
+    "instagram": {
+      "@id": "wdt:P2003"
+    },
+    "twitter": {
+      "@id": "wdt:P2002"
+    },
+    "EventForIndex": {
+      "@id": "ado:EventForIndex"
+    },
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@language"
+    },
+    "startDate": {
+      "@id": "startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDate": {
+      "@id": "endDate",
+      "@type": "xsd:dateTime"
+    },
+    "type": {
+      "@id": "@type"
+    },
+    "sameAs": {
+      "@id": "sameAs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "performer": {
+      "@id": "performer",
+      "@container": "@set"
+    },
+    "organizer": {
+      "@id": "organizer",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "eventAttendanceMode": {
+      "@id": "eventAttendanceMode",
+      "@type": "@id"
+    },
+    "eventStatus": {
+      "@id": "eventStatus",
+      "@type": "@id"
+    },
+    "keywords":{"@language":"fr"}
+
+  },
+  "@type": "EventForIndex",
+  "@explicit": true,
+  "additionalType": {},
+  "keywords":{},
+  "description": {},
+  "startDate": {},
+  "endDate": {},
+  "image": {},
+  "location": {},
+  "name": {},
+  "performer": {},
+  "organizer": {},
+  "eventStatus": {"@omitDefault": true},
+  "eventAttendanceMode": {"@omitDefault": true},
+  "offers": {"@omitDefault": true},
+  "url": {},
+  "subEvent": {
+    "@type": "Event",
+    "@omitDefault": true,
+    "@explicit": true,
+    "name": {},
+    "startDate": {},
+    "endDate": {},
+    "eventStatus": {},
+    "eventAttendanceMode": {},
+    "location": {},
+    "offers": {}
+  }
+}

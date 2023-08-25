@@ -1,0 +1,65 @@
+PREFIX schema: <http://schema.org/>
+PREFIX ado: <http://kg.artsdata.ca/ontology/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+construct {
+    ?event ?p  ?o .
+    ?event a ado:EventForIndex .
+    ?o ?op ?oo .
+    ?oo ?oop ?ooo .
+    ?ooo ?ooop ?oooo .
+    ?event schema:additionalType ?type .
+    ?type skos:prefLabel ?prefLabel .
+    ?type skos:closeMatch ?closeMatch .
+    ?closeMatch skos:prefLabel ?closePrefLabel .
+}
+where {
+    {
+        select * where {
+            graph <graph_placeholder> {
+                {
+                    select ?event 
+                    where {
+                        values ?type {
+                            schema:EventSeries schema:Event 
+                        }  
+                        ?event a ?type ;
+                               schema:startDate ?startDate .
+                        filter(not exists {
+                                ?superEvent schema:subEvent ?event
+                            })
+                    } 
+                    order by ?startDate
+                    limit 10 offset 0 
+                }
+                ?event ?p  ?o .
+                OPTIONAL {
+                    ?o ?op ?oo .
+                }
+                OPTIONAL {
+                    ?o ?op ?oo .
+                    ?oo ?oop ?ooo .
+                }
+                OPTIONAL {
+                    ?o ?op ?oo .
+                    ?oo ?oop ?ooo .
+                    ?ooo ?ooop ?oooo .
+                }
+                OPTIONAL {
+                    ?event schema:additionalType ?type .
+                }
+            }
+        }
+    }
+    OPTIONAL {
+        ?event schema:additionalType ?type .
+        graph <http://db.artsdata.ca/repositories/artsdata/rdf-graphs/grandtheatre-qc-ca-event-type-mapping> {
+            ?type skos:prefLabel ?prefLabel .
+            ?type skos:closeMatch ?closeMatch .
+        }
+        OPTIONAL {
+            graph <http://kg.artsdata.ca/culture-creates/ontology/skos-event-types> {
+                ?closeMatch skos:prefLabel ?closePrefLabel .
+            }
+        }
+    }
+}
