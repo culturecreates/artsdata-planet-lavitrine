@@ -2,7 +2,7 @@ name: Dump GTQ JSON to S3 Production
 on: 
   workflow_dispatch:
   schedule:
-  - cron: "0 1 * * *"
+    - cron: "0 19 * * *" # Run daily at 7 PM UTC
 jobs:
   deploy:
     env:
@@ -19,3 +19,8 @@ jobs:
         run: echo "dumpdate=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> $GITHUB_OUTPUT
       - name: Upload to S3
         run: aws s3 cp grandtheatre-qc-ca.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}.json --acl public-read
+      - name: register dump in Artsdata Databus
+        run: curl -- databus API \
+          # group: artsdata-planet-lavitrine 
+          # artifact: grandtheatre-qc-ca
+          # version: grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}
