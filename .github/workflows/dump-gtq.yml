@@ -14,9 +14,9 @@ jobs:
     steps:
       - name: Download events from Artsdata
         run: curl  --header 'Accept:application/json'  'http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'  > grandtheatre-qc-ca.json
-      - name: Get current date
-        id: date_now
+      - name: Set current date as env variable
+        id: version  # this is used on variable path
         run: |
-          echo "{date_now}={$(date +'%Y-%m-%dT%H:%M:%S%z')}" >> $GITHUB_STATE
+          - echo "dumpdate=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> $GITHUB_OUTPUT
       - name: Upload to S3
-        run: aws s3 cp grandtheatre-qc-ca.json s3://${{env.WEBHOSTING_BUCKET_NAME}}/grandtheatre-qc-ca-${{ env.date_now }}.json --acl public-read
+        run: aws s3 cp grandtheatre-qc-ca.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}.json --acl public-read
