@@ -1,8 +1,8 @@
 name: Dump GTQ JSON to S3 Production
 on: 
-  workflow_dispatch:
   schedule:
     - cron: "0 19 * * *" # Run daily at 7 PM UTC
+  workflow_dispatch:
 jobs:
   deploy:
     env:
