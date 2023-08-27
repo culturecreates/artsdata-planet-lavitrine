@@ -16,7 +16,7 @@ jobs:
         run: curl  --header 'Accept:application/json'  'http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'  > grandtheatre-qc-ca.json
       - name: Set current date as output
         id: version  # this is used on variable path
-        run: echo "dumpdate=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> $GITHUB_OUTPUT
+        run: echo "dumpdate=$(date +'%Y-%m-%dT%H-%M-%S%z')" >> $GITHUB_OUTPUT
       - name: Upload to S3
         run: aws s3 cp grandtheatre-qc-ca.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}.json --acl public-read
       - name: Register dump in Artsdata Databus  # TODO add "reportCallbackUrl" to Github logs
