@@ -23,7 +23,7 @@ jobs:
         run: |
           curl \
           -H 'Content-Type: application/json' \
-          -X POST https://example.com/login  \
+          -X POST http://api.artsdata.ca/databus/  \
           --data '{ "publisher": "https://saumier.github.io/gregory-saumier-finch.ttl%23this",
                     "group": "artsdata-planet-lavitrine",
                     "artifact": "grandtheatre-qc-ca",
