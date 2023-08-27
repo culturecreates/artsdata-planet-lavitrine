@@ -19,8 +19,16 @@ jobs:
         run: echo "dumpdate=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> $GITHUB_OUTPUT
       - name: Upload to S3
         run: aws s3 cp grandtheatre-qc-ca.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}.json --acl public-read
-      - name: register dump in Artsdata Databus
-        run: curl -- databus API \
-          # group: artsdata-planet-lavitrine 
-          # artifact: grandtheatre-qc-ca
-          # version: grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}
+      - name: register dump in Artsdata Databus  # TODO add "reportCallbackUrl" to Github logs
+        run: |
+          curl \
+          -H 'Content-Type: application/json' \
+          -X POST https://example.com/login  \
+          --data '{ "publisher": "https://saumier.github.io/gregory-saumier-finch.ttl%23this",
+                    "group": "artsdata-planet-lavitrine",
+                    "artifact": "grandtheatre-qc-ca",
+                    "version": "grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}",
+                    "downloadUrl": "https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.ca-central-1.amazonaws.com/grandtheatre-qc-ca-${{ steps.version.outputs.dumpdate }}.json",
+                    "comment": "Dump of grandtheatre.qc.ca using Github workflows"
+                    "shacl": "artsdata"
+                  }'   
