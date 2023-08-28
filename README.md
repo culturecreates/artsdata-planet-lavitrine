@@ -1,6 +1,6 @@
 # Data pipelines for LaVitrine
 
-The Artsdata-Planet-Lavitrine pipeline transforms data in the Artsdata data model into the LaVitrine data model.
+The artsdata-planet-lavitrine pipeline transforms data in the Artsdata data model into the LaVitrine data model.
 
 The LaVitrine data model differs from the Artsdata data model mainly in the properties of **Event Series** and **Offer**. 
 
