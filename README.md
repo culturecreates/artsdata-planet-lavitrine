@@ -1,9 +1,32 @@
-# Website pipelines for loading into LaVitrine
+# Data pipelines for LaVitrine
 
-Each website is loaded into Artsdata.ca and has an input pipeline and output pipline.  The input pipeline transforms the original website data into the Artsdata data model. The output pipeline transforms Artsdata data model into the LaVitrine data model.
+The Artsdata-Planet-Lavitrine pipeline transforms data in the Artsdata data model into the LaVitrine data model.
 
-The LaVitrine data model differs from the Artsdata data model as follows:
-- offers must be in the subEvents of event series
+The LaVitrine data model differs from the Artsdata data model mainly in the properties of **Event Series** and **Offer**. 
+
+Event Series
+===============
+In Event Series (schema:EventSeries class), the offers, attendance mode and event status properties are moved to the sub-event (schema:subEvent property) instead of being in the Event Series.
+
+The Artsdata data model supports this when the data is available.  However, in a majority of cases, the data is not available on the source website. When the data is not available, the Artsdata fallback is to assume that each sub-event inherits the offers, attendance mode and event status from the Event Series. 
+
+
+Questions
+------------
+
+1. Should the output pipeline for LaVitrine make the assumption that if the source website only has  offers, attendance mode and event status properties in the Event Series, then it should be copied into each of the subEvents? --> **YES**
+2. Should an Event with only a single date have a single sub-event added and have the offers, attendance mode and event status properties moved inside to make the model? Then the top level events could be renamed "Spectacle" and the sub-events "Représentation" like in [Référentiel des métadonnées descriptives du spectacle](https://docs.google.com/document/d/1o1wtOwpQEMOoELC2TiI3eacNYwgbJeL1yAADix4a--0/edit) ? --> **NO**
+
+Offer
+=======
+In an Offer (Offer class) there are several properties, such as availablity, which are option and are often not available from the source website.
+
+Questions
+------------
+1. Can availability, priceCurrency and validFrom be optional?
+2. Can the url be an aggregate offer url? For example, when a **buy button** url is needed for the UI of an application, and there is no url in the offer, the Artsdata aggregate buy url for the event (class AggregateOffer) can be copied into the offer url for all offers on all dates? 
+
+- offers
   ```
   {
     "type": "Offer",
@@ -18,10 +41,6 @@ The LaVitrine data model differs from the Artsdata data model as follows:
   }
   ```
 
-The Artsdata data model supports this when data is available, but in a majority of cases, the offer data is not available from the crawled website. The fallback is to use the buy button url at the EventSeries level with an aggregate buy url for all subevents.
-
-**Question**: Should the output pipeline for LaVitrine make the assumption that if the source website only has an aggregate offer then it should be copied into each of the subEvents, along with eventStatus and attendanceMode?
-
 
 # Grand Theatre de Québec
 https://grandtheatre.qc.ca
@@ -32,26 +51,7 @@ This website is crawled by an agent on the Artsdata Huginn platform.
 
 It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-lavitrine/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types.
 
-Link to Huggin 
-
-Yes. Here is the summary of the GTQ pipeline.
-
-Overview of [Huginn](https://huginn-staging.herokuapp.com/scenarios/26/diagram) agents
-1. Crawl events listed on https://grandtheatre.qc.ca/programmation/
-2. Extract JSON-LD from each webpage
-3. Transform with the following SPARQLs
-  'remove-blanks',
-  'fix-schemaorg-https-objects',
-  'fix-wikidata-uri',
-  'add-artsdata-uri-using-wikidata-bridge',
-  'fix-schemaorg-date-datatype',
-  'create-eventseries',
-  'copy-subevent-data-to-eventseries',
-  'fix-isni',
-  'add-artsdata-uri-using-isni-bridge',
-  'collapse_duplicate_contact_point_blanknodes'
-4. Load graph into Artsdata using Artsdata Databus API
-
+See https://github.com/culturecreates/artsdata-planet-gtq for details.
 
 ### Compare event images between original website and Artsdata
 https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca
