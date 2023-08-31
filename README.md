@@ -1,17 +1,17 @@
 # Data Pipelines for LaVitrine
 
-The artsdata-planet-lavitrine pipeline transforms data in the Artsdata.ca data model into the LaVitrine data model.
+The artsdata-planet-lavitrine pipeline transforms data in the Artsdata.ca data model into the LaVitrine data model. All the configs and batch scripts are managed in this repo.
 
 The LaVitrine data model differs slightly from the Artsdata data model. This pipeline transforms data from the Artsdata model to better fit the LaVitrine model. For a discussion see [Github Discussions](https://github.com/culturecreates/artsdata-planet-lavitrine/discussions/categories/modelling-discussions)
 
 
-# Grand Theatre de Québec 
+# Grand Théâtre de Québec 
 
 https://grandtheatre.qc.ca
 
-This website is crawled by an agent on the Artsdata Huginn platform. It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-lavitrine/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types. See https://github.com/culturecreates/artsdata-planet-gtq for details.
+This website is crawled by an agent on the Artsdata platform. See https://github.com/culturecreates/artsdata-planet-gtq for details. It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-lavitrine/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types. 
 
-## Compare source with Artsdata
+## Compare sources
 
 One way to visually check if the event data looks good is to compare event images between the source website and Artsdata using the generic Artsdata Event viewer (new version coming end of 2023).
 
@@ -24,9 +24,9 @@ One way to visually check if the event data looks good is to compare event image
 
 
  
-## Output [![Dump GTQ JSON to S3 Production](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
+## Output [![Dump GTQ to S3](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
 
-The GTQ event data from Artsdata is saved to a dump daily. To download the dump place call the Artsdata Databus and pass the name of the artifact. This will return the downloadUrl of the data dump. You can also generate the data in real-time.
+The GTQ event data from Artsdata is saved to a dump daily. To download the dump you must call the Artsdata Databus API and pass the URI of the artifact. This will return the downloadUrl to download the data dump. You can also generate the data in real-time.
 
 Data dump [all artifacts](https://api.artsdata.ca/databus/artifact?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca) | [latest artifact](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca)
 
