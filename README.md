@@ -53,4 +53,5 @@ You can generate the data in real-time from the Artsdata graph culture-creates/f
 
 Realtime [2 events JSON](http://api.artsdata.ca/query.json?limit=2&offset=60&frame=lavitrine/events4&sparql=lavitrine/events4&graph=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com) 
 
+Data dump coming once the transform to LaVitrine's data model is completed.
 
