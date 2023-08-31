@@ -1,0 +1,95 @@
+{
+  "id": "https://www.grandtheatre.qc.ca/programmation/osq-tetreault-tchaikovski-2023-09-14-23-30",
+  "type": [
+    "Event",
+    "EventForIndex"
+  ],
+  "additionalType": {
+    "id": "https://grandtheatre.qc.ca/ontologie/MusiqueClassique",
+    "skos:closeMatch": {
+      "id": "http://kg.artsdata.ca/resource/ClassicalMusicPerformance",
+      "prefLabel": {
+        "fr": "Spectacle de musique classique",
+        "en": "Classical Music Performance"
+      }
+    },
+    "prefLabel": {
+      "fr": "Musique classique"
+    }
+  },
+  "description": "Dialogues romantiquesEmbarquons pour une grande soirée romantique en compagnie du jeune violoncelliste québécois Stéphane Tétreault, enfin sur scène en présence du public! Le voyage commence avec Liszt. « Qu’est-ce d’autre que notre vie sinon une série de préludes à cet hymne inconnu ? », écrit le compositeur au sujet de son poème symphonique qui s’inspire de l’ode Les Préludes du poète Lamartine. Sa fresque tour à tour grandiose, poétique et exaltante précède les Variations sur un thème Rococo : Tchaïkovski feint d’y emprunter un thème au siècle de Mozart et le décline dans un dialogue stimulant entre l’orchestre et le violoncelle. Il y a quelques années, Stéphane Tétreault a magnifiquement enregistré ce chef-d’œuvre avec nos musiciens. On s’emporte et l’on jubile à leurs côtés, avant de le suivre en compagnie de Dvořák au cœur d’une forêt bohémienne avec Silent Woods. Cet arrangement d’une pièce pour piano réalisé par le compositeur peu après son arrivée aux États-Unis confie au violoncelle une envoûtante cantilène évoquant la contemplation de la nature. Enfin, on revient avec bonheur à Tchaïkovski pour l’ouverture-fantaisie Roméo et Juliette, où le thème de la discorde opposant les Capulet aux Montaigu côtoie les leitmotive de l’amour et de la mort tragique des amants…ProgrammeLiszt : Les PréludesTchaïkovski : Variations sur un thème RococoDvořák : Silent WoodsTchaïkovski : Roméo et Juliette, ouverture-fantaisie",
+  "endDate": "2023-09-15T01:30:00+00:00",
+  "eventAttendanceMode": "OfflineEventAttendanceMode",
+  "eventStatus": "EventScheduled",
+  "image": "https://www.grandtheatre.qc.ca/uploads/original_images/ConcertDu14Septembre2023_StephaneTetreault_FrederickRobitaille_428x599.jpg",
+  "location": {
+    "type": "Place",
+    "address": {
+      "type": "PostalAddress",
+      "addressCountry": "CA",
+      "addressLocality": "Québec",
+      "addressRegion": "QC",
+      "postalCode": "G1R2B3",
+      "streetAddress": "269 Boulevard René-Lévesque E"
+    },
+    "name": "Grand Théatre de Québec",
+    "sameAs": [
+      "https://www.instagram.com/grandtheatreqc/",
+      "https://twitter.com/GrandTheatreQc",
+      "http://www.wikidata.org/entity/Q3114610",
+      "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+      "https://www.facebook.com/grandtheatre",
+      "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+    ],
+    "url": "https://www.grandtheatre.qc.ca/"
+  },
+  "name": "Tétreault \u0026 Tchaïkovski",
+  "offers": [
+    {
+      "type": "Offer",
+      "availability": "InStock",
+      "price": "30.00",
+      "priceCurrency": "CAD",
+      "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDMyMzIxMDE%3D"
+    },
+    {
+      "type": "Offer",
+      "availability": "InStock",
+      "price": "92.00",
+      "priceCurrency": "CAD",
+      "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDMyMzIxMDE%3D"
+    }
+  ],
+  "organizer": [
+    {
+      "id": "https://www.grandtheatre.qc.ca/programmation/orchestre-symphonique-de-quebec",
+      "type": [
+        "Organization",
+        "Person"
+      ],
+      "address": "401, Grande-Allée E, Québec (QC) G1R 2J5",
+      "name": "Orchestre symphonique de Québec",
+      "sameAs": [
+        "https://www.osq.org/",
+        "https://www.facebook.com/orchestresymphoniquedequebec",
+        "https://www.facebook.com/orchestresymphoniquedequebec/?ref=br_rs",
+        "https://twitter.com/osq_officiel?lang=fr",
+        "http://www.osq.org",
+        "https://www.instagram.com/osq_officiel/",
+        "https://fr.wikipedia.org/wiki/Orchestre_Symphonique_de_Qu%C3%A9bec",
+        "https://isni.org/isni/0000000107287559"
+      ],
+      "url": "https://www.osq.org/",
+      "twitter": "osq_officiel?lang=fr",
+      "instagram": "osq_officiel/",
+      "facebook":  "orchestresymphoniquedequebec"
+    }
+  ],
+  "performer": [
+    {
+      "id": "https://www.grandtheatre.qc.ca/programmation/orchestre-symphonique-de-quebec"
+    }
+  ],
+  "startDate": "2023-09-14T23:30:00+00:00",
+  "url": "https://www.grandtheatre.qc.ca/programmation/osq-tetreault-tchaikovski/"
+}

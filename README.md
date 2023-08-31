@@ -20,42 +20,37 @@ One way to visually check if the event data looks good is to compare event image
 |GTQ |  https://grandtheatre.qc.ca/programmation/  |
 | Artsdata|    https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca           |
 
-
-
-
  
 ## Output [![Dump GTQ to S3](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
 
-The GTQ event data from Artsdata is saved to a dump daily. To download the dump you must call the Artsdata Databus API and pass the URI of the artifact. This will return the downloadUrl to download the data dump. You can also generate the data in real-time.
+The GTQ event data from Artsdata is saved to a dump daily using Github workflows managed in this repo. To download a dump you must call the Artsdata Databus API and pass the URI of the artifact. This will return the downloadUrl to download the data dump. You can also generate the latest data on-demand.
 
 Data dump [all artifacts](https://api.artsdata.ca/databus/artifact?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca) | [latest artifact](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca)
 
-Real-time [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) | [all JSON](http://api.artsdata.ca/query.json?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) | [JSON-LD all events](http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) 
+On-demand [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) | [all JSON](http://api.artsdata.ca/query.json?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) | [JSON-LD all events](http://api.artsdata.ca/query.jsonld?limit=300&frame=lavitrine/events3&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca) 
 
 
 # Place des Arts
 https://placedesarts.com
 
-This website is crawed using Footlight. Footligth is a managed service by Culture Creates.
-
-Footlight Console
+This website is crawed using Footlight. Footligth is a managed service by Culture Creates. Here is a link to the Footlight Console
 https://console.footlight.io/events?seedurl=placedesarts-com
 
 
-## Compare source with Artsdata
+## Compare sources
 
 One way to visually check if the event data looks good is to compare event images between the source website and Artsdata using the generic Artsdata Event viewer (new version coming end of 2023).
 
 | Source | link |
 |-----:|---------------|
 |PDA |  https://placedesarts.com/fr/evenements  |
+| Footlight | https://console.footlight.io/events?seedurl=placedesarts-com&view=mosaic |
 | Artsdata|  https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com         |
 
 
 ## Output
-You can generate the data in real-time.
+You can generate the data in real-time from the Artsdata graph culture-creates/footlight/placedesarts-com
 
-Realtime [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=event_footlight&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com) | [JSON](http://api.artsdata.ca/query.json?limit=300&frame=event_footlight&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com) | [JSON-LD](http://api.artsdata.ca/query.jsonld?limit=300&frame=event_footlight&sparql=lavitrine/events3&graph=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com) 
+Realtime [2 events JSON](http://api.artsdata.ca/query.json?limit=2&offset=60&frame=lavitrine/events4&sparql=lavitrine/events4&graph=http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com) 
 
-Note: Using frame=event_footlight
 
