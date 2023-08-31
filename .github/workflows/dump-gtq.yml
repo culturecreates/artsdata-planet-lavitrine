@@ -1,4 +1,4 @@
-name: Dump GTQ JSON to S3 Production
+name: Dump GTQ to S3
 on: 
   schedule:
     - cron: "0 10 * * *" # Run daily at 10 AM UTC
