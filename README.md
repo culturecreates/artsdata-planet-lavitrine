@@ -9,16 +9,16 @@ The LaVitrine data model differs slightly from the Artsdata data model. This pip
 
 https://grandtheatre.qc.ca
 
-This website is crawled by an agent on the Artsdata platform. See https://github.com/culturecreates/artsdata-planet-gtq for details. It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-lavitrine/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types. 
+This website is crawled by an agent on the Artsdata platform. See https://github.com/culturecreates/artsdata-planet-gtq for details. It also has a taxonomy [gtq-event-type-mapping.ttl](https://github.com/culturecreates/artsdata-planet-gtq/blob/main/gtq-event-type-mapping.ttl) to map strings from the original website to Artsdata event types. 
 
 ## Compare sources
 
-One way to visually check if the event data looks good is to compare event images between the source website and Artsdata using the generic Artsdata Event viewer (new version coming end of 2023).
+One way to visually check if the event data looks good is to compare event images between the source website and Artsdata using the generic Artsdata Viewer (new version coming end of 2023).
 
 | Source | link |
 |-----:|---------------|
 |GTQ |  https://grandtheatre.qc.ca/programmation/  |
-| Artsdata|    https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca           |
+| Artsdata Viewer|    https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca           |
 
  
 ## Output [![Dump GTQ to S3](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
