@@ -1,4 +1,5 @@
 # Data Pipelines for LaVitrine
+[![Dump GTQ](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
 
 The artsdata-planet-lavitrine pipeline transforms data in the Artsdata.ca data model into the LaVitrine data model. All the configs and batch scripts are managed in this repo.
 
@@ -21,7 +22,7 @@ One way to visually check if the event data looks good is to compare event image
 | Artsdata Viewer|    https://api.artsdata.ca/events?source=http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca           |
 
  
-## Output [![Dump GTQ to S3](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml/badge.svg?event=workflow_dispatch)](https://github.com/culturecreates/artsdata-lavitrine-planet/actions/workflows/dump-gtq.yml)
+## Output 
 
 The GTQ event data from Artsdata is saved to a dump daily using Github workflows managed in this repo. To download a dump you must call the Artsdata Databus API and pass the URI of the artifact. This will return the downloadUrl to download the data dump. You can also generate the latest data on-demand.
 
