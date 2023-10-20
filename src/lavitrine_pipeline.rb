@@ -22,11 +22,11 @@ def LavirtrinePipeline(graph = "http://kg.artsdata.ca/culture-creates/footlight/
   pipeline.frame(frame)
 
   puts "Saving JSON-LD..."
-  pipeline.dump("./output/#{dump_file}")
+  pipeline.dump("../output/#{dump_file}")
 
   puts "Validating shapes..."
   pipeline.validate("../shacl/lavitrine_shacl.ttl")
-  pipeline.report("./output/#{report_file}")
+  pipeline.report("../output/#{report_file}")
 end
 
 

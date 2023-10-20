@@ -1,11 +1,10 @@
 require 'minitest/autorun'
 require 'rdf'
 require 'linkeddata'
-require_relative '../utils/artsdata.rb'
 
 class SparqlTest < Minitest::Test
   def setup
-    @graph = RDF::Graph.load("./grandtheatre-qc-ca-part.json")
+    @graph = RDF::Graph.load("./test_events.jsonld")
   end
 
   def test_that_event_for_index_is_removed
