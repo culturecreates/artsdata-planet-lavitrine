@@ -3,7 +3,7 @@
 require_relative './utils/artsdata'
 
 def LavirtrinePipeline(graph = "http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com")
-  dump_file = graph.split("/").last + ".jsonld"
+  dump_file = graph.split("/").last + ".json"
   report_file = "report-" + graph.split("/").last + ".txt"
   graph_placeholder = "http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca"
 
