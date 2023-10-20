@@ -19,13 +19,14 @@
       "@id": "wdt:P2002"
     },
     "prefLabel": {
-      "@id": "skos:prefLabel"
+      "@id": "skos:prefLabel",
+      "@container": "@language"
     },
     "name": {
-      "@id":"name"
+      "@container": "@language"
     },
     "description": {
-      "@id":"description"
+      "@container": "@language"
     },
     "type": {
       "@id": "@type"
