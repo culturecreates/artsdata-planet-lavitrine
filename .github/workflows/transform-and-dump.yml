@@ -1,4 +1,4 @@
-name: Dump GTQ
+name: Transform and Dump for LaVitrine
 on: 
   workflow_dispatch:
 jobs:
