@@ -28,6 +28,22 @@
     "description": {
       "@container": "@language"
     },
+    "startDateTime": {
+      "@id": "startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDateTime": {
+      "@id": "endDate",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "endDate",
+      "@type": "xsd:date"
+    },
     "type": {
       "@id": "@type"
     },
