@@ -21,7 +21,7 @@ jobs:
         id: version  # this is used on variable path
         run: echo "dumpdate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
       - name: Upload to S3
-        run:  aws s3 cp output/*.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.version.outputs.dumpdate }}/ --acl public-read
+        run:  aws s3 cp ../output/*.json s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.version.outputs.dumpdate }}/ --acl public-read
       # - name: Register dump in Artsdata Databus  # TODO add "reportCallbackUrl" to Github logs
       #   run: |
       #     curl \
