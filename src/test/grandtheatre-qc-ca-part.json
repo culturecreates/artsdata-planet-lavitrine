@@ -7,7 +7,7 @@
     },
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "ado": "http://kg.artsdata.ca/ontology/",
+    "ex": "http://example.com/",
     "wdt": "http://www.wikidata.org/prop/direct/",
     "facebook": {
       "@id": "wdt:P2013"
@@ -19,7 +19,7 @@
       "@id": "wdt:P2002"
     },
     "EventForIndex": {
-      "@id": "ado:EventForIndex"
+      "@id": "ex:EventForIndex"
     },
     "prefLabel": {
       "@id": "skos:prefLabel",
