@@ -15,10 +15,8 @@ jobs:
         with:
           bundler-cache: true
       - run: bundle install
-      - name: change directory
-        run: cd ./src
       - name: Run batch pipelines
-        run: ruby batch.rb
+        run: cd ./src; ruby batch.rb
       - name: Set current date as output
         id: version  # this is used on variable path
         run: echo "dumpdate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
