@@ -1,0 +1,8 @@
+PREFIX ex: <http://example.com/>
+
+delete {
+   ?event a ex:EventForIndex
+}
+where {
+  ?event a ex:EventForIndex .
+}

@@ -1,0 +1,31 @@
+PREFIX schema: <http://schema.org/>
+PREFIX ex: <http://example.com/>
+
+delete {
+   ?s a  ex:EventForIndex , schema:Event .
+}
+insert {
+  ?s a schema:EventSeries .
+  ?s schema:subEvent ?s_subevent .
+  ?s_subevent a schema:Event ; 
+    schema:startDate ?startDate ; 
+    schema:endDate ?endDate ;
+    schema:location ?location ;
+    schema:name ?name ;
+    schema:eventAttendanceMode ?eventAttendanceMode ;
+    schema:eventStatus ?eventStatus ;
+    schema:offers ?offer .
+    ?offer ?a ?b .
+}
+where {
+  ?s a ex:EventForIndex , schema:Event .
+  bind(URI(CONCAT(str(?s),"#SingleEvent"))  as  ?s_subevent)
+  ?s schema:startDate ?startDate ; 
+    schema:endDate ?endDate ;
+    schema:location ?location ;
+    schema:name ?name ;
+    schema:eventAttendanceMode ?eventAttendanceMode ;
+    schema:eventStatus ?eventStatus ;
+    schema:offers ?offer .
+    ?offer ?a ?b .
+}

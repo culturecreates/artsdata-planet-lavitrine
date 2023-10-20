@@ -1,9 +1,9 @@
 PREFIX schema: <http://schema.org/>
-PREFIX ado: <http://kg.artsdata.ca/ontology/>
+PREFIX ex: <http://example.com/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 construct {
     ?event ?p  ?o .
-    ?event a ado:EventForIndex .
+    ?event a ex:EventForIndex .
     ?o ?op ?oo .
     ?oo ?oop ?ooo .
     ?ooo ?ooop ?oooo .
@@ -15,12 +15,12 @@ construct {
 where {
     {
         select * where {
-            graph <graph_placeholder> {
+            graph <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca> {
                 {
                     select ?event 
                     where {
                         values ?type {
-                            schema:EventSeries schema:Event 
+                             schema:Event schema:EventSeries
                         }  
                         ?event a ?type ;
                                schema:startDate ?startDate .

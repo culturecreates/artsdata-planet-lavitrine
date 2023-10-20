@@ -1,0 +1,172 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ads: <http://kg.artsdata.ca/shacl/> .
+
+
+####################################################
+# Lavitrine Events SHACL v1
+#
+# Main difference with Artsdsata: 
+#    - Single Events are EventSeries with single subEvent.
+# Naming convention: 
+#    - node shapes are capitalized and end in "Node", 
+#    - property shapes are camelcase and end in "Prop"
+####################################################
+
+# EventSeries mapped to Spectacles
+ads:EventSeriesNode
+    sh:targetClass schema:EventSeries ;
+    sh:property ads:descriptionProp,
+                ads:locationProp, 
+                ads:nameProp, 
+                ads:performerProp, 
+                ads:organizerProp, 
+                ads:urlProp, 
+                ads:subEventProp .
+
+ads:descriptionProp
+    sh:path schema:description ;
+    sh:uniqueLang true ;
+    sh:minCount 1  .
+
+ads:locationProp
+    sh:path schema:location ;
+    sh:minCount 1  ;
+    sh:or (
+        [ sh:node ads:PlaceNode ; ]
+        [ sh:node ads:VirtualLocationNode ; ]
+    ) .
+
+ads:nameProp
+    sh:path schema:name ;
+    sh:uniqueLang true ;
+    sh:minCount 1 ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
+ads:performerProp
+    sh:path schema:performer ;
+    sh:or (
+        [ sh:node ads:PersonNode ; ]
+        [ sh:node ads:OrganizationNode ; ]
+    ) .
+
+ads:organizerProp
+    sh:path schema:performer ;
+    sh:or (
+        [ sh:node ads:PersonNode ; ]
+        [ sh:node ads:OrganizationNode ; ]
+    ) .
+
+ads:subEventProp
+    sh:path schema:subEvent ;
+    sh:minCount 1 ;
+    sh:message "EventSeries must have alteast one subEvent property." .
+
+
+
+################
+# Events mapped to Representations
+################
+
+ads:EventNode
+    sh:targetClass  schema:Event ;
+    sh:property ads:nameProp, 
+                ads:startDateProp,
+                ads:offersProp,
+                ads:eventStatusProp ,
+                ads:eventAttendanceModeProp .
+
+ads:startDateProp
+    sh:path schema:startDate ;
+    sh:or (
+        [ sh:datatype xsd:dateTime ; ]
+        [ sh:datatype xsd:date ; ]
+    ) ;
+    sh:maxCount 1 ;
+    sh:minCount 1 .
+
+ads:offersProp
+    sh:path schema:offers ;
+    sh:node sh:OfferNode ;
+    sh:minCount 0 .
+
+ads:eventStatusProp
+    sh:path schema:eventStatus ;
+    sh:minCount 0 .
+
+ads:eventAttendanceModeProp
+    sh:path schema:eventAttendanceMode ;
+    sh:minCount 0 .
+
+
+# Nested 
+ads:OfferNode
+    sh:targetClass  schema:Offer  .
+
+
+################
+# Place 
+################
+ads:PlaceNode
+    sh:targetClass schema:Place ;
+    sh:property ads:nameProp, 
+                ads:sameAsProp,
+                ads:addressProp .
+
+
+ads:addressProp
+    sh:path schema:address ;
+    sh:minCount 1 ;
+    sh:node ads:PostalAddressNode .
+  
+
+
+################
+# VirtualLocation 
+################
+
+ads:VirtualLocationNode
+    sh:targetClass schema:VirtualLocation ;
+    sh:property ads:urlProp .
+
+ads:urlProp
+    sh:path schema:url ;
+    sh:pattern "^http" .
+
+
+ads:sameAsProp
+    sh:path schema:sameAs ;
+    sh:minCount 0 ;
+    sh:pattern "^http" ;
+    sh:not ads:PatternContainsSpaces ;
+    sh:not ads:PatternContainsAtSign ;
+    sh:description "sameAs properties must be URIs and start with http and not contain spaces or @" ;
+    sh:nodeKind sh:IRI .
+
+ads:PatternContainsSpaces sh:pattern " "  ;
+    sh:description "String contains spaces which should not be allowed for URIs" .
+
+ads:PatternContainsAtSign sh:pattern "@"  ;
+    sh:description "String contains at sign which should not be allowed for URIs" .
+
+
+################
+# Person 
+################
+
+ads:PersonNode
+    sh:targetClass schema:Person .
+
+################
+# Organization 
+################
+
+ads:OrganizationNode
+    sh:targetClass schema:Organization .

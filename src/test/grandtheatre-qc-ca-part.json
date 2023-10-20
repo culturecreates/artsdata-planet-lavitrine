@@ -1,0 +1,433 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "@base": "http://schema.org/",
+    "id": {
+      "@id": "@id"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ado": "http://kg.artsdata.ca/ontology/",
+    "wdt": "http://www.wikidata.org/prop/direct/",
+    "facebook": {
+      "@id": "wdt:P2013"
+    },
+    "instagram": {
+      "@id": "wdt:P2003"
+    },
+    "twitter": {
+      "@id": "wdt:P2002"
+    },
+    "EventForIndex": {
+      "@id": "ado:EventForIndex"
+    },
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@language"
+    },
+    "startDate": {
+      "@id": "startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDate": {
+      "@id": "endDate",
+      "@type": "xsd:dateTime"
+    },
+    "type": {
+      "@id": "@type"
+    },
+    "sameAs": {
+      "@id": "sameAs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "performer": {
+      "@id": "performer",
+      "@container": "@set"
+    },
+    "organizer": {
+      "@id": "organizer",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "eventAttendanceMode": {
+      "@id": "eventAttendanceMode",
+      "@type": "@id"
+    },
+    "eventStatus": {
+      "@id": "eventStatus",
+      "@type": "@id"
+    },
+    "keywords": {
+      "@language": "fr"
+    }
+  },
+  "@graph": [
+    {
+      "id": "https://www.grandtheatre.qc.ca/programmation/20-maline-marie-jo-therio-2023-10-12-00-00",
+      "type": [
+        "Event",
+        "EventForIndex"
+      ],
+      "additionalType": {
+        "id": "https://grandtheatre.qc.ca/ontologie/ChansonFrancophone",
+        "skos:closeMatch": {
+          "id": "http://kg.artsdata.ca/resource/ChansonFrancophone"
+        },
+        "prefLabel": {
+          "fr": "Chanson francophone"
+        }
+      },
+      "description": "Si vous aviez des billets pour octobre 2022Le spectacle de Marie-Jo Thério prévu le 19 octobre 2022 a dû être reporté au 11 octobre 2023. Tous les billets pour la représentation du 19 octobre 2022, et pour celles initialement prévues en 2020 et 2021, seront automatiquement honorés pour la représentation du 11 octobre 2023 à 20 h, sans qu\u0026#x27;aucune action ne soit requise de votre part.Les détenteurs peuvent également être remboursés en écrivant un courriel à billetterie@grandtheatre.qc.ca.Retrouvez La Maline en concert au Grand Théâtre!Pour le plus grand plaisir de son cher public, Marie-Jo Thério montera sur scène dans quelques villes du Québec et du Nouveau-Brunswick, pour souligner les 20 ans de La Maline. Lors de cette tournée, l\u0026#x27;artiste sera accompagnée sur scène de ses fidèles complices, Érik West Millette et Bernard Falaise. \u0026quot;Quelle est la marque du temps que porte La Maline? Elle n’a pas l’âge des calendriers ni du déroulement du vieillissement. Elle porte seulement la marque de l’humain et de l’intemporel.\u0026quot; - Marie-JoUn spectacle présenté par Les Productions Martin Leclerc",
+      "endDate": "2023-10-12T04:00:00+00:00",
+      "eventAttendanceMode": "OfflineEventAttendanceMode",
+      "eventStatus": "EventScheduled",
+      "image": {
+        "id": "https://www.grandtheatre.qc.ca/uploads/original_images/1140x746-Marie-jo-theriault.jpg",
+        "type": "ImageObject",
+        "contentSize": "432882",
+        "contentUrl": {
+          "id": "https://www.grandtheatre.qc.ca/uploads/original_images/1140x746-Marie-jo-theriault.jpg"
+        },
+        "height": "746 px",
+        "name": "1920x1080_Marie-JoTherio_OFFICIEL-AVEC-SIGNATURE.jpg",
+        "thumbnail": "/uploads/images/1140x746-Marie-jo-theriault.max-200x200.jpg",
+        "url": "https://www.grandtheatre.qc.ca/uploads/original_images/1140x746-Marie-jo-theriault.jpg",
+        "width": "1140 px"
+      },
+      "keywords": "Chanson francophone",
+      "location": {
+        "type": "Place",
+        "address": {
+          "type": "PostalAddress",
+          "addressCountry": "CA",
+          "addressLocality": "Québec",
+          "addressRegion": "QC",
+          "postalCode": "G1R2B3",
+          "streetAddress": "269 Boulevard René-Lévesque E"
+        },
+        "description": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers.",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "46.806228",
+          "longitude": "-71.221983"
+        },
+        "logo": {
+          "type": "ImageObject",
+          "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+        },
+        "name": "Grand Théatre de Québec",
+        "sameAs": [
+          "https://www.instagram.com/grandtheatreqc/",
+          "https://twitter.com/GrandTheatreQc",
+          "http://www.wikidata.org/entity/Q3114610",
+          "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+          "https://www.facebook.com/grandtheatre",
+          "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+        ],
+        "url": "https://www.grandtheatre.qc.ca/"
+      },
+      "name": "Le 20 de La Maline",
+      "offers": [
+        {
+          "type": "Offer",
+          "availability": "InStock",
+          "price": "48.40",
+          "priceCurrency": "CAD",
+          "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/T0MwMTAyNw%3D%3D"
+        },
+        {
+          "type": "Offer",
+          "availability": "InStock",
+          "price": "48.40",
+          "priceCurrency": "CAD",
+          "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/T0MwMTAyNw%3D%3D"
+        }
+      ],
+      "organizer": [
+        {
+          "type": "Organization",
+          "contactPoint": {
+            "type": "ContactPoint",
+            "areaServed": "CA",
+            "availableLanguage": [
+              "FR",
+              "EN"
+            ],
+            "contactType": "customer support",
+            "email": "gtq@grandtheatre.qc.ca",
+            "telephone": "+14186438131"
+          },
+          "description": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers.",
+          "logo": {
+            "type": "ImageObject",
+            "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+          },
+          "name": "Grand Théâtre de Québec",
+          "sameAs": [
+            "https://www.instagram.com/grandtheatreqc/",
+            "https://twitter.com/GrandTheatreQc",
+            "http://www.wikidata.org/entity/Q3114610",
+            "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+            "https://www.facebook.com/grandtheatre",
+            "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+          ],
+          "url": "https://grandtheatre.qc.ca/"
+        }
+      ],
+      "performer": [
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/marie-jo-therio",
+          "type": "Person",
+          "name": "Marie-Jo Thério"
+        }
+      ],
+      "startDate": "2023-10-12T00:00:00+00:00",
+      "url": "https://www.grandtheatre.qc.ca/programmation/20-maline-marie-jo-therio/"
+    },
+    {
+      "id": "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance/#EventSeries",
+      "type": [
+        "EventSeries",
+        "EventForIndex"
+      ],
+      "additionalType": {
+        "id": "https://grandtheatre.qc.ca/ontologie/Musique",
+        "skos:closeMatch": {
+          "id": "http://kg.artsdata.ca/resource/MusicPerformance",
+          "prefLabel": {
+            "fr": "Musique",
+            "en": "Music"
+          }
+        },
+        "prefLabel": {
+          "fr": "Musique"
+        }
+      },
+      "description": "Pianiste au style musical sensible et évocateur, Alexandra Stréliski sera de retour sur scène avec un tout nouveau spectacle issu de son album, Néo-Romance, paru le 31 mars 2023. Enveloppée d’une scénographie immersive qu’elle a réfléchie avec les créateurs français du Cirque Leroux, la compositrice décloisonne l’univers néoclassique et voyage à travers différents tableaux visuels inspirés des grands courants de l’histoire de l’art. Entre intimité et immensité, l’artiste incontournable vous invite à contempler, prendre une pause et rêver!Alexandra Stréliski sera accompagnée sur scène par le duo à cordes Karski pour les représentations de juin, et par le trio à cordes Karski en septembre.Impatient? Écoutez vite Néo-Romance!",
+      "endDate": "2023-09-24T01:30:00+00:00",
+      "image": {
+        "id": "https://www.grandtheatre.qc.ca/uploads/original_images/Alexandra_Streliski_-_428x599px__Johanna_Berghorn.png",
+        "type": "ImageObject",
+        "contentSize": "267030",
+        "contentUrl": {
+          "id": "https://www.grandtheatre.qc.ca/uploads/original_images/Alexandra_Streliski_-_428x599px__Johanna_Berghorn.png"
+        },
+        "height": "599 px",
+        "name": "Alexandra Stréliski",
+        "thumbnail": "/uploads/images/Alexandra_Streliski_-_428x599px__Johanna_Ber.max-200x200.png",
+        "url": "https://www.grandtheatre.qc.ca/uploads/original_images/Alexandra_Streliski_-_428x599px__Johanna_Berghorn.png",
+        "width": "428 px"
+      },
+      "keywords": "Musique",
+      "location": {
+        "id": "_:b58",
+        "type": "Place",
+        "address": {
+          "type": "PostalAddress",
+          "addressCountry": "CA",
+          "addressLocality": "Québec",
+          "addressRegion": "QC",
+          "postalCode": "G1R2B3",
+          "streetAddress": "269 Boulevard René-Lévesque E"
+        },
+        "description": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers.",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "46.806228",
+          "longitude": "-71.221983"
+        },
+        "logo": {
+          "type": "ImageObject",
+          "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+        },
+        "name": "Grand Théatre de Québec",
+        "sameAs": [
+          "https://www.instagram.com/grandtheatreqc/",
+          "https://twitter.com/GrandTheatreQc",
+          "http://www.wikidata.org/entity/Q3114610",
+          "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+          "https://www.facebook.com/grandtheatre",
+          "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+        ],
+        "url": "https://www.grandtheatre.qc.ca/"
+      },
+      "name": "Néo-Romance",
+      "organizer": [
+        {
+          "type": "Organization",
+          "contactPoint": {
+            "type": "ContactPoint",
+            "areaServed": "CA",
+            "availableLanguage": [
+              "FR",
+              "EN"
+            ],
+            "contactType": "customer support",
+            "email": "gtq@grandtheatre.qc.ca",
+            "telephone": "+14186438131"
+          },
+          "description": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers.",
+          "logo": {
+            "type": "ImageObject",
+            "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+          },
+          "name": "Grand Théâtre de Québec",
+          "sameAs": [
+            "https://www.instagram.com/grandtheatreqc/",
+            "https://twitter.com/GrandTheatreQc",
+            "http://www.wikidata.org/entity/Q3114610",
+            "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+            "https://www.facebook.com/grandtheatre",
+            "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+          ],
+          "url": "https://grandtheatre.qc.ca/"
+        }
+      ],
+      "performer": [
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski",
+          "type": "Person",
+          "identifier": "0000 0004 0773 607X",
+          "name": "Alexandra Stréliski",
+          "sameAs": [
+            "http://kg.artsdata.ca/resource/K12-273",
+            "https://fr.wikipedia.org/wiki/Alexandra_Str%C3%A9liski",
+            "https://twitter.com/alexstreliski",
+            "https://www.facebook.com/alexstreliski/",
+            "https://www.instagram.com/alexstreliski/",
+            "https://alexandrastreliski.com/?lang=fr",
+            "https://isni.org/isni/000000040773607X"
+          ],
+          "url": "https://alexandrastreliski.com/?lang=fr",
+          "twitter": "alexstreliski",
+          "instagram": "alexstreliski/",
+          "facebook": "alexstreliski/"
+        }
+      ],
+      "startDate": "2023-09-23T00:00:00+00:00",
+      "subEvent": [
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance-2023-09-24-00-00",
+          "type": "Event",
+          "endDate": "2023-09-24T01:30:00+00:00",
+          "eventAttendanceMode": "OfflineEventAttendanceMode",
+          "eventStatus": "EventScheduled",
+          "location": {
+            "id": "_:b58"
+          },
+          "name": "Néo-Romance",
+          "offers": [
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "92.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDI%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "46.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDI%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "58.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDI%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "74.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDI%3D"
+            }
+          ],
+          "startDate": "2023-09-24T00:00:00+00:00"
+        },
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance-2023-09-23-00-00",
+          "type": "Event",
+          "endDate": "2023-09-23T01:30:00+00:00",
+          "eventAttendanceMode": "OfflineEventAttendanceMode",
+          "eventStatus": "EventScheduled",
+          "location": {
+            "type": "Place",
+            "address": {
+              "type": "PostalAddress",
+              "addressCountry": "CA",
+              "addressLocality": "Québec",
+              "addressRegion": "QC",
+              "postalCode": "G1R2B3",
+              "streetAddress": "269 Boulevard René-Lévesque E"
+            },
+            "description": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers.",
+            "geo": {
+              "type": "GeoCoordinates",
+              "latitude": "46.806228",
+              "longitude": "-71.221983"
+            },
+            "logo": {
+              "type": "ImageObject",
+              "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+            },
+            "name": "Grand Théatre de Québec",
+            "sameAs": [
+              "https://www.instagram.com/grandtheatreqc/",
+              "https://twitter.com/GrandTheatreQc",
+              "http://www.wikidata.org/entity/Q3114610",
+              "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+              "https://www.facebook.com/grandtheatre",
+              "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+            ],
+            "url": "https://www.grandtheatre.qc.ca/"
+          },
+          "name": "Néo-Romance",
+          "offers": [
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "92.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDE%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "74.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDE%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "46.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDE%3D"
+            },
+            {
+              "type": "Offer",
+              "availability": "InStock",
+              "price": "58.50",
+              "priceCurrency": "CAD",
+              "url": "https://am.ticketmaster.com/grandtheatre/fr-ca/ism/TDAyMzIzMDE%3D"
+            }
+          ],
+          "startDate": "2023-09-23T00:00:00+00:00"
+        }
+      ],
+      "url": "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance/"
+    }
+  ]
+}

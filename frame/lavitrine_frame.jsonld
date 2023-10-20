@@ -18,20 +18,14 @@
     "twitter": {
       "@id": "wdt:P2002"
     },
-    "EventForIndex": {
-      "@id": "ado:EventForIndex"
-    },
     "prefLabel": {
-      "@id": "skos:prefLabel",
-      "@container": "@language"
+      "@id": "skos:prefLabel"
     },
-    "startDate": {
-      "@id": "startDate",
-      "@type": "xsd:dateTime"
+    "name": {
+      "@id":"name"
     },
-    "endDate": {
-      "@id": "endDate",
-      "@type": "xsd:dateTime"
+    "description": {
+      "@id":"description"
     },
     "type": {
       "@id": "@type"
@@ -65,24 +59,25 @@
       "@id": "eventStatus",
       "@type": "@id"
     },
-    "keywords":{"@language":"fr"}
-
+    "representation":{
+      "@id": "subEvent",  
+      "@type": "@id",
+      "@container": "@set"
+    }
   },
-  "@type": "EventForIndex",
+  "@type": "EventSeries",
   "@explicit": true,
   "additionalType": {},
-  "keywords":{},
   "description": {},
-  "startDate": {},
-  "endDate": {},
-  "image": {},
+  "image": {
+    "@type": "ImageObject",
+    "@explicit": true,
+    "url":{}
+  },
   "location": {},
   "name": {},
   "performer": {},
   "organizer": {},
-  "eventStatus": {"@omitDefault": true},
-  "eventAttendanceMode": {"@omitDefault": true},
-  "offers": {"@omitDefault": true},
   "url": {},
   "subEvent": {
     "@type": "Event",
@@ -93,7 +88,12 @@
     "endDate": {},
     "eventStatus": {},
     "eventAttendanceMode": {},
-    "location": {},
-    "offers": {}
+    "offers": {
+      "@type": "Offer",
+      "availability": {},
+      "price": {},
+      "priceCurrency": {},
+      "url": {}
+    }
   }
 }
