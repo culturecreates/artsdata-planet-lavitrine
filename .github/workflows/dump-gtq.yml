@@ -1,7 +1,5 @@
 name: Dump GTQ
 on: 
-  schedule:
-    - cron: "0 10 * * *" # Run daily at 10 AM UTC
   workflow_dispatch:
 jobs:
   deploy:

@@ -10,11 +10,8 @@
 ####################################################
 # Lavitrine Events SHACL v1
 #
-# Main difference with Artsdsata: 
-#    - Single Events are EventSeries with single subEvent.
-# Naming convention: 
-#    - node shapes are capitalized and end in "Node", 
-#    - property shapes are camelcase and end in "Prop"
+# Main difference with Artsdsata is that single 
+# Events are EventSeries with single subEvent.
 ####################################################
 
 # EventSeries mapped to Spectacles
