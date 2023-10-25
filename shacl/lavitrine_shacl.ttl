@@ -108,7 +108,13 @@ ads:eventAttendanceModeProp
 
 # Nested 
 ads:OfferNode
-    sh:targetClass  schema:Offer  .
+    sh:targetClass  schema:Offer ;
+    sh:property ads:validFromProp .
+
+ads:validFromProp
+    sh:path schema:validFrom ;
+    sh:minCount 0 ;
+    sh:datatype xsd:dateTime  .
 
 
 ################
@@ -162,11 +168,72 @@ ads:PatternContainsAtSign sh:pattern "@"  ;
 ################
 
 ads:PersonNode
-    sh:targetClass schema:Person .
+    sh:targetClass schema:Person ;
+    sh:property ads:nameProp .
 
 ################
 # Organization 
 ################
 
 ads:OrganizationNode
-    sh:targetClass schema:Organization .
+    sh:targetClass schema:Organization ;
+    sh:property ads:nameProp .
+
+
+################
+# PostalAddress Shape 
+################
+ads:PostalAddressNode
+    sh:targetClass schema:PostalAddress ;
+   # sh:closed true ;
+    sh:property ads:streetAddressProp, 
+                ads:addressCountryProp, 
+                ads:addressRegionProp, 
+                ads:postalCodeProp, 
+                ads:addressLocalityProp .
+    
+ads:streetAddressProp
+    sh:path schema:streetAddress ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
+ads:addressCountryProp
+    sh:path schema:addressCountry ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
+ ads:addressRegionProp
+    sh:path schema:addressRegion ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
+ads:postalCodeProp
+    sh:path schema:postalCode ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string .
+
+ads:addressLocalityProp
+    sh:path schema:addressLocality ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+    

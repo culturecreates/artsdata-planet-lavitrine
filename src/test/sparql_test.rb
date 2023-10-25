@@ -7,6 +7,7 @@ class SparqlTest < Minitest::Test
     @graph = RDF::Graph.load("./test_events.jsonld")
   end
 
+  # Removes type: EventForIndex
   def test_that_event_for_index_is_removed
     sparql = "../sparql/remove_event_for_index.sparql"
     graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
@@ -16,7 +17,14 @@ class SparqlTest < Minitest::Test
   def test_transform_single_events
     sparql = "../sparql/transform_single_events.sparql"
     graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    assert_equal 265, graph.count
+    assert_equal 264, graph.count
+  end
+
+  def test_convert_image_object_to_url
+    sparql = "../sparql/convert_image_object_to_url.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 240, graph.count
   end
 end
 

@@ -1,6 +1,7 @@
 PREFIX schema: <http://schema.org/>
 PREFIX ex: <http://example.com/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX adm: <http://kg.artsdata.ca/minted/>
 construct {
     ?event ?p  ?o .
     ?event a ex:EventForIndex .
@@ -10,7 +11,7 @@ construct {
     ?event schema:additionalType ?type .
     ?type skos:prefLabel ?prefLabel .
     ?type skos:closeMatch ?closeMatch .
-    ?closeMatch skos:prefLabel ?closePrefLabel .
+    ?closeMatch skos:prefLabel ?closePrefLabel .   
 }
 where {
     {
@@ -43,13 +44,16 @@ where {
                     ?o ?op ?oo .
                     ?oo ?oop ?ooo .
                     ?ooo ?ooop ?oooo .
+                    filter(!isBlank(?oooo))
                 }
                 OPTIONAL {
                     ?event schema:additionalType ?type .
-                }
-            }
+                }   
+            } 
+            
         }
     }
+  
     OPTIONAL {
         ?event schema:additionalType ?type .
         graph <http://db.artsdata.ca/repositories/artsdata/rdf-graphs/grandtheatre-qc-ca-event-type-mapping> {

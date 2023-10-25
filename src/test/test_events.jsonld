@@ -42,8 +42,7 @@
       "@container": "@set"
     },
     "image": {
-      "@id": "image",
-      "@type": "@id"
+      "@id": "image"
     },
     "performer": {
       "@id": "performer",
@@ -54,8 +53,7 @@
       "@container": "@set"
     },
     "url": {
-      "@id": "url",
-      "@type": "@id"
+      "@id": "url"
     },
     "eventAttendanceMode": {
       "@id": "eventAttendanceMode",
@@ -99,7 +97,7 @@
         "height": "746 px",
         "name": "1920x1080_Marie-JoTherio_OFFICIEL-AVEC-SIGNATURE.jpg",
         "thumbnail": "/uploads/images/1140x746-Marie-jo-theriault.max-200x200.jpg",
-        "url": "https://www.grandtheatre.qc.ca/uploads/original_images/1140x746-Marie-jo-theriault.jpg",
+        "url": "https://url.com/image.jpg",
         "width": "1140 px"
       },
       "keywords": "Chanson francophone",

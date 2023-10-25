@@ -10,7 +10,6 @@ insert {
   ?s_subevent a schema:Event ; 
     schema:startDate ?startDate ; 
     schema:endDate ?endDate ;
-    schema:location ?location ;
     schema:name ?name ;
     schema:eventAttendanceMode ?eventAttendanceMode ;
     schema:eventStatus ?eventStatus ;

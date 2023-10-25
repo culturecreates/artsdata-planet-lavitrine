@@ -5,9 +5,9 @@
     "id": {
       "@id": "@id"
     },
+    "none": "@none",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "ado": "http://kg.artsdata.ca/ontology/",
     "wdt": "http://www.wikidata.org/prop/direct/",
     "facebook": {
       "@id": "wdt:P2013"
@@ -25,7 +25,13 @@
     "name": {
       "@container": "@language"
     },
+    "alternateName": {
+      "@container": "@language"
+    },
     "description": {
+      "@container": "@language"
+    },
+    "disambiguatingDescription" :{
       "@container": "@language"
     },
     "startDateTime": {
@@ -43,6 +49,10 @@
     "endDate": {
       "@id": "endDate",
       "@type": "xsd:date"
+    },
+    "validFrom": {
+      "@id": "validFrom",
+      "@type": "xsd:dateTime"
     },
     "type": {
       "@id": "@type"
@@ -76,21 +86,33 @@
       "@id": "eventStatus",
       "@type": "@id"
     },
-    "representation":{
-      "@id": "subEvent",  
+    "EventScheduled": {
+      "@id": "EventScheduled",
+       "@type": "EventStatusType"
+    },
+    "representation": {
+      "@id": "subEvent",
       "@type": "@id",
       "@container": "@set"
+    },
+    "addressCountry": {
+      "@container": "@language"
+    },
+    "addressRegion": {
+      "@container": "@language"
+    },
+    "addressLocality": {
+      "@container": "@language"
+    },
+    "streetAddress": {
+      "@container": "@language"
     }
   },
   "@type": "EventSeries",
   "@explicit": true,
   "additionalType": {},
   "description": {},
-  "image": {
-    "@type": "ImageObject",
-    "@explicit": true,
-    "url":{}
-  },
+  "image": {},
   "location": {},
   "name": {},
   "performer": {},
@@ -106,11 +128,12 @@
     "eventStatus": {},
     "eventAttendanceMode": {},
     "offers": {
-      "@type": "Offer",
+      "@type": ["Offer","AggregateOffer"],
       "availability": {},
       "price": {},
       "priceCurrency": {},
-      "url": {}
+      "url": {},
+      "additionalType": {}
     }
   }
 }

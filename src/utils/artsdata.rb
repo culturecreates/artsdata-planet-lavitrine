@@ -12,19 +12,38 @@ class ArtsdataPipeline
   attr_accessor :sparql_client, :graph, :framed_graph, :report
   def initialize
     @sparql_client = SPARQL::Client.new("http://db.artsdata.ca/repositories/artsdata")
+    @graph = RDF::Graph.new
   end
 
-  def load(sparql:, graph:, graph_placeholder:)
-    @graph = RDF::Graph.new
-    sparql = File.read(sparql).gsub(graph_placeholder,graph)
-    for i in 0..8 do
-      result = sparql_client.query(sparql.sub("limit 10 offset 0", "limit 30 offset #{i * 30}"))
-      result.each_statement do |statement|
-        @graph << statement 
+  # load passing :file - path to local file
+  # load passing :sparql, :limit, :graph_placeholder, :graph - sparql with graph name to replace graph_placeholder
+  def load(**args)
+    return  @graph = @graph << RDF::Graph.load(args[:file]) if args[:file]
+
+    if args[:graph]
+      sparql = File.read(args[:sparql]).gsub(args[:graph_placeholder],args[:graph])
+    else
+      sparql = File.read(args[:sparql])
+    end
+    if args[:limit]
+      previous_count = 0
+      i = 0
+      loop do
+        count = @graph.count
+        result = sparql_client.query(sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}"))
+        add_to_graph(result)
+        if @graph.count == previous_count || i > 10
+          break
+        end
+        previous_count = @graph.count
+        i += 1
       end
-      puts "Graph has #{@graph.count} triples"
+    else
+      result = sparql_client.query(sparql)
+      add_to_graph(result)
     end
   end
+
 
   def transform(sparql)
     @graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
@@ -40,7 +59,7 @@ class ArtsdataPipeline
     if @framed_graph
       File.write(file, @framed_graph.to_json)
     elsif @graph
-      File.write(file, @graph.dump(:jsonld).to_json)
+      File.write(file, @graph.dump(:jsonld))
     end
   end
 
@@ -54,4 +73,13 @@ class ArtsdataPipeline
     File.write(file, @report)
   end
 
+  private
+
+  def add_to_graph(result)
+    result.each_statement do |statement|
+       # check if ADID and add to list for second step dereference
+      @graph << statement 
+    end
+    puts "Graph has #{@graph.count} triples"
+  end
 end

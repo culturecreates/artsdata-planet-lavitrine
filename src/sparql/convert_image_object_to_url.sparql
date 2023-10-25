@@ -1,0 +1,16 @@
+PREFIX schema: <http://schema.org/>
+delete {
+    ?e  schema:image ?image .
+    ?image a schema:ImageObject ;
+           schema:url ?url ;
+           ?a ?b .
+}
+insert {
+    ?e schema:image ?url .
+}
+where {
+    ?e schema:image ?image .
+    ?image a schema:ImageObject ;
+           schema:url ?url ;
+           ?a ?b .
+}
