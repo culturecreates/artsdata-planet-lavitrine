@@ -22,7 +22,7 @@ jobs:
         run: echo "dumpdate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
       - name: Upload to S3
         run:  aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.version.outputs.dumpdate }}/ --acl public-read --recursive
-      - name: Register grandtheatre-qc-ca dump in Artsdata Databus  # TODO add "reportCallbackUrl" to Github logs
+      - name: grandtheatre-qc-ca dump register_only on Databus  # TODO add "reportCallbackUrl" to Github logs
         run: |
           curl \
           -H 'Content-Type: application/json' \
@@ -35,9 +35,9 @@ jobs:
                     "downloadFile": "derived-grandtheatre-qc-ca.json",
                     "comment": "Dump of grandtheatre.qc.ca using Github workflows",
                     "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus",
-                    "register_only: "true"
+                    "register_only": "true"
                   }'   
-      - name: Register grandtheatre-qc-ca dump in Artsdata Databus  # TODO add "reportCallbackUrl" to Github logs
+      - name: placedesarts-com dump register_only on Databus  # TODO add "reportCallbackUrl" to Github logs
         run: |
           curl \
           -H 'Content-Type: application/json' \
@@ -50,5 +50,5 @@ jobs:
                     "downloadFile": "placedesarts-com.json",
                     "comment": "Dump of placedesarts.com using Github workflows",
                     "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus",
-                    "register_only: "true"
+                    "register_only": "true"
                   }'   
