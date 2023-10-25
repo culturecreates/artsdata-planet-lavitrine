@@ -1,0 +1,246 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "@base": "http://schema.org/",
+    "id": {
+      "@id": "@id"
+    },
+    "none": "@none",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wdt": "http://www.wikidata.org/prop/direct/",
+    "facebook": {
+      "@id": "wdt:P2013"
+    },
+    "instagram": {
+      "@id": "wdt:P2003"
+    },
+    "twitter": {
+      "@id": "wdt:P2002"
+    },
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@language"
+    },
+    "name": {
+      "@container": "@language"
+    },
+    "alternateName": {
+      "@container": "@language"
+    },
+    "description": {
+      "@container": "@language"
+    },
+    "disambiguatingDescription": {
+      "@container": "@language"
+    },
+    "startDateTime": {
+      "@id": "startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDateTime": {
+      "@id": "endDate",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "endDate",
+      "@type": "xsd:date"
+    },
+    "validFrom": {
+      "@id": "validFrom",
+      "@type": "xsd:dateTime"
+    },
+    "type": {
+      "@id": "@type"
+    },
+    "sameAs": {
+      "@id": "sameAs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "performer": {
+      "@id": "performer",
+      "@container": "@set"
+    },
+    "organizer": {
+      "@id": "organizer",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "eventAttendanceMode": {
+      "@id": "eventAttendanceMode",
+      "@type": "@id"
+    },
+    "eventStatus": {
+      "@id": "eventStatus",
+      "@type": "@id"
+    },
+    "EventScheduled": {
+      "@id": "EventScheduled",
+      "@type": "EventStatusType"
+    },
+    "representation": {
+      "@id": "subEvent",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "addressCountry": {
+      "@container": "@language"
+    },
+    "addressRegion": {
+      "@container": "@language"
+    },
+    "addressLocality": {
+      "@container": "@language"
+    },
+    "streetAddress": {
+      "@container": "@language"
+    }
+  },
+  "@graph": [
+    {
+      "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10",
+      "type": "EventSeries",
+      "additionalType": {
+        "id": "https://grandtheatre.qc.ca/ontologie/MusiqueClassique",
+        "prefLabel": {
+          "fr": "Musique classique"
+        },
+        "skos:closeMatch": {
+          "id": "http://kg.artsdata.ca/resource/ClassicalMusicPerformance",
+          "prefLabel": {
+            "fr": "Spectacle de musique classique",
+            "en": "Classical Music Performance"
+          }
+        }
+      },
+      "location": {
+        "type": "Place",
+        "sameAs": [
+          "https://www.instagram.com/grandtheatreqc/",
+          "https://twitter.com/GrandTheatreQc",
+          "http://www.wikidata.org/entity/Q3114610",
+          "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+          "https://www.facebook.com/grandtheatre",
+          "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+        ],
+        "address": {
+          "type": "PostalAddress",
+          "addressCountry": {
+            "none": "CA"
+          },
+          "addressLocality": {
+            "none": "Québec"
+          },
+          "addressRegion": {
+            "none": "QC"
+          },
+          "postalCode": "G1R2B3",
+          "streetAddress": {
+            "none": "269 Boulevard René-Lévesque E"
+          }
+        },
+        "description": {
+          "none": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
+        },
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "46.806228",
+          "longitude": "-71.221983"
+        },
+        "logo": {
+          "type": "ImageObject",
+          "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+        },
+        "name": {
+          "none": "Grand Théatre de Québec"
+        },
+        "url": "https://www.grandtheatre.qc.ca/"
+      },
+      "description": {
+        "none": "En plus de vous initier aux répertoires classique et contemporain, ces minirécitals permettent aux élèves du Conservatoire de musique de Québec de faire valoir leur talent en public.Pas besoin de réserver : présentez-vous directement au Grand Théâtre le jour du récital!"
+      },
+      "name": {
+        "none": "Midis-musique"
+      },
+      "organizer": [
+        {
+          "type": "Organization",
+          "sameAs": [
+            "https://www.instagram.com/grandtheatreqc/",
+            "https://twitter.com/GrandTheatreQc",
+            "http://www.wikidata.org/entity/Q3114610",
+            "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+            "https://www.facebook.com/grandtheatre",
+            "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+          ],
+          "contactPoint": {
+            "type": "ContactPoint",
+            "areaServed": "CA",
+            "availableLanguage": [
+              "FR",
+              "EN"
+            ],
+            "contactType": "customer support",
+            "email": "gtq@grandtheatre.qc.ca",
+            "telephone": "+14186438131"
+          },
+          "description": {
+            "none": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
+          },
+          "logo": {
+            "type": "ImageObject",
+            "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+          },
+          "name": {
+            "none": "Grand Théâtre de Québec"
+          },
+          "url": "https://grandtheatre.qc.ca/"
+        }
+      ],
+      "performer": [
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/conservatoire-de-musique-de-quebec",
+          "type": "Person",
+          "name": {
+            "none": "Conservatoire de musique de Québec"
+          }
+        }
+      ],
+      "url": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023/",
+      "representation": [
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent",
+          "type": "Event",
+          "startDateTime": "2023-10-25T16:10:00+00:00",
+          "endDateTime": "2023-10-25T16:10:00+00:00",
+          "name": {
+            "none": "Midis-musique"
+          },
+          "eventAttendanceMode": "OfflineEventAttendanceMode",
+          "eventStatus": "EventScheduled",
+          "offers": {
+            "type": "Offer",
+            "availability": "InStock",
+            "price": "0.00",
+            "priceCurrency": "CAD",
+            "url": null,
+            "additionalType": null
+          }
+        }
+      ],
+      "image": "https://www.grandtheatre.qc.ca/uploads/original_images/Midis_musique_-_856x1200px_-_Photo_verticale.png"
+    }
+  ]
+}

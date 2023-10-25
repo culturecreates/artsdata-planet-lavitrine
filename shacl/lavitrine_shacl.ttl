@@ -41,14 +41,7 @@ ads:locationProp
         [ sh:node ads:VirtualLocationNode ; ]
     ) .
 
-ads:nameProp
-    sh:path schema:name ;
-    sh:uniqueLang true ;
-    sh:minCount 1 ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
+
 
 ads:performerProp
     sh:path schema:performer ;
@@ -66,8 +59,8 @@ ads:organizerProp
 
 ads:subEventProp
     sh:path schema:subEvent ;
-    sh:minCount 1 ;
-    sh:message "EventSeries must have alteast one subEvent property." .
+    sh:minCount 1  ;
+    sh:node sh:EventNode .
 
 
 
@@ -95,20 +88,29 @@ ads:startDateProp
 ads:offersProp
     sh:path schema:offers ;
     sh:node sh:OfferNode ;
-    sh:minCount 0 .
+    sh:minCount 1 .
 
 ads:eventStatusProp
     sh:path schema:eventStatus ;
-    sh:minCount 0 .
+    sh:minCount 1 ;
+    sh:in  (    schema:EventCancelled
+                schema:EventPostponed 
+                schema:EventScheduled  
+                schema:EventRescheduled  
+                schema:EventMovedOnline ) .
+   
+
 
 ads:eventAttendanceModeProp
     sh:path schema:eventAttendanceMode ;
-    sh:minCount 0 .
-
+    sh:minCount 1 ;
+    sh:in  (    schema:OnlineEventAttendanceMode
+                schema:OfflineEventAttendanceMode 
+                schema:HybridEventAttendanceMode ) .
 
 # Nested 
 ads:OfferNode
-    sh:targetClass  schema:Offer ;
+    sh:targetClass schema:Offer ;
     sh:property ads:validFromProp .
 
 ads:validFromProp
@@ -142,9 +144,29 @@ ads:VirtualLocationNode
     sh:targetClass schema:VirtualLocation ;
     sh:property ads:urlProp .
 
+
+################
+# Common properties 
+################
+
+ads:nameProp
+    sh:path schema:name ;
+    sh:uniqueLang true ;
+    sh:minCount 1 ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
 ads:urlProp
     sh:path schema:url ;
-    sh:pattern "^http" .
+    sh:nodeKind sh:IRI ;
+   # sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:pattern "^http" ;
+    sh:not (
+        [sh:pattern "http://schema.org" ;]
+    ) .
 
 
 ads:sameAsProp

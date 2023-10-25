@@ -34,7 +34,7 @@ On-demand [5 events JSON](http://api.artsdata.ca/query.json?limit=5&frame=lavitr
 # Place des Arts
 https://placedesarts.com
 
-This website is crawed using Footlight. Footligth is a managed service by Culture Creates. Here is a link to the Footlight Console
+This website is crawed using Footlight. Footlight is a managed service by Culture Creates. Here is a link to the Footlight Console
 https://console.footlight.io/events?seedurl=placedesarts-com
 
 

@@ -1,0 +1,12 @@
+PREFIX schema: <http://schema.org/>
+delete {
+    ?e  schema:image ?image .
+}
+insert {
+    ?e schema:image ?image_uri .
+}
+where {
+    ?e schema:image ?image .
+    filter(isLiteral(?image))
+    bind(URI(?image) as ?image_uri)
+}

@@ -15,10 +15,7 @@ def LavirtrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/footlight/p
 
   pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph, graph_placeholder: graph_placeholder)
    # 3. across graphs expand artsdata URIs (places, organizers,...)
-
    # TODO: 1. get unique adid and add to graph
-  # pipeline.load(sparql: "./sparql/expand_artsdata_uris.sparql")
-  pipeline.dump("temp-pda.jsonld")
 
 
   # Custom transformations that justify needing this code rather than using solely the Artsdata API. 
@@ -26,6 +23,8 @@ def LavirtrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/footlight/p
   pipeline.transform("./sparql/transform_single_events.sparql")
   pipeline.transform("./sparql/remove_event_for_index.sparql")
   pipeline.transform("./sparql/convert_image_object_to_url.sparql")
+  pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
+  pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
 
   puts "Framing..."
   frame = "../frame/lavitrine_frame.jsonld"
@@ -34,9 +33,9 @@ def LavirtrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/footlight/p
   puts "Saving JSON-LD..."
   pipeline.dump("../output/#{dump_file}")
 
-  # puts "Validating shapes..."
-  # pipeline.validate("../shacl/lavitrine_shacl.ttl")
-  # pipeline.report("../output/#{report_file}")
+  puts "Validating shapes..."
+  pipeline.validate("../shacl/lavitrine_shacl.ttl")
+  pipeline.report("../output/#{report_file}")
 end
 
 

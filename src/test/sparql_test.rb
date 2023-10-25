@@ -4,7 +4,7 @@ require 'linkeddata'
 
 class SparqlTest < Minitest::Test
   def setup
-    @graph = RDF::Graph.load("./test_events.jsonld")
+    @graph = RDF::Graph.load("./fixtures/test_events.jsonld")
   end
 
   # Removes type: EventForIndex
@@ -26,5 +26,21 @@ class SparqlTest < Minitest::Test
     # puts graph.dump(:turtle)
     assert_equal 240, graph.count
   end
+
+  def test_convert_image_literal_to_uri
+    sparql = "../sparql/convert_image_literal_to_uri.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 256, graph.count
+  end
+
+  def test_convert_url_literal_to_uri
+    sparql = "../sparql/convert_url_literal_to_uri.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 256, graph.count
+  end
+
+
 end
 

@@ -29,12 +29,13 @@ class ArtsdataPipeline
       previous_count = 0
       i = 0
       loop do
-        count = @graph.count
         result = sparql_client.query(sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}"))
         add_to_graph(result)
         if @graph.count == previous_count || i > 10
+          puts "Done loading."
           break
         end
+        puts "Graph has #{@graph.count} triples"
         previous_count = @graph.count
         i += 1
       end
@@ -80,6 +81,5 @@ class ArtsdataPipeline
        # check if ADID and add to list for second step dereference
       @graph << statement 
     end
-    puts "Graph has #{@graph.count} triples"
   end
 end

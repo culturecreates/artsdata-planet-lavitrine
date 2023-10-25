@@ -1,0 +1,12 @@
+PREFIX schema: <http://schema.org/>
+delete {
+    ?e  schema:url ?url .
+}
+insert {
+    ?e schema:url ?url_uri .
+}
+where {
+    ?e schema:url ?url .
+    filter(isLiteral(?url))
+    bind(URI(?url) as ?url_uri)
+}
