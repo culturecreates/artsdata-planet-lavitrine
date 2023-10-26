@@ -15,13 +15,14 @@ class ArtsdataPipeline
     @graph = RDF::Graph.new
   end
 
-  # load passing :file - path to local file
-  # load passing :sparql, :limit, :graph_placeholder, :graph - sparql with graph name to replace graph_placeholder
+  # loads triples from a file or SPARQL endpoint
+  # parameter :file - path to local file
+  # parameter :sparql, :limit, :graph
   def load(**args)
     return  @graph = @graph << RDF::Graph.load(args[:file]) if args[:file]
 
     if args[:graph]
-      sparql = File.read(args[:sparql]).gsub(args[:graph_placeholder],args[:graph])
+      sparql = File.read(args[:sparql]).gsub("graph_placeholder",args[:graph])
     else
       sparql = File.read(args[:sparql])
     end

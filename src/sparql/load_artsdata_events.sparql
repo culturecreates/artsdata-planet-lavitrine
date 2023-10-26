@@ -16,7 +16,7 @@ construct {
 where {
     {
         select * where {
-            graph <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca> {
+            graph <graph_placeholder> {
                 {
                     select ?event 
                     where {
