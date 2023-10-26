@@ -1,13 +1,18 @@
 PREFIX adr: <http://kg.artsdata.ca/resource/>
 PREFIX schema: <http://schema.org/>
 construct {
-    adr:K11-22 ?p ?o ;
+    ?uri ?p ?o ;
     schema:address ?address .
     ?address ?address_pred ?address_obj .
 } where {
+    values ?uri { <uri_list_placeholder> }
+
     graph ?g {
-        adr:K11-22 ?p ?o ;
-        schema:address ?address .
-        ?address ?address_pred ?address_obj .
-    }
+        ?uri ?p ?o .
+        OPTIONAL {
+            ?uri  schema:address ?address .
+            ?address ?address_pred ?address_obj .
+        }
+        filter(!isBLANK(?o))
+    } 
 }

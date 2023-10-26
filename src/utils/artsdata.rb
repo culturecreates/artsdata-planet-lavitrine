@@ -9,10 +9,11 @@ require 'linkeddata'
 require 'json/ld'
 
 class ArtsdataPipeline
-  attr_accessor :sparql_client, :graph, :framed_graph, :report
+  attr_accessor :sparql_client, :graph, :framed_graph, :report, :adid
   def initialize
     @sparql_client = SPARQL::Client.new("http://db.artsdata.ca/repositories/artsdata")
     @graph = RDF::Graph.new
+    @adid = []
   end
 
   # loads triples from a file or SPARQL endpoint
@@ -34,8 +35,10 @@ class ArtsdataPipeline
         add_to_graph(result)
         if @graph.count == previous_count || i > 10
           puts "Done loading."
+          puts @adid.inspect
           break
         end
+        
         puts "Graph has #{@graph.count} triples"
         previous_count = @graph.count
         i += 1
@@ -44,6 +47,16 @@ class ArtsdataPipeline
       result = sparql_client.query(sparql)
       add_to_graph(result)
     end
+
+    # dereference Arstdata IDs
+    if @adid.count > 0
+      uri_list = ""
+      @adid.each { |uri| uri_list += " <#{uri}> " }
+      sparql = File.read("./sparql/expand_artsdata_uris.sparql").gsub("<uri_list_placeholder>", uri_list)
+      result = sparql_client.query(sparql)
+      add_to_graph(result)
+    end
+    
   end
 
 
@@ -80,6 +93,8 @@ class ArtsdataPipeline
   def add_to_graph(result)
     result.each_statement do |statement|
        # check if ADID and add to list for second step dereference
+      @adid << statement.object.value if statement.object.uri? && statement.object.value.start_with?("http://kg.artsdata.ca/resource/")
+      @adid.uniq!
       @graph << statement 
     end
   end

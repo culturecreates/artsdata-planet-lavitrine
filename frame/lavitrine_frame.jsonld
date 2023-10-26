@@ -34,6 +34,10 @@
     "disambiguatingDescription" :{
       "@container": "@language"
     },
+    "definition" :{
+      "@id": "skos:definition",
+      "@container": "@language"
+    },
     "startDateTime": {
       "@id": "startDate",
       "@type": "xsd:dateTime"
@@ -115,7 +119,14 @@
   "image": {},
   "location": {},
   "name": {},
-  "performer": {},
+  "performer": {
+    "@type": ["Person","Organization"],
+    "@omitDefault": true,
+    "@explicit": true,
+    "name": {},
+    "sameAs": {},
+    "url":{}
+  },
   "organizer": {},
   "url": {},
   "subEvent": {
