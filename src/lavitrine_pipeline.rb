@@ -2,7 +2,7 @@
 
 require_relative './utils/artsdata'
 
-def LavirtrinePipeline(graph)
+def LavirtrinePipeline(graph:)
   
   pipeline = ArtsdataPipeline.new
 
