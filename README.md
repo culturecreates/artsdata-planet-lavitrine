@@ -1,7 +1,7 @@
 # Data Pipelines for LaVitrine
 [![Artsdata Export](https://github.com/culturecreates/artsdata-planet-lavitrine/actions/workflows/artsdata-export.yml/badge.svg)](https://github.com/culturecreates/artsdata-planet-lavitrine/actions/workflows/artsdata-export.yml)
 
-The artsdata-planet-lavitrine pipeline transforms data in the Artsdata.ca data model into the LaVitrine data model. All the configs and batch scripts are managed in this repo.
+The artsdata-planet-lavitrine pipeline transforms data from Artsdata.ca into the LaVitrine data model. All the configs and batch scripts are managed in this repo.
 
 The LaVitrine data model differs slightly from the Artsdata data model. This pipeline transforms data from the Artsdata model to better fit the LaVitrine model. For a discussion see [Github Discussions](https://github.com/culturecreates/artsdata-planet-lavitrine/discussions/categories/modelling-discussions)
 
