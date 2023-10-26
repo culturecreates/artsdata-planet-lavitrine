@@ -8,8 +8,8 @@ class SparqlTest < Minitest::Test
   end
 
   # Removes type: EventForIndex
-  def test_that_event_for_index_is_removed
-    sparql = "../sparql/remove_event_for_index.sparql"
+  def test_that_eventforindex_is_removed
+    sparql = "../sparql/remove_eventforindex.sparql"
     graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
     assert_equal 254, graph.count
   end

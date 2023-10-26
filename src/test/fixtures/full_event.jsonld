@@ -215,7 +215,8 @@
           "type": "Person",
           "name": {
             "none": "Conservatoire de musique de Québec"
-          }
+          },
+          "facebook":"myfacebooktest"
         }
       ],
       "url": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023/",

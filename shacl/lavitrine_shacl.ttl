@@ -38,8 +38,6 @@ ads:locationProp
         [ sh:node ads:VirtualLocationNode ; ]
     ) .
 
-
-
 ads:performerProp
     sh:path schema:performer ;
     sh:or (
@@ -58,7 +56,6 @@ ads:subEventProp
     sh:path schema:subEvent ;
     sh:minCount 1  ;
     sh:node sh:EventNode .
-
 
 
 ################
@@ -95,8 +92,6 @@ ads:eventStatusProp
                 schema:EventScheduled  
                 schema:EventRescheduled  
                 schema:EventMovedOnline ) .
-   
-
 
 ads:eventAttendanceModeProp
     sh:path schema:eventAttendanceMode ;

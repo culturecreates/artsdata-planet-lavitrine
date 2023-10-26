@@ -9,6 +9,7 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wdt": "http://www.wikidata.org/prop/direct/",
+    "schema":"http://schema.org/",
     "facebook": {
       "@id": "wdt:P2013"
     },
@@ -125,13 +126,21 @@
     "@explicit": true,
     "name": {},
     "sameAs": {},
-    "url":{}
+    "url":{},
+    "facebook":{}
   },
-  "organizer": {},
-  "url": {},
-  "subEvent": {
-    "@type": "Event",
+  "organizer": {
+    "@type": ["Person","Organization"],
     "@omitDefault": true,
+    "@explicit": true,
+    "name": {},
+    "sameAs": {},
+    "url":{},
+    "facebook":{}
+  },
+  "url": {},
+  "representation": {
+    "@type": "Event",
     "@explicit": true,
     "name": {},
     "startDate": {},
