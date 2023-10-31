@@ -10,7 +10,6 @@ class ShaclTest < Minitest::Test
   end
 
   def test_full_event_should_pass
-   
     graph = RDF::Graph.load("./fixtures/full_event.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
@@ -20,7 +19,7 @@ class ShaclTest < Minitest::Test
   def test_minimal_event_should_pass
     graph = RDF::Graph.load("./fixtures/minimal_event.jsonld")
     report =  @shacl.execute(graph)  
-    puts report
+    # puts report
     assert report.conform?
   end
 
