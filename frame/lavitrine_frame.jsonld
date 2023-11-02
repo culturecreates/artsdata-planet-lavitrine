@@ -5,7 +5,6 @@
     "id": {
       "@id": "@id"
     },
-    "none": "@none",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wdt": "http://www.wikidata.org/prop/direct/",
