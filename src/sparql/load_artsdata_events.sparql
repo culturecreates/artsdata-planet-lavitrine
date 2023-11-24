@@ -16,7 +16,8 @@ construct {
 where {
     {
         select * where {
-            graph <graph_placeholder> {
+            <graph_placeholder> schema:hasPart | schema:hasPart/schema:hasPart ?graph .
+            graph ?graph {
                 {
                     select ?event 
                     where {

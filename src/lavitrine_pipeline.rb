@@ -25,7 +25,7 @@ def LavirtrinePipeline(graph:)
 
   puts "Validating shapes..."
   pipeline.validate("../shacl/lavitrine_shacl.ttl")
-  pipeline.report("../output/#{graph.split("/").last}.txt")
+  pipeline.report("../output/#{graph.split("/").last}.yml")
 end
 
 
