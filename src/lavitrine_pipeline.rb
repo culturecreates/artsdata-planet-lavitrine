@@ -2,7 +2,7 @@
 
 require_relative './utils/artsdata'
 
-def LavirtrinePipeline(graph:)
+def LavitrinePipeline(graph:)
   
   pipeline = ArtsdataPipeline.new
 
@@ -23,13 +23,13 @@ def LavirtrinePipeline(graph:)
   ##### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )
 
   puts "Framing..."
-  pipeline.frame( "../frame/lavitrine_frame.jsonld")
+  pipeline.frame( "../frame/lavitrine_event_frame.jsonld")
 
   puts "Saving JSON-LD..."
   pipeline.dump("../output/#{graph.split("/").last}.json")
 
   puts "Validating shapes... #{graph.split("/").last}"
-  pipeline.validate("../shacl/lavitrine_shacl.ttl")
+  pipeline.validate("../shacl/lavitrine_event_shacl.ttl")
   pipeline.report("../output/#{graph.split("/").last}.yml")
 end
 
