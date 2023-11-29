@@ -110,7 +110,14 @@
   "@type": "EventSeries",
   "@explicit": true,
   "@embed": "@always",
-  "additionalType": {},
+  "additionalType": {
+    "@type":"skos:Concept",
+    "@explicit": true,
+    "@omitDefault": true,
+    "prefLabel":{},
+    "skos:exactMatch": {},
+    "skos:broader":{}
+  },
   "description": {},
   "image": {},
   "location": {
