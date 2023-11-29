@@ -7,9 +7,9 @@ The LaVitrine data model differs slightly from the Artsdata data model. This pip
 
 ## Artifacts
 This repo generates the following artifacts derived from Artsdata and refreshes them on a regular schedule:
-* grandtheatre-qc-ca
-* placedesarts-com
-* dia-logGraphs - see [websites that are part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
+* [grandtheatre-qc-ca](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca)
+* [placedesarts-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fplacedesarts-com)
+* [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - see [websites that are part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
 
 
 
