@@ -26,9 +26,14 @@ where {
                         }  
                         ?event a ?type ;
                                schema:startDate ?startDate .
+                        OPTIONAL {
+                            ?event  schema:endDate ?endDate .
+                        }
+                              
                         filter(not exists {
                                 ?superEvent schema:subEvent ?event
                             })
+                        filter(?startDate >= now() || ?endDate >= now())
                     } 
                     order by ?startDate
                     limit 10 offset 0 

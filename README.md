@@ -5,6 +5,13 @@ The artsdata-planet-lavitrine pipeline transforms data from Artsdata.ca into the
 
 The LaVitrine data model differs slightly from the Artsdata data model. This pipeline transforms data from the Artsdata model to better fit the LaVitrine model. For a discussion see [Github Discussions](https://github.com/culturecreates/artsdata-planet-lavitrine/discussions/categories/modelling-discussions)
 
+## Artifacts
+This repo generates the following artifacts derived from Artsdata and refreshes them on a regular schedule:
+* grandtheatre-qc-ca
+* placedesarts-com
+* dia-logGraphs - see [websites that are part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
+
+
 
 # Grand Théâtre de Québec 
 

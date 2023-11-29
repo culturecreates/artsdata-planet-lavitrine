@@ -1,0 +1,29 @@
+PREFIX schema: <http://schema.org/>
+PREFIX ex: <http://example.com/>
+
+delete {
+   ?s a  ex:EventForIndex .
+}
+insert {
+  ?subEvents schema:eventAttendanceMode ?eventAttendanceMode ;
+    schema:eventStatus ?eventStatus ;
+    schema:offers ?offer .
+    ?offer ?a ?b .
+}
+where {
+  ?s a schema:EventSeries ;
+   schema:subEvent ?subEvents .
+  OPTIONAL {
+    ?s schema:eventAttendanceMode ?eventAttendanceMode .
+  }
+  OPTIONAL {
+    ?s schema:eventStatus ?eventStatus  .
+  }
+  OPTIONAL {
+    ?s schema:offers ?offer .
+    ?offer ?a ?b .
+  }
+  
+  
+  
+}

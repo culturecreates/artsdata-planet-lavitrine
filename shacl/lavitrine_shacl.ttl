@@ -82,7 +82,7 @@ ads:startDateProp
 ads:offersProp
     sh:path schema:offers ;
     sh:node sh:OfferNode ;
-    sh:minCount 1 .
+    sh:minCount 0 .
 
 ads:eventStatusProp
     sh:path schema:eventStatus ;
@@ -95,7 +95,7 @@ ads:eventStatusProp
 
 ads:eventAttendanceModeProp
     sh:path schema:eventAttendanceMode ;
-    sh:minCount 1 ;
+    sh:minCount 0 ;
     sh:in  (    schema:OnlineEventAttendanceMode
                 schema:OfflineEventAttendanceMode 
                 schema:HybridEventAttendanceMode ) .
@@ -116,15 +116,36 @@ ads:validFromProp
 ################
 ads:PlaceNode
     sh:targetClass schema:Place ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
     sh:property ads:nameProp, 
                 ads:sameAsProp,
-                ads:addressProp .
+                ads:addressProp,
+                ads:containedInPlaceProp,
+                ads:longitudeProp,
+                ads:latitudeProp;
+.
 
+ads:containedInPlaceProp
+    sh:path schema:containedInPlace ;
+    sh:minCount 0 ;
+.
+
+ads:longitudeProp
+    sh:path schema:longitude ;
+     sh:minCount 0 ;
+.
+
+ads:latitudeProp
+    sh:path schema:latitude ;
+    sh:minCount 0 ;
+.
 
 ads:addressProp
     sh:path schema:address ;
     sh:minCount 1 ;
-    sh:node ads:PostalAddressNode .
+    sh:node ads:PostalAddressNode ;
+.
   
 
 
@@ -153,7 +174,6 @@ ads:nameProp
 ads:urlProp
     sh:path schema:url ;
     sh:nodeKind sh:IRI ;
-   # sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:pattern "^http" ;
     sh:not (
@@ -199,12 +219,14 @@ ads:OrganizationNode
 ################
 ads:PostalAddressNode
     sh:targetClass schema:PostalAddress ;
-   # sh:closed true ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
     sh:property ads:streetAddressProp, 
                 ads:addressCountryProp, 
                 ads:addressRegionProp, 
                 ads:postalCodeProp, 
-                ads:addressLocalityProp .
+                ads:addressLocalityProp ;
+.
     
 ads:streetAddressProp
     sh:path schema:streetAddress ;
@@ -217,7 +239,6 @@ ads:streetAddressProp
 
 ads:addressCountryProp
     sh:path schema:addressCountry ;
-    sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:uniqueLang true ;
     sh:or ( 
@@ -227,7 +248,6 @@ ads:addressCountryProp
 
  ads:addressRegionProp
     sh:path schema:addressRegion ;
-    sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:uniqueLang true ;
     sh:or ( 
@@ -243,7 +263,6 @@ ads:postalCodeProp
 
 ads:addressLocalityProp
     sh:path schema:addressLocality ;
-    sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:uniqueLang true ;
     sh:or ( 

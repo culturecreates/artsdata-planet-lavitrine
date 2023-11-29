@@ -1,14 +1,9 @@
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "@base": "http://schema.org/",
-    "id": {
-      "@id": "@id"
-    },
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wdt": "http://www.wikidata.org/prop/direct/",
-    "schema":"http://schema.org/",
     "facebook": {
       "@id": "wdt:P2013"
     },
@@ -114,33 +109,70 @@
   },
   "@type": "EventSeries",
   "@explicit": true,
+  "@embed": "@always",
   "additionalType": {},
   "description": {},
   "image": {},
-  "location": {},
+  "location": {
+    "@type":["Place","VirtualLocation"],
+    "@explicit": true,
+    "@omitDefault": true,
+    "name": {},
+    "sameAs":{
+      "@embed": "@never"
+    },
+    "address": {
+      "type": "PostalAddress",
+      "@explicit": true,
+      "addressCountry": {},
+      "addressLocality": {},
+      "addressRegion": {},
+      "postalCode": {},
+      "streetAddress": {}
+    },
+    "latitude":{},
+    "longitude":{},
+    "containedInPlace": {
+      "@type":"Place",
+      "@explicit": true,
+      "name": {},
+      "address": {
+        "type": "PostalAddress",
+        "@explicit": true,
+        "addressCountry": {},
+        "addressLocality": {},
+        "addressRegion": {},
+        "postalCode": {},
+        "streetAddress": {}
+      }
+    }
+  },
   "name": {},
   "performer": {
     "@type": ["Person","Organization"],
     "@omitDefault": true,
     "@explicit": true,
+    "@embed": "@always",
     "name": {},
-    "sameAs": {},
-    "url":{},
-    "facebook":{}
+    "sameAs": {  "@embed": "@never", "@omitDefault": true},
+    "url":{ "@omitDefault": true},
+    "facebook":{ "@omitDefault": true}
   },
   "organizer": {
     "@type": ["Person","Organization"],
     "@omitDefault": true,
     "@explicit": true,
+    "@embed": "@always",
     "name": {},
-    "sameAs": {},
-    "url":{},
-    "facebook":{}
+    "sameAs": { "@embed": "@never", "@omitDefault": true},
+    "url":{ "@omitDefault": true},
+    "facebook":{ "@omitDefault": true}
   },
   "url": {},
   "representation": {
     "@type": "Event",
     "@explicit": true,
+    "@omitDefault": true,
     "name": {},
     "startDate": {},
     "endDate": {},
@@ -148,11 +180,13 @@
     "eventAttendanceMode": {},
     "offers": {
       "@type": ["Offer","AggregateOffer"],
-      "availability": {},
-      "price": {},
-      "priceCurrency": {},
-      "url": {},
-      "additionalType": {}
+      "@explicit": true,
+      "@omitDefault": true,
+      "availability": {"@omitDefault": true},
+      "price": {"@omitDefault": true},
+      "priceCurrency": {"@omitDefault": true},
+      "url": {"@omitDefault": true},
+      "additionalType": {"@omitDefault": true}
     }
   }
 }

@@ -9,7 +9,7 @@ require 'linkeddata'
 require 'json/ld'
 
 class ArtsdataPipeline
-  attr_accessor :sparql_client, :graph, :framed_graph, :report, :adid
+  attr_accessor :sparql_client, :graph, :framed_json, :report, :adid
   def initialize
     @sparql_client = SPARQL::Client.new("http://db.artsdata.ca/repositories/artsdata")
     @graph = RDF::Graph.new
@@ -67,12 +67,12 @@ class ArtsdataPipeline
   def frame(frame)
     frame = JSON.parse(File.read(frame))
     input = JSON.parse(@graph.dump(:jsonld))
-    @framed_graph = JSON::LD::API.frame(input, frame)
+    @framed_json = JSON::LD::API.frame(input, frame)
   end
 
   def dump(file)
-    if @framed_graph
-      File.write(file, @framed_graph.to_json)
+    if @framed_json
+      File.write(file, @framed_json.to_json)
     elsif @graph
       File.write(file, @graph.dump(:jsonld))
     end
@@ -80,7 +80,12 @@ class ArtsdataPipeline
 
   def validate(shacl)
     shacl = SHACL.open(shacl)
-    @report = shacl.execute(@graph)  
+    if @framed_json
+      puts "Validating framed JSON-LD..."
+      @report = shacl.execute(RDF::Graph.new.from_jsonld(@framed_json.to_json))
+    elsif @graph
+      @report = shacl.execute(@graph)  
+    end
     puts "Conforms: #{@report.conform?}"
   end
 
