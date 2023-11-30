@@ -2,25 +2,13 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "Tools to trace data pipeline\n=======\n\nThis SPARQL lists top level events in Artsdata.",
+    "value": "Tools to trace data pipeline\n=======\n\nThis SPARQL counts top level events that are exported from Artsdata to La Vitrine.",
     "metadata": {}
   },
   {
     "kind": 2,
     "language": "sparql",
-    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nPREFIX schema: <http://schema.org/>\n\n#select ?name ?id  (count(?subEvent) as ?subEvents) ?date \nselect (count(?id) as ?count )\nwhere {\n ?id a schema:Event .\n  # graph <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca> {\n graph <http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com> {\n   ?id  schema:name ?name ; schema:startDate ?date ; a ?type .\n    filter(not exists {\n        ?superEvent schema:subEvent ?id\n        })\n  #  OPTIONAL {\n  #   ?id schema:subEvent ?subEvent .\n  #  }\n   \n  }\n  \n} #group by ?name ?id ?date  order by  ?date  ",
-    "metadata": {}
-  },
-  {
-    "kind": 1,
-    "language": "markdown",
-    "value": "Events in the latest data dump exported from Artsdata",
-    "metadata": {}
-  },
-  {
-    "kind": 2,
-    "language": "sparql",
-    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nPREFIX schema: <http://schema.org/>  \n\nselect * where {\n  graph <http://kg.artsdata.ca/culture-creates/artsdata-planet-lavitrine/grandtheatre-qc-ca> {\n   ?id a <http://kg.artsdata.ca/ontology/EventForIndex> .\n   ?id  schema:name ?name ; schema:startDate ?date  .\n   \n  }\n  \n} \norder by  ?date  \nlimit 5",
+    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nPREFIX schema: <http://schema.org/>\n\nselect (count(?id) as ?count )\n\nwhere {\n ?id a schema:Event .\n   values ?catalog {\n    <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca>\n    <http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com>\n    <http://kg.artsdata.ca/resource/dia-logGraphs>\n    <http://kg.artsdata.ca/culture-creates/footlight/hector-charland-com>\n    <http://kg.artsdata.ca/culture-creates/footlight/theatredumarais-com>\n   }\n   ?catalog schema:hasPart ?graph .\n  graph ?graph {\n    ?id a ?type ;\n      schema:name ?name ; \n      schema:startDate ?startDate .\n    OPTIONAL {\n      ?id schema:endDate ?endDate .\n    }\n    filter(not exists {\n        ?id schema:subEvent ?superEvent .\n    })\n  }\n   filter(?startDate >= now() || ?endDate >= now())\n  \n}  ",
     "metadata": {}
   },
   {
@@ -32,7 +20,7 @@
   {
     "kind": 2,
     "language": "sparql",
-    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nselect * where {\n   graph <http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca> {\n <https://grandtheatre.qc.ca/programmation/osq-clemens-schuldt-entre-en-scene/osq-clemens-schuldt-entre-en-scene-2023-09-21-00-00>\n  ?p ?o .\n  }\n \n}",
+    "value": "# [endpoint=http://kg.artsdata.ca/query]\n\nselect * where {\n <https://grandtheatre.qc.ca/programmation/osq-clemens-schuldt-entre-en-scene/osq-clemens-schuldt-entre-en-scene-2023-09-21-00-00>\n  ?p ?o .\n}",
     "metadata": {}
   }
 ]
