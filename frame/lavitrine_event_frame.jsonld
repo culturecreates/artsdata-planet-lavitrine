@@ -188,6 +188,7 @@
     "offers": {
       "@type": ["Offer","AggregateOffer"],
       "@explicit": true,
+      "@embed": "@always",
       "@omitDefault": true,
       "availability": {"@omitDefault": true},
       "price": {"@omitDefault": true},
