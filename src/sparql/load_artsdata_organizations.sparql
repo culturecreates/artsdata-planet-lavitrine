@@ -1,0 +1,28 @@
+PREFIX schema: <http://schema.org/>
+construct {
+    ?uri ?p  ?o .
+    ?o ?op ?oo .
+    ?oo ?oop ?ooo .
+    ?ooo ?ooop ?oooo .
+    
+}
+from <http://kg.artsdata.ca/minted/K5>
+where {
+
+      ?uri a schema:Organization .
+      ?uri ?p  ?o .
+      OPTIONAL {
+          ?o ?op ?oo .
+      }
+      OPTIONAL {
+          ?o ?op ?oo .
+          ?oo ?oop ?ooo .
+      }
+    #  OPTIONAL {
+    #      ?o ?op ?oo .
+    #      ?oo ?oop ?ooo .
+    #      ?ooo ?ooop ?oooo .
+    #      filter(!isBlank(?oooo))
+    #  }
+ 
+}

@@ -12,6 +12,10 @@ construct {
     ?type skos:prefLabel ?prefLabel .
     ?type skos:closeMatch ?closeMatch .
     ?closeMatch skos:prefLabel ?closePrefLabel .   
+    ?event schema:location ?location .
+    ?location schema:address ?address .
+    ?address ?address_p ?addres_o .
+        
 }
 where {
     {
@@ -59,7 +63,13 @@ where {
             
         }
     }
-  
+    OPTIONAL {
+        ?event schema:location ?location .
+        graph ?location_graph {
+            ?location schema:address ?address .
+            ?address ?address_p ?addres_o .
+        }
+    }
     OPTIONAL {
         ?event schema:additionalType ?type .
         graph <http://db.artsdata.ca/repositories/artsdata/rdf-graphs/grandtheatre-qc-ca-event-type-mapping> {

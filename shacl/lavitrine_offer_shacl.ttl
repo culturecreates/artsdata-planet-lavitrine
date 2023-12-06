@@ -1,0 +1,90 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ads: <http://kg.artsdata.ca/shacl/> .
+
+################
+# Lavitrine Offer
+################
+
+ads:AggregateOfferNode
+    sh:targetClass schema:AggregateOffer ;
+    sh:property ads:additionalTypeProp ,
+                ads:lowPriceProp ,
+                ads:highPriceProp ,
+                ads:nestedOffersProp ,
+                ads:availabilityProp ,
+                ads:priceProp ,
+                ads:priceCurrencyProp ,
+                ads:offerUrlProp ,
+                ads:offerNameProp ,
+                ads:validFromProp ,
+                ads:validThroughProp ;
+                
+    .
+    
+ads:OfferNode
+    sh:targetClass schema:Offer ;
+    sh:property ads:additionalTypeProp ,
+                ads:availabilityProp ,
+                ads:priceProp ,
+                ads:priceCurrencyProp ,
+                ads:offerUrlProp ,
+                ads:offerNameProp ,
+                ads:validFromProp ,
+                ads:validThroughProp ;
+    .
+
+ads:nestedOffersProp
+    sh:path schema:offers ;
+    sh:minCount 0 ;
+    sh:node ads:OfferNode ;
+.
+
+ads:additionalTypeProp
+    sh:path schema:additionalType ;
+    .
+
+ads:lowPriceProp
+    sh:path schema:lowPrice ;
+    .
+
+ads:highPriceProp
+    sh:path schema:highPrice ;
+    .
+ads:availabilityProp
+    sh:path schema:availability ;
+    .
+ads:priceProp
+    sh:path schema:price ;
+    .
+ads:priceCurrencyProp
+    sh:path schema:priceCurrency ;
+    .
+ads:offerUrlProp
+    sh:path schema:url ;
+    .
+
+ads:offerNameProp
+    sh:path schema:name ;
+    .
+
+ads:validFromProp
+    sh:path schema:validFrom ;
+    sh:minCount 0 ;
+     sh:or (
+        [ sh:datatype xsd:dateTime ; ]
+        [ sh:datatype xsd:date ; ]
+    ) ;
+    .
+
+ads:validThroughProp
+    sh:path schema:validThrough ;
+     sh:or (
+        [ sh:datatype xsd:dateTime ; ]
+        [ sh:datatype xsd:date ; ]
+    ) ;
+    .

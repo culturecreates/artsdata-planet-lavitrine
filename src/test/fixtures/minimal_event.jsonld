@@ -156,7 +156,7 @@
             "availability": "InStock",
             "price": "0.00",
             "priceCurrency": "CAD",
-            "url": null,
+            "url": "http://ticketlink.com",
             "additionalType": null
           }
         }

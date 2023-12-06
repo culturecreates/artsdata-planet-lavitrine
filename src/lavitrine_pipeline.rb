@@ -29,7 +29,7 @@ def LavitrinePipeline(graph:)
   pipeline.dump("../output/#{graph.split("/").last}.json")
 
   puts "Validating shapes... #{graph.split("/").last}"
-  pipeline.validate("../shacl/lavitrine_event_shacl.ttl")
+  pipeline.validate("../shacl/lavitrine_event_shacl.ttl","../shacl/lavitrine_offer_shacl.ttl")
   pipeline.report("../output/#{graph.split("/").last}.yml")
 end
 

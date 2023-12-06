@@ -5,8 +5,10 @@ require 'shacl'
 
 class ShaclTest < Minitest::Test
   def setup
-    @shacl_file = "../../shacl/lavitrine_shacl.ttl"
-    @shacl = SHACL.open(@shacl_file)
+    shapes_graph = RDF::Graph.load('../../shacl/lavitrine_event_shacl.ttl')
+    shapes_graph << RDF::Graph.load('../../shacl/lavitrine_offer_shacl.ttl')
+    @shacl = SHACL.get_shapes(shapes_graph)
+
   end
 
   def test_full_event_should_pass

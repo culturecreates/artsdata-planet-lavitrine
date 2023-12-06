@@ -151,22 +151,10 @@
             "none": "269 Boulevard René-Lévesque E"
           }
         },
-        "description": {
-          "none": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
-        },
-        "geo": {
-          "type": "GeoCoordinates",
-          "latitude": "46.806228",
-          "longitude": "-71.221983"
-        },
-        "logo": {
-          "type": "ImageObject",
-          "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
-        },
+        
         "name": {
           "none": "Grand Théatre de Québec"
-        },
-        "url": "https://www.grandtheatre.qc.ca/"
+        }
       },
       "description": {
         "none": "En plus de vous initier aux répertoires classique et contemporain, ces minirécitals permettent aux élèves du Conservatoire de musique de Québec de faire valoir leur talent en public.Pas besoin de réserver : présentez-vous directement au Grand Théâtre le jour du récital!"
@@ -197,7 +185,7 @@
             "telephone": "+14186438131"
           },
           "description": {
-            "none": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
+            "fr": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
           },
           "logo": {
             "type": "ImageObject",
@@ -236,7 +224,7 @@
             "availability": "InStock",
             "price": "0.00",
             "priceCurrency": "CAD",
-            "url": null,
+            "url": "http://buyticket.com",
             "additionalType": null
           }
         }

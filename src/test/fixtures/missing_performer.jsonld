@@ -148,7 +148,7 @@
             "availability": "InStock",
             "price": "0.00",
             "priceCurrency": "CAD",
-            "url": null,
+            "url": "http://buyticket.com",
             "additionalType": null
           }
         }

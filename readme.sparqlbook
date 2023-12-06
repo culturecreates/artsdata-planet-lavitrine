@@ -2,7 +2,7 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "Tools to trace data pipeline\n=======\n\nThis SPARQL counts top level events that are exported from Artsdata to La Vitrine.",
+    "value": "SPARQL Notebook\n=======\n\nCount events that are exported from Artsdata to La Vitrine.",
     "metadata": {}
   },
   {
@@ -14,7 +14,7 @@
   {
     "kind": 1,
     "language": "markdown",
-    "value": "Tracing missing data\n================\n\nSome steps to trace issues.\n\nLoad Source Webpage data\n-----------------\nStart by looking at the source\n   Use this linter http://linter.structured-data.org/ with the event webpage url passed as `&url=`\n\nExample webpage: \n[OSQ - Clemens Schuldt entre en scène](http://linter.structured-data.org/?url=https://grandtheatre.qc.ca/programmation/osq-clemens-schuldt-entre-en-scene/)\n\nThen check the URI in Artsdata with this SPARQL",
+    "value": "How to trace missing data\n================\n\nTo trace an individual event:\n\n1. Load Source Webpage data\n\n   Start by looking at the source webpage for the event.\n   \n   Use this linter http://linter.structured-data.org/. You can copy/paste the url or pass the url using `&url=. \n   \n   Here is an example linted webpage from Grand Theatre website for the event: \n   [OSQ - Clemens Schuldt entre en scène](http://linter.structured-data.org/?url=https://grandtheatre.qc.ca/programmation/osq-clemens-schuldt-entre-en-scene/)\n\n2. Check the URI in Artsdata with this SPARQL",
     "metadata": {}
   },
   {

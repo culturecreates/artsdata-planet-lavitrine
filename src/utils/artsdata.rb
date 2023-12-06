@@ -78,8 +78,12 @@ class ArtsdataPipeline
     end
   end
 
-  def validate(shacl)
-    shacl = SHACL.open(shacl)
+  def validate(*args)
+    shapes_graph = RDF::Graph.new
+    args.each do |filename|
+      shapes_graph << RDF::Graph.load(filename)
+    end
+    shacl = SHACL.get_shapes(shapes_graph)
     if @framed_json
       puts "Validating framed JSON-LD..."
       @report = shacl.execute(RDF::Graph.new.from_jsonld(@framed_json.to_json))

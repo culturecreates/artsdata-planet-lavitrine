@@ -10,11 +10,10 @@
 ####################################################
 # Lavitrine Events SHACL v1
 #
-# Main difference with Artsdsata is that single 
-# Events are EventSeries with single subEvent.
+# Main difference with Artsdsata:
+# - Single Events are transformed into EventSeries with single subEvent.
 ####################################################
 
-# EventSeries mapped to Spectacles
 ads:EventSeriesNode
     sh:targetClass schema:EventSeries ;
     sh:property ads:descriptionProp,
@@ -23,11 +22,12 @@ ads:EventSeriesNode
                 ads:performerProp, 
                 ads:organizerProp, 
                 ads:urlProp, 
-                ads:subEventProp .
+                ads:subEventProp ;
+    .
 
 ads:descriptionProp
     sh:path schema:description ;
-    sh:uniqueLang true ;
+   # sh:uniqueLang true ;
     sh:minCount 1  .
 
 ads:locationProp
@@ -50,7 +50,8 @@ ads:organizerProp
     sh:or (
         [ sh:node ads:PersonNode ; ]
         [ sh:node ads:OrganizationNode ; ]
-    ) .
+    ) ;
+.
 
 ads:subEventProp
     sh:path schema:subEvent ;
@@ -59,13 +60,14 @@ ads:subEventProp
 
 
 ################
-# Events mapped to Representations
+# Events
 ################
 
 ads:EventNode
     sh:targetClass  schema:Event ;
     sh:property ads:nameProp, 
                 ads:startDateProp,
+                ads:endDateProp,
                 ads:offersProp,
                 ads:eventStatusProp ,
                 ads:eventAttendanceModeProp .
@@ -79,10 +81,23 @@ ads:startDateProp
     sh:maxCount 1 ;
     sh:minCount 1 .
 
+ads:endDateProp
+    sh:path schema:endDate ;
+    sh:or (
+        [ sh:datatype xsd:dateTime ; ]
+        [ sh:datatype xsd:date ; ]
+    ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 .
+
 ads:offersProp
     sh:path schema:offers ;
-    sh:node sh:OfferNode ;
-    sh:minCount 0 .
+    sh:minCount 1 ;
+    sh:or (
+        [ sh:node ads:OfferNode ; ]
+        [ sh:node ads:AggregateOfferNode ; ]
+    ) ;
+    .
 
 ads:eventStatusProp
     sh:path schema:eventStatus ;
@@ -100,16 +115,15 @@ ads:eventAttendanceModeProp
                 schema:OfflineEventAttendanceMode 
                 schema:HybridEventAttendanceMode ) .
 
-# Nested 
+# See  lavitrine_offer_shacl.ttl
 ads:OfferNode
-    sh:targetClass schema:Offer ;
-    sh:property ads:validFromProp .
+    sh:targetClass schema:Offer 
+.
 
-ads:validFromProp
-    sh:path schema:validFrom ;
-    sh:minCount 0 ;
-    sh:datatype xsd:dateTime  .
-
+# See  lavitrine_offer_shacl.ttl
+ads:AggregateOfferNode
+    sh:targetClass schema:AggregateOffer 
+.
 
 ################
 # Place 
@@ -123,7 +137,7 @@ ads:PlaceNode
                 ads:addressProp,
                 ads:containedInPlaceProp,
                 ads:longitudeProp,
-                ads:latitudeProp;
+                ads:latitudeProp ;
 .
 
 ads:containedInPlaceProp

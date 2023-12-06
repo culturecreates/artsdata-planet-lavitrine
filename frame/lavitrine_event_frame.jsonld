@@ -26,10 +26,10 @@
     "description": {
       "@container": "@language"
     },
-    "disambiguatingDescription" :{
+    "disambiguatingDescription": {
       "@container": "@language"
     },
-    "definition" :{
+    "definition": {
       "@id": "skos:definition",
       "@container": "@language"
     },
@@ -87,7 +87,7 @@
     },
     "EventScheduled": {
       "@id": "EventScheduled",
-       "@type": "EventStatusType"
+      "@type": "EventStatusType"
     },
     "representation": {
       "@id": "subEvent",
@@ -111,21 +111,42 @@
   "@explicit": true,
   "@embed": "@always",
   "additionalType": {
-    "@type":"skos:Concept",
+    "@type": "skos:Concept",
     "@explicit": true,
     "@omitDefault": true,
-    "prefLabel":{},
-    "skos:exactMatch": {},
-    "skos:broader":{}
+    "prefLabel": {},
+    "skos:exactMatch": {
+      "@type": "skos:Concept",
+      "@explicit": true,
+      "@omitDefault": true,
+      "prefLabel": {}
+    },
+    "skos:broader": {
+      "@type": "skos:Concept",
+      "@explicit": true,
+      "@omitDefault": true,
+      "prefLabel": {},
+      "skos:exactMatch": {
+        "@embed": "@never",
+        "@omitDefault": true
+      },
+      "skos:broader": {
+        "@embed": "@never",
+        "@omitDefault": true
+      }
+    }
   },
   "description": {},
   "image": {},
   "location": {
-    "@type":["Place","VirtualLocation"],
+    "@type": [
+      "Place",
+      "VirtualLocation"
+    ],
     "@explicit": true,
     "@omitDefault": true,
     "name": {},
-    "sameAs":{
+    "sameAs": {
       "@embed": "@never"
     },
     "address": {
@@ -137,10 +158,10 @@
       "postalCode": {},
       "streetAddress": {}
     },
-    "latitude":{},
-    "longitude":{},
+    "latitude": {},
+    "longitude": {},
     "containedInPlace": {
-      "@type":"Place",
+      "@type": "Place",
       "@explicit": true,
       "name": {},
       "address": {
@@ -156,24 +177,38 @@
   },
   "name": {},
   "performer": {
-    "@type": ["Person","Organization"],
+    "@type": [
+      "Person",
+      "Organization"
+    ],
     "@omitDefault": true,
     "@explicit": true,
     "@embed": "@always",
     "name": {},
-    "sameAs": {  "@embed": "@never", "@omitDefault": true},
-    "url":{ "@omitDefault": true},
-    "facebook":{ "@omitDefault": true}
+    "sameAs": {
+      "@embed": "@never",
+      "@omitDefault": true
+    },
+    "url": {
+      "@omitDefault": true
+    }
   },
   "organizer": {
-    "@type": ["Person","Organization"],
+    "@type": [
+      "Person",
+      "Organization"
+    ],
     "@omitDefault": true,
     "@explicit": true,
     "@embed": "@always",
     "name": {},
-    "sameAs": { "@embed": "@never", "@omitDefault": true},
-    "url":{ "@omitDefault": true},
-    "facebook":{ "@omitDefault": true}
+    "sameAs": {
+      "@embed": "@never",
+      "@omitDefault": true
+    },
+    "url": {
+      "@omitDefault": true
+    }
   },
   "url": {},
   "representation": {
@@ -186,15 +221,67 @@
     "eventStatus": {},
     "eventAttendanceMode": {},
     "offers": {
-      "@type": ["Offer","AggregateOffer"],
+      "@type": [
+        "AggregateOffer",
+        "Offer"
+      ],
       "@explicit": true,
       "@embed": "@always",
       "@omitDefault": true,
-      "availability": {"@omitDefault": true},
-      "price": {"@omitDefault": true},
-      "priceCurrency": {"@omitDefault": true},
-      "url": {"@omitDefault": true},
-      "additionalType": {"@omitDefault": true}
+      "availability": {
+        "@omitDefault": true
+      },
+      "price": {
+        "@omitDefault": true
+      },
+      "priceCurrency": {
+        "@omitDefault": true
+      },
+      "url": {},
+      "lowPrice": {
+        "@omitDefault": true
+      },
+      "highPrice": {
+        "@omitDefault": true
+      },
+      "additionalType": {
+        "@omitDefault": true
+      },
+      "name": [{
+        "@omitDefault": true 
+      }],
+      "validFrom": {
+        "@omitDefault": true
+      },
+      "validThrough": {
+        "@omitDefault": true
+      },
+      "offers": {
+        "@type": "Offer",
+        "@omitDefault": true,
+        "availability": {
+          "@omitDefault": true
+        },
+        "price": {
+          "@omitDefault": true
+        },
+        "priceCurrency": {
+          "@omitDefault": true
+        },
+        "url": {
+          "@omitDefault": true
+        },
+        "additionalType": {
+          "@omitDefault": true
+        },
+        "name": {},
+        "validFrom": {
+          "@omitDefault": true
+        },
+        "validThrough": {
+          "@omitDefault": true
+        }
+      }
     }
   }
 }
