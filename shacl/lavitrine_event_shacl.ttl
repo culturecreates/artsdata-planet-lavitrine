@@ -93,6 +93,7 @@ ads:endDateProp
 ads:offersProp
     sh:path schema:offers ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
     sh:or (
         [ sh:node ads:OfferNode ; ]
         [ sh:node ads:AggregateOfferNode ; ]

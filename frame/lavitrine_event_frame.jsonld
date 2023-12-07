@@ -247,9 +247,11 @@
       "additionalType": {
         "@omitDefault": true
       },
-      "name": [{
-        "@omitDefault": true 
-      }],
+      "name": [
+        {
+          "@omitDefault": true
+        }
+      ],
       "validFrom": {
         "@omitDefault": true
       },
@@ -257,12 +259,23 @@
         "@omitDefault": true
       },
       "offers": {
-        "@type": "Offer",
+        "@type": [
+          "AggregateOffer",
+          "Offer"
+        ],
         "@omitDefault": true,
+        "@explicit": true,
+        "@embed": "@always",
         "availability": {
           "@omitDefault": true
         },
         "price": {
+          "@omitDefault": true
+        },
+        "lowPrice": {
+          "@omitDefault": true
+        },
+        "highPrice": {
           "@omitDefault": true
         },
         "priceCurrency": {
@@ -274,7 +287,11 @@
         "additionalType": {
           "@omitDefault": true
         },
-        "name": {},
+        "name": [
+          {
+            "@omitDefault": true
+          }
+        ],
         "validFrom": {
           "@omitDefault": true
         },

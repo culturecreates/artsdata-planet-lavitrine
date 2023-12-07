@@ -38,4 +38,13 @@ class ShaclTest < Minitest::Test
     # puts report
     assert report.conform?
   end
+
+  def test_two_offers_fails
+    graph = RDF::Graph.load("./fixtures/two_offers.jsonld")
+    report =  @shacl.execute(graph)  
+    # puts report
+    assert !report.conform?
+  end
+
+
 end
