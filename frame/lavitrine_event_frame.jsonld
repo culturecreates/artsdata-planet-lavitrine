@@ -121,6 +121,12 @@
       "@omitDefault": true,
       "prefLabel": {}
     },
+    "skos:closeMatch": {
+      "@type": "skos:Concept",
+      "@explicit": true,
+      "@omitDefault": true,
+      "prefLabel": {}
+    },
     "skos:broader": {
       "@type": "skos:Concept",
       "@explicit": true,
@@ -217,7 +223,9 @@
     "@omitDefault": true,
     "name": {},
     "startDate": {},
-    "endDate": {},
+    "endDate": {
+      "@omitDefault": true
+    },
     "eventStatus": {},
     "eventAttendanceMode": {},
     "offers": {

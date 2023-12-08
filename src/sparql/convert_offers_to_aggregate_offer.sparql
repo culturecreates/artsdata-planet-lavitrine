@@ -1,0 +1,45 @@
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+delete {
+ 
+  ?e schema:offers ?offer  .
+ 
+}
+insert {
+  
+  ?e schema:offers ?wrapperURI .
+    ?wrapperURI  a schema:AggregateOffer ;
+    schema:url ?url ;
+    schema:lowPrice ?lowPrice ;
+    schema:highPrice ?highPrice ;
+    schema:offers ?offer  .
+  }
+  
+where {
+    {
+        # list of events with more than 1 offer
+        select ?e (min(?price_decimal) as ?lowPrice) (max(?price_decimal) as ?highPrice) 
+        where {
+            ?e a schema:Event;
+               schema:offers ?offer .
+               OPTIONAL {
+                ?offer schema:price ?price .
+                bind(STRDT(str(?price),xsd:decimal) as ?price_decimal)
+               }
+          
+        } group by ?e having(count(?offer) > 1) 
+    }
+    ?e a schema:Event ; 
+      schema:offers ?offer .
+      OPTIONAL {
+        ?offer schema:url ?url .
+      
+      }
+      OPTIONAL {
+        ?offer  schema:price ?price .
+      }
+
+      
+    bind(URI(concat(str(?e),"#WrappedOffer")) as ?wrapperURI )
+} 

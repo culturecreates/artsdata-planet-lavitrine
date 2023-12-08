@@ -153,12 +153,13 @@
           "offers": [
             {
               "type": "Offer",
-              "url": "http://ticketlink1.com"
+              "url": "http://ticketlink1.com",
+              "price": "20.5"
             },
             {
               "type": "Offer",
-              "url": "http://ticketlink2com"
-            }
+              "url": "http://ticketlink2com",
+              "price": "35 USD"            }
           ]
         }
       ],

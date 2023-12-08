@@ -10,8 +10,10 @@ construct {
     ?ooo ?ooop ?oooo .
     ?event schema:additionalType ?type .
     ?type skos:prefLabel ?prefLabel .
+    ?type a skos:Concept .
     ?type skos:closeMatch ?closeMatch .
     ?closeMatch skos:prefLabel ?closePrefLabel .   
+    ?closeMatch a skos:Concept .
     ?event schema:location ?location .
     ?location schema:address ?address .
     ?address ?address_p ?addres_o .
