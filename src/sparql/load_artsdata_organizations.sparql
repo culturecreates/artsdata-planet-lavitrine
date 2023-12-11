@@ -3,7 +3,6 @@ construct {
     ?uri ?p  ?o .
     ?o ?op ?oo .
     ?oo ?oop ?ooo .
-    ?ooo ?ooop ?oooo .
     
 }
 from <http://kg.artsdata.ca/minted/K5>
@@ -18,11 +17,5 @@ where {
           ?o ?op ?oo .
           ?oo ?oop ?ooo .
       }
-    #  OPTIONAL {
-    #      ?o ?op ?oo .
-    #      ?oo ?oop ?ooo .
-    #      ?ooo ?ooop ?oooo .
-    #      filter(!isBlank(?oooo))
-    #  }
  
-}
+} limit 10 offset 0

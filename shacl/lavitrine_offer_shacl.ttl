@@ -7,7 +7,7 @@
 @prefix ads: <http://kg.artsdata.ca/shacl/> .
 
 ################
-# Lavitrine Offer
+# Lavitrine Offers
 ################
 
 ads:AggregateOfferNode
@@ -50,26 +50,42 @@ ads:nestedOffersProp
 
 ads:additionalTypeProp
     sh:path schema:additionalType ;
+    sh:in  (  adr:OfferRequiresRegistration );
+    sh:description "An Offer that requires registration **MUST** have schema:additionalType set to 'http://kg.artsdata.ca/resource/OfferRequiresRegistration'"
     .
 
 ads:lowPriceProp
     sh:path schema:lowPrice ;
+    sh:minCount 1 ;
     .
 
 ads:highPriceProp
     sh:path schema:highPrice ;
+    sh:minCount 1 ;
     .
+
 ads:availabilityProp
     sh:path schema:availability ;
+     sh:in  (   schema:InStock
+                schema:SoldOut
+                schema:PreSale
+                schema:LimitedAvailability
+                schema:Discontinued            );
     .
+
 ads:priceProp
     sh:path schema:price ;
+    sh:description "A free event MUST have price: 0 in the Offer directly connected to the event (not the nested offers). When there are multiple offers with different prices, the AggregateOffer price **MUST** be null (but not 0), and the lowPrice and highPrice **MUST** be filled in."
     .
+
 ads:priceCurrencyProp
     sh:path schema:priceCurrency ;
     .
+
 ads:offerUrlProp
     sh:path schema:url ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
     .
 
 ads:offerNameProp

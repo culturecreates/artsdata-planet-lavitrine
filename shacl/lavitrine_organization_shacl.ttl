@@ -15,7 +15,9 @@ ads:OrganizationNode
     sh:property ads:nameProp ,
                 ads:urlProp ,
                 ads:sameAsProp ,
-                ads:addressProp ;
+                ads:addressProp ,
+                ads:NEQProp ,
+                ads:CanadianBusinessNumberProp ;
 .
 
 
@@ -50,6 +52,23 @@ ads:addressProp
     sh:minCount 1 ;
     sh:node ads:PostalAddressNode ;
 .
+
+ads:NEQProp
+    sh:path  wdt:P10503 ;
+    sh:pattern "^\\d{10}$" ;
+    sh:minCount 0 ;
+    sh:not [
+		  sh:hasValue "0000000000"  
+	] .
+
+ads:CanadianBusinessNumberProp
+    sh:path  wdt:P8860 ;
+    sh:pattern "^\\d{9}$" ;
+    sh:minCount 0 ;
+    sh:not [
+		  sh:hasValue "000000000"  
+	] .
+
 
 ################
 # PostalAddress Shape 

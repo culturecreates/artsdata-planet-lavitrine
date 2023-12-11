@@ -1,0 +1,59 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wdt": "http://www.wikidata.org/prop/direct/",
+    "name": {
+      "@container": "@language"
+    },
+    "alternateName": {
+      "@container": "@language"
+    },
+    "description": {
+      "@container": "@language"
+    },
+    "disambiguatingDescription": {
+      "@container": "@language"
+    },
+    "type": {
+      "@id": "@type"
+    },
+    "sameAs": {
+      "@id": "sameAs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "url": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "addressCountry": {
+      "@container": "@language"
+    },
+    "addressRegion": {
+      "@container": "@language"
+    },
+    "addressLocality": {
+      "@container": "@language"
+    },
+    "streetAddress": {
+      "@container": "@language"
+    }
+  },
+  "@type": "Organization",
+  "@explicit": true,
+  "@embed": "@always",
+  "@omitDefault": true,
+  "name": {},
+  "disambiguatingDescription":[{"@omitDefault": true}],
+  "image": {"@omitDefault": true},
+  "sameAs": {},
+  "address": {"@omitDefault": true},
+  "location": {"@omitDefault": true},
+  "url": {}
+}
