@@ -27,7 +27,7 @@ ads:EventSeriesNode
 
 ads:descriptionProp
     sh:path schema:description ;
-   # sh:uniqueLang true ;
+    sh:uniqueLang true ;
     sh:minCount 1  .
 
 ads:locationProp
@@ -94,11 +94,15 @@ ads:offersProp
     sh:path schema:offers ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-    sh:or (
-        [ sh:node ads:OfferNode ; ]
-        [ sh:node ads:AggregateOfferNode ; ]
-    ) ;
+
+   sh:or (
+       [ sh:node ads:AggregateOfferNode ; ]
+       [ sh:node ads:OfferNode ; ]
+   ) ;
     .
+
+
+
 
 ads:eventStatusProp
     sh:path schema:eventStatus ;
@@ -114,17 +118,10 @@ ads:eventAttendanceModeProp
     sh:minCount 0 ;
     sh:in  (    schema:OnlineEventAttendanceMode
                 schema:OfflineEventAttendanceMode 
-                schema:HybridEventAttendanceMode ) .
+                schema:HybridEventAttendanceMode ) 
+    .
 
-# See  lavitrine_offer_shacl.ttl
-ads:OfferNode
-    sh:targetClass schema:Offer 
-.
 
-# See  lavitrine_offer_shacl.ttl
-ads:AggregateOfferNode
-    sh:targetClass schema:AggregateOffer 
-.
 
 ################
 # Place 

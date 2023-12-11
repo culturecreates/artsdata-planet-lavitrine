@@ -12,6 +12,8 @@
 
 ads:AggregateOfferNode
     sh:targetClass schema:AggregateOffer ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
     sh:property ads:additionalTypeProp ,
                 ads:lowPriceProp ,
                 ads:highPriceProp ,
@@ -28,6 +30,8 @@ ads:AggregateOfferNode
     
 ads:OfferNode
     sh:targetClass schema:Offer ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
     sh:property ads:additionalTypeProp ,
                 ads:availabilityProp ,
                 ads:priceProp ,

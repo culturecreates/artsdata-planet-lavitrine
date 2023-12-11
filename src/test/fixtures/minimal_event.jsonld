@@ -152,12 +152,8 @@
           "eventAttendanceMode": "OfflineEventAttendanceMode",
           "eventStatus": "EventScheduled",
           "offers": {
-            "type": "Offer",
-            "availability": "InStock",
-            "price": "0.00",
-            "priceCurrency": "CAD",
-            "url": "http://ticketlink.com",
-            "additionalType": null
+            "type": "AgregateOffer",
+            "url": "http://ticketlink.com"
           }
         }
       ],

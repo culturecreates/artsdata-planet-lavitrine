@@ -41,5 +41,5 @@ where {
       }
 
       
-    bind(URI(concat(str(?e),"#WrappedOffer")) as ?wrapperURI )
+    bind(URI(concat(str(?e),"_WrappedOffer")) as ?wrapperURI )
 } 
