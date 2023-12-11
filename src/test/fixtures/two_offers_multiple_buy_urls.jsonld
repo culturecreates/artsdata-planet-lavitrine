@@ -112,58 +112,33 @@
     {
       "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10",
       "type": "EventSeries",
-      "location": {
-        "type": "VirtualLocation",
-        "url": "https://www.grandtheatre.qc.ca/"
-      },
-      "description": {
-        "none": "En plus de vous initier aux répertoires classique et contemporain, ces minirécitals permettent aux élèves du Conservatoire de musique de Québec de faire valoir leur talent en public.Pas besoin de réserver : présentez-vous directement au Grand Théâtre le jour du récital!"
-      },
-      "name": {
-        "none": "Midis-musique"
-      },
-      "organizer": [
-        {
-          "type": "Person",
-          "name": {
-            "none": "John Smith"
-          }
-        }
-      ],
-      "performer": [
-        {
-          "id": "https://www.grandtheatre.qc.ca/programmation/conservatoire-de-musique-de-quebec",
-          "type": "Person",
-          "name": {
-            "none": "John Smith"
-          }
-        }
-      ],
       "url": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023/",
       "representation": [
         {
           "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent",
           "type": "Event",
           "startDateTime": "2023-10-25T16:10:00+00:00",
-          "name": {
-            "none": "Midis-musique"
-          },
-          "eventAttendanceMode": "OfflineEventAttendanceMode",
-          "eventStatus": "EventScheduled",
-          "offers": [
-            {
-              "type": "Offer",
-              "url": "http://ticketlink1.com",
-              "price": "20.5"
-            },
-            {
-              "type": "Offer",
-              "url": "http://ticketlink2.com",
-              "price": "35 USD"            }
-          ]
+          "offers": {
+            "type": "AggregateOffer",
+            "url": [
+              "http://ticketlink1.com",
+              "http://ticketlink2.com"
+            ],
+            "offers": [
+              {
+                "type": "Offer",
+                "url": "http://ticketlink1.com",
+                "price": "20.5"
+              },
+              {
+                "type": "Offer",
+                "url": "http://ticketlink2.com",
+                "price": "35 USD"
+              }
+            ]
+          }
         }
-      ],
-      "image": "https://www.grandtheatre.qc.ca/uploads/original_images/Midis_musique_-_856x1200px_-_Photo_verticale.png"
+      ]
     }
   ]
 }

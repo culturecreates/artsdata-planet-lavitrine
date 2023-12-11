@@ -5,6 +5,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ads: <http://kg.artsdata.ca/shacl/> .
+@prefix adr: <http://kg.artsdata.ca/resource/> .
 
 ################
 # Lavitrine Offers

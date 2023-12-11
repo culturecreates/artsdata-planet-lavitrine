@@ -49,8 +49,20 @@ class SparqlTest < Minitest::Test
     assert_equal 34, graph.count
   end
 
-  def test_fix_offer_url_if_multiple
+  def test_fix_aggreate_offer_url
+    sparql = "../sparql/fix_aggregate_offer_url.sparql"
+    @graph = RDF::Graph.load("./fixtures/two_offers_multiple_buy_urls.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
 
+    # puts graph.dump(:turtle)
+    query = SPARQL.parse("
+      PREFIX schema: <http://schema.org/> 
+      ASK { select ?event (count(?url) as ?count)
+      where { ?AggregateOffer a schema:AggregateOffer ; schema:url ?url . }	
+      group by ?AggregateOffer  having(count(?url) > 1) } 
+    ")
+    multiple_urls = query.execute(graph)
+    assert multiple_urls.false?
   end
 
 

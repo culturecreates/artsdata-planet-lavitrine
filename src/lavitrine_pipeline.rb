@@ -19,6 +19,7 @@ def LavitrinePipeline(graph:)
   pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_offers_to_aggregate_offer.sparql")
+  pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
   pipeline.dump("../output/transformed-#{graph.split("/").last}.json")
 
   ##### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )

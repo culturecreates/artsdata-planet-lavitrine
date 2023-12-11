@@ -1,0 +1,30 @@
+# This SPARQL ensures that AggregateOffers always have a single url, 
+# so that an event details webpage can display a single buy button.
+# Use this SPARQL after converting offers to an AggregateOffer (convert_offers_to_aggregate_offer)
+# This SPARQL checks if the AggregateOffer has more than 1 url,
+# and if it does, replaces it with the url from the EventSeries.
+
+
+PREFIX adr: <http://kg.artsdata.ca/resource/>
+PREFIX schema: <http://schema.org/>
+
+delete {
+   ?AggregateOffer schema:url ?offer_url .
+}
+insert {
+  ?AggregateOffer schema:url ?event_url_sample .
+}
+where {
+  {
+    select ?event ?subEvent ?AggregateOffer  (SAMPLE(?event_url) as ?event_url_sample) where {
+    ?event a schema:EventSeries ; 
+      schema:url ?event_url ; 
+      schema:subEvent ?subEvent .
+    ?subEvent schema:offers ?AggregateOffer .
+    ?AggregateOffer schema:url ?offer_url .
+
+    } GROUP BY ?event ?subEvent ?AggregateOffer 
+    HAVING (count(?offer_url) > 1)
+  }
+  ?AggregateOffer schema:url ?offer_url .
+} 
