@@ -91,6 +91,7 @@ ads:endDateProp
     sh:minCount 0 .
 
 ads:offersProp
+    sh:description "An Event **MUST** have a single Offer. If there are mulitple offers they must by nested in an AggregateOffer."@en ;
     sh:path schema:offers ;
     sh:minCount 1 ;
     sh:maxCount 1 ;

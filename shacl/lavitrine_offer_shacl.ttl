@@ -11,6 +11,7 @@
 ################
 
 ads:AggregateOfferNode
+    sh:description "An offer with a price range that **MAY** contain nested offers."@en ;
     sh:targetClass schema:AggregateOffer ;
     sh:closed true ;
     sh:ignoredProperties (rdf:type) ;
@@ -29,6 +30,7 @@ ads:AggregateOfferNode
     .
     
 ads:OfferNode
+    sh:description "An offer with single price and url."@en ;
     sh:targetClass schema:Offer ;
     sh:closed true ;
     sh:ignoredProperties (rdf:type) ;
@@ -51,7 +53,7 @@ ads:nestedOffersProp
 ads:additionalTypeProp
     sh:path schema:additionalType ;
     sh:in  (  adr:OfferRequiresRegistration );
-    sh:description "An Offer that requires registration **MUST** have schema:additionalType set to 'http://kg.artsdata.ca/resource/OfferRequiresRegistration'"
+    sh:description "An Offer that requires registration **MUST** have schema:additionalType set to 'http://kg.artsdata.ca/resource/OfferRequiresRegistration'"@en
     .
 
 ads:lowPriceProp
@@ -75,21 +77,29 @@ ads:availabilityProp
 
 ads:priceProp
     sh:path schema:price ;
-    sh:description "A free event MUST have price: 0 in the Offer directly connected to the event (not the nested offers). When there are multiple offers with different prices, the AggregateOffer price **MUST** be null (but not 0), and the lowPrice and highPrice **MUST** be filled in."
+    sh:description "A free event MUST have price: 0 in the Offer directly connected to the event (not the nested offers). When there are multiple offers with different prices, the AggregateOffer price **MUST** be null (but not 0), and the lowPrice and highPrice **MUST** be filled in."@en
     .
 
 ads:priceCurrencyProp
     sh:path schema:priceCurrency ;
+    sh:description "The price should be in CAD but this is not enforced."
     .
 
 ads:offerUrlProp
+    sh:description "Every Offer **MUST** have one url."@en ;
     sh:path schema:url ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http" ;
+    sh:not (
+        [sh:pattern "http://schema.org" ;]
+    ) ;
     .
 
 ads:offerNameProp
     sh:path schema:name ;
+    sh:description "The offer name **MAY** be used as a label next to the price."@en
     .
 
 ads:validFromProp
