@@ -79,7 +79,7 @@ where {
             ?type skos:closeMatch ?closeMatch .
         }
         OPTIONAL {
-            graph <http://kg.artsdata.ca/culture-creates/ontology/skos-event-types> {
+            graph <http://kg.artsdata.ca/culture-creates/artsdata-data-model/skos-event-types> {
                 ?closeMatch skos:prefLabel ?closePrefLabel .
             }
         }
