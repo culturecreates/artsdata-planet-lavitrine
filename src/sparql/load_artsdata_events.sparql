@@ -74,7 +74,7 @@ where {
     }
     OPTIONAL {
         ?event schema:additionalType ?type .
-        graph <http://db.artsdata.ca/repositories/artsdata/rdf-graphs/grandtheatre-qc-ca-event-type-mapping> {
+        graph <http://kg.artsdata.ca/culture-creates/artsdata-planet-gtq/grandtheatre-qc-ca-event-type-mapping> {
             ?type skos:prefLabel ?prefLabel .
             ?type skos:closeMatch ?closeMatch .
         }
