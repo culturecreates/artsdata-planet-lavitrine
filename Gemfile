@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem "linkeddata"
+
 # gem "rdf", "~> 3.3"
 
 # gem "shacl", "~> 0.4.0"
@@ -10,7 +12,6 @@ source "https://rubygems.org"
 
 # gem "json-ld", "~> 3.3"
 
-gem "linkeddata"
 
 # gem "sparql", "~> 3.3"
 

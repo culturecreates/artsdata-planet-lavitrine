@@ -65,6 +65,12 @@ class SparqlTest < Minitest::Test
     assert multiple_urls.false?
   end
 
-
+  def test_remove_temporary_eventtype
+    sparql = "../sparql/remove_temporary_eventtype.sparql"
+    @graph = RDF::Graph.load("./fixtures/event_with_additional_types.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 5, graph.count
+  end
 end
 

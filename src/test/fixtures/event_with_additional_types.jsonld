@@ -1,0 +1,10 @@
+{
+  "@context":"http://schema.org", 
+  "@type":"Event",
+  "name":"Simple event with additional types",
+  "additionalType":
+  {
+    "@type":["Thing","EventType"],
+    "name":"Additional type name"
+  }
+}

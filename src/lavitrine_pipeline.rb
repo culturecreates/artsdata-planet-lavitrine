@@ -15,11 +15,13 @@ def LavitrinePipeline(graph:)
   pipeline.transform("./sparql/transform_single_events.sparql")
   pipeline.transform("./sparql/transform_series_events.sparql")
   pipeline.transform("./sparql/remove_eventforindex.sparql")
+  pipeline.transform("./sparql/remove_temporary_eventtype.sparql")
   pipeline.transform("./sparql/convert_image_object_to_url.sparql")
   pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_offers_to_aggregate_offer.sparql")
   pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
+
   pipeline.dump("../output/transformed-#{graph.split("/").last}.json")
 
   ##### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )

@@ -1,0 +1,8 @@
+PREFIX schema: <http://schema.org/>
+
+delete {
+   ?additionalType a schema:EventType .
+}
+where {
+  ?additionalType a schema:EventType .
+}
