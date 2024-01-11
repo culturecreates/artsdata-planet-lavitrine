@@ -1,3 +1,9 @@
+# This SPARQL removes artificial schema:AggregateOffer
+# created by Footlight Console 
+# Github issue redefines the Offer data model to which
+# both Artsdata and Footlight Console will eventually use.
+# Until then this SPARQL is needed.
+
 PREFIX schema: <http://schema.org/>
 delete {
   ?e schema:offers ?offer .
@@ -5,7 +11,6 @@ delete {
 }
 where
 {
-  ?e a schema:Event .
   ?e schema:offers ?offer .
   ?offer a schema:AggregateOffer;
           schema:additionalType ?type ;

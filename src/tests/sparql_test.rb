@@ -1,0 +1,97 @@
+require 'minitest/autorun'
+require 'rdf'
+require 'linkeddata'
+
+class SparqlTest < Minitest::Test
+  def setup
+    @graph = RDF::Graph.load("./fixtures/test_events.jsonld")
+  end
+
+  # Removes type: EventForIndex
+  def test_that_eventforindex_is_removed
+    sparql = "../sparql/remove_eventforindex.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    assert_equal 254, graph.count
+  end
+
+  def test_transform_single_events
+    sparql = "../sparql/transform_single_events.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    assert_equal 264, graph.count
+  end
+
+  def test_convert_image_object_to_url
+    sparql = "../sparql/convert_image_object_to_url.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 240, graph.count
+  end
+
+  def test_convert_image_literal_to_uri
+    sparql = "../sparql/convert_image_literal_to_uri.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 256, graph.count
+  end
+
+  def test_convert_url_literal_to_uri
+    sparql = "../sparql/convert_url_literal_to_uri.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 256, graph.count
+  end
+
+  def test_convert_offers_to_aggregate_offer
+    sparql = "../sparql/convert_offers_to_aggregate_offer.sparql"
+    @graph = RDF::Graph.load("./fixtures/two_offers.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 34, graph.count
+  end
+
+  def test_fix_aggreate_offer_url
+    sparql = "../sparql/fix_aggregate_offer_url.sparql"
+    @graph = RDF::Graph.load("./fixtures/two_offers_multiple_buy_urls.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+
+    # puts graph.dump(:turtle)
+    query = SPARQL.parse("
+      PREFIX schema: <http://schema.org/> 
+      ASK { select ?event (count(?url) as ?count)
+      where { ?AggregateOffer a schema:AggregateOffer ; schema:url ?url . }	
+      group by ?AggregateOffer  having(count(?url) > 1) } 
+    ")
+    multiple_urls = query.execute(graph)
+    assert multiple_urls.false?
+  end
+
+  def test_remove_temporary_eventtype
+    sparql = "../sparql/remove_temporary_eventtype.sparql"
+    @graph = RDF::Graph.load("./fixtures/event_with_additional_types.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts graph.dump(:turtle)
+    assert_equal 5, graph.count
+  end
+
+
+  def test_offers_footlight_aggregate_offer
+    sparql = "../sparql/remove_footlight_aggregate_offer.sparql"
+    @graph = RDF::Graph.load("./fixtures/offers_footlight_aggregate_offer.jsonld")
+    # puts @graph.dump(:turtle)
+    @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts @graph.dump(:turtle)
+    assert_equal 10, @graph.count
+  end
+
+  
+  def test_fix_aggregate_offers_missing_url
+    sparql = "../sparql/fix_aggregate_offers_missing_url.sparql"
+    @graph = RDF::Graph.load("./fixtures/aggregate_offers_missing_url.jsonld")
+    # puts @graph.dump(:turtle)
+    @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts @graph.dump(:turtle)
+    assert_equal 16, @graph.count
+  end
+
+end
+
