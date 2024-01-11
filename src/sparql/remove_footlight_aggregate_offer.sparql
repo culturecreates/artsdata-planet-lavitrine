@@ -1,0 +1,13 @@
+PREFIX schema: <http://schema.org/>
+delete {
+  ?e schema:offers ?offer .
+  ?offer ?p ?o .
+}
+where
+{
+  ?e a schema:Event .
+  ?e schema:offers ?offer .
+  ?offer a schema:AggregateOffer;
+          schema:additionalType ?type ;
+        ?p ?o .
+}

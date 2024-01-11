@@ -72,5 +72,16 @@ class SparqlTest < Minitest::Test
     # puts graph.dump(:turtle)
     assert_equal 5, graph.count
   end
+
+
+  def test_offers_footlight_aggregate_offer
+    sparql = "../sparql/remove_footlight_aggregate_offer.sparql"
+    @graph = RDF::Graph.load("./fixtures/offers_footlight_aggregate_offer.jsonld")
+    # puts @graph.dump(:turtle)
+    @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # puts @graph.dump(:turtle)
+    assert_equal 10, @graph.count
+  end
+
 end
 
