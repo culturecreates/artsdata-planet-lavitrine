@@ -16,8 +16,9 @@ insert {
 }
 where {
   {
-    select ?event ?subEvent ?AggregateOffer  (SAMPLE(?event_url) as ?event_url_sample) where {
-    ?event a schema:EventSeries ; 
+    select ?event ?subEvent ?AggregateOffer  (SAMPLE(?event_url) as ?event_url_sample) 
+    where {
+      ?event a schema:EventSeries ; 
       schema:url ?event_url ; 
       schema:subEvent ?subEvent .
     ?subEvent schema:offers ?AggregateOffer .

@@ -23,7 +23,7 @@ ads:AggregateOfferNode
                 ads:availabilityProp ,
                 ads:priceProp ,
                 ads:priceCurrencyProp ,
-                ads:offerUrlProp ,
+                ads:AggregateOffer-url ,
                 ads:offerNameProp ,
                 ads:validFromProp ,
                 ads:validThroughProp ;
@@ -86,10 +86,22 @@ ads:priceCurrencyProp
     sh:description "The price should be in CAD but this is not enforced."
     .
 
-ads:offerUrlProp
+ads:AggregateOffer-url
     sh:description "Every Offer **MUST** have one url."@en ;
     sh:path schema:url ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http" ;
+    sh:not (
+        [sh:pattern "http://schema.org" ;]
+    ) ;
+    .
+
+ads:offerUrlProp
+    sh:description "An Offer may have a url."@en ;
+    sh:path schema:url ;
+    sh:minCount 0 ;
     sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:pattern "^http" ;

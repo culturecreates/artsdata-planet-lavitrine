@@ -110,23 +110,30 @@
   },
   "@graph": [
     {
-      "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent",
-      "type": "Event",
-      "startDateTime": "2023-10-25T16:10:00+00:00",
-      "offers": [
+      "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10",
+      "type": "EventSeries",
+      "url":"http://use.in.aggregateOffer.com",
+      "representation": [
         {
-          "type": "AggregateOffer",
-          "additionalType": "Paid"
+          "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent",
+          "type": "Event",
+          "offers": {
+            "type": "AggregateOffer",
+            "offers": {
+              "type": "AggregateOffer"
+            }
+          }
         },
         {
-          "type": "Offer",
-          "url": "http://ticketlink1.com",
-          "price": "20.5"
-        },
-        {
-          "type": "Offer",
-          "url": "http://ticketlink2.com",
-          "price": "35 USD"
+          "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-22#SingleEvent",
+          "type": "Event",
+          "offers": {
+            "type": "AggregateOffer",
+            "url":"http://existing.com",
+            "offers": {
+              "type": "AggregateOffer"
+            }
+          }
         }
       ]
     }

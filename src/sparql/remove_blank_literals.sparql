@@ -1,0 +1,10 @@
+# This SPARQL removes blank literals.
+# IF left in, some can get converted to the base vocabulary "http://schema.org/"
+# making it hard to test if the value is blank or not.
+
+delete {
+  ?sub ?pred "" .
+}
+where {
+  ?sub ?pred "" .
+}

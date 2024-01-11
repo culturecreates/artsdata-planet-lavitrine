@@ -105,6 +105,14 @@
     },
     "streetAddress": {
       "@container": "@language"
+    },
+    "lowPrice": {
+      "@id": "lowPrice",
+      "@type": "xsd:decimal"
+    },
+    "highPrice": {
+      "@id": "highPrice",
+      "@type": "xsd:decimal"
     }
   },
   "@type": "EventSeries",
@@ -245,7 +253,7 @@
       "priceCurrency": {
         "@omitDefault": true
       },
-      "url": {},
+      "url": { "@omitDefault": true},
       "lowPrice": {
         "@omitDefault": true
       },

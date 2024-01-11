@@ -7,11 +7,13 @@ def LavitrinePipeline(graph:)
   pipeline = ArtsdataPipeline.new
 
   # puts "Downloading data..."
-  pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph)
-  pipeline.dump("../output/raw-#{graph.split("/").last}.json")
+  # pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph)
+  # pipeline.dump("../output/raw-#{graph.split("/").last}.json")
 
+  pipeline.load(file: "../output/raw-#{graph.split("/").last}.json" )
   # Custom transformations that justify needing this code rather than using solely the Artsdata API. 
   puts "Starting transforms..."
+  pipeline.transform("./sparql/remove_blank_literals.sparql")
   pipeline.transform("./sparql/transform_single_events.sparql")
   pipeline.transform("./sparql/transform_series_events.sparql")
   pipeline.transform("./sparql/remove_eventforindex.sparql")
@@ -20,8 +22,10 @@ def LavitrinePipeline(graph:)
   pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
   pipeline.transform("./sparql/convert_offers_to_aggregate_offer.sparql")
-  pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
   pipeline.transform("./sparql/remove_footlight_aggregate_offer.sparql")
+  pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
+  pipeline.transform("./sparql/fix_aggregate_offers_missing_url.sparql")
+  
 
   pipeline.dump("../output/transformed-#{graph.split("/").last}.json")
 

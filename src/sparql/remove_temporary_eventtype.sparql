@@ -1,3 +1,8 @@
+# This SPARQL removes the placeholder schema:EventType
+# schema:EventType does not exist in schema.org vocabulary.
+# Is it a placeholder created by Footlight Console 
+# while waiting for Console to have skos:Concept classes.
+
 PREFIX schema: <http://schema.org/>
 
 delete {
