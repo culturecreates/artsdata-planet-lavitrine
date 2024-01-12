@@ -44,9 +44,10 @@ class SparqlTest < Minitest::Test
   def test_convert_offers_to_aggregate_offer
     sparql = "../sparql/convert_offers_to_aggregate_offer.sparql"
     @graph = RDF::Graph.load("./fixtures/two_offers.jsonld")
-    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    # puts graph.dump(:turtle)
-    assert_equal 34, graph.count
+    puts @graph.dump(:turtle)
+    @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    puts @graph.dump(:turtle)
+    assert_equal 34, @graph.count
   end
 
   def test_fix_aggreate_offer_url

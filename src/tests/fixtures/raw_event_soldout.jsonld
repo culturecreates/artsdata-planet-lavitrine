@@ -1,0 +1,567 @@
+[
+  {
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique",
+  "@type": [
+    "http://schema.org/EventSeries",
+    "http://example.com/EventForIndex"
+  ],
+  "http://schema.org/additionalType": [
+    {
+      "@id": "http://kg.footlight.io/resource/3649c000-e16d-4f65-85ec-35a20f401a3d"
+    }
+  ],
+  "http://schema.org/location": [
+    {
+      "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1"
+    }
+  ],
+  "http://schema.org/audience": [
+    {
+      "@value": "Grand public"
+    }
+  ],
+  "http://schema.org/description": [
+    {
+      "@language": "fr",
+      "@value": "\u003cp\u003ePour la première fois, Jean-Michel Blais, s'unissant à l'Orchestre de l'Agora, sous la direction de Nicolas Ellis, nous offre \u003cem\u003eaubades \u003c/em\u003een version symphonique, accompagné d'une sélection de pièces du répertoire classique ayant inspiré sa création! \u003c/p\u003e \u003cp\u003eClôturant ainsi une tournée de plus de 80 concerts menés de par le monde (Europe, États-Unis, Canada et Québec), Jean-Michel Blais présente en version inédite son opus cumulant plus de 75 000 000 écoutes en ligne et gagnant du Félix de l'album instrumental de l'année (5 nominations à l'ADISQ et 1 aux prix Juno). L’Orchestre de l’Agora, quant à lui, est reconnu pour ses concerts innovants et audacieux, récipiendaires d’un prix Juno et d’un prix Opus en 2023.\u003c/p\u003e \u003cp\u003eTel un lever de soleil à la brunante, le crépuscule laisse place à l'aurore, célébrant une renaissance instrumentale, une saison florissante, une sérénade de l’aube…\u003c/p\u003e"
+    }
+  ],
+  "http://schema.org/endDate": [
+    {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-01-12T20:00:00-05:00"
+    }
+  ],
+  "http://schema.org/eventStatus": [
+    {
+      "@id": "http://schema.org/EventScheduled"
+    }
+  ],
+  "http://schema.org/image": [
+    {
+      "@value": "https://placedesarts.com/sites/default/files/aubades-symphonique-jean-michel-blais_1600-3.jpg"
+    }
+  ],
+  "http://schema.org/mainEntityOfPage": [
+    {
+      "@id": "https://placedesarts.com/fr/evenement/aubades-symphonique#WebPage"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "Jean-Michel Blais et l'Orchestre de l'Agora - aubades symphonique Maison symphonique"
+    }
+  ],
+  "http://schema.org/offers": [
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#Offer_0"
+    },
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#AggregateOffer"
+    },
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#Offer_1"
+    }
+  ],
+  "http://schema.org/organizer": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/K10-543"
+    }
+  ],
+  "http://schema.org/performer": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/K12-476"
+    }
+  ],
+  "http://schema.org/startDate": [
+    {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-01-11T20:00:00-05:00"
+    }
+  ],
+  "http://schema.org/subEvent": [
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#2024-01-11T200000-0500"
+    },
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#2024-01-12T200000-0500"
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": "https://placedesarts.com/fr/evenement/aubades-symphonique"
+    }
+  ],
+  "http://schema.org/eventAttendanceMode": [
+    {
+      "@id": "http://schema.org/OfflineEventAttendanceMode"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/3649c000-e16d-4f65-85ec-35a20f401a3d",
+  "@type": [
+    "http://www.w3.org/2004/02/skos/core#Concept",
+    "http://schema.org/EventType"
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "PDA Musique classique"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/ClassicalMusicPerformance"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel": [
+    {
+      "@language": "fr",
+      "@value": "PDA Musique classique"
+    }
+  ]
+},{
+  "@id": "http://kg.artsdata.ca/resource/ClassicalMusicPerformance",
+  "@type": [
+    "http://www.w3.org/2004/02/skos/core#Concept",
+    "http://www.w3.org/2002/07/owl#NamedIndividual",
+    "http://kg.artsdata.ca/ontology/EventType"
+  ],
+  "http://schema.org/disambiguatingDescription": [
+    {
+      "@language": "fr",
+      "@value": "Un concert de musique classique"
+    },
+    {
+      "@language": "en",
+      "@value": "A performance of classical music"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel": [
+    {
+      "@language": "fr",
+      "@value": "Spectacle de musique classique"
+    },
+    {
+      "@language": "en",
+      "@value": "Classical Music Performance"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#exactMatch": [
+    {
+      "@id": "http://scenepro.ca/taxonomies/disciplines-asq#Classique"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#inScheme": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/ArtsdataEventTypes"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#broader": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/MusicPerformance"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#definition": [
+    {
+      "@language": "fr",
+      "@value": "Un concert de musique classique"
+    },
+    {
+      "@language": "en",
+      "@value": "A performance of classical music"
+    }
+  ],
+  "http://www.w3.org/2004/02/skos/core#broadMatch": [
+    {
+      "@id": "http://scenepro.ca/taxonomies/disciplines-asq#Musique"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1",
+  "http://schema.org/address": [
+    {
+      "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1#PostalAddress"
+    },
+    {
+      "@language": "fr",
+      "@value": "1600 rue Saint-Urbain, Montréal H2X 0S1"
+    }
+  ],
+  "@type": [
+    "http://schema.org/Place"
+  ],
+  "http://schema.org/sameAs": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/K11-23"
+    },
+    {
+      "@id": "http://www.wikidata.org/entity/Q3280275"
+    }
+  ],
+  "http://schema.org/identifier": [
+    {
+      "@value": "Q3280275"
+    }
+  ],
+  "http://schema.org/containedInPlace": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/K11-3"
+    }
+  ],
+  "http://schema.org/disambiguatingDescription": [
+    {
+      "@language": "fr",
+      "@value": "Édifice à Montréal (QC)"
+    }
+  ],
+  "http://schema.org/latitude": [
+    {
+      "@value": "45.5094184"
+    }
+  ],
+  "http://schema.org/longitude": [
+    {
+      "@value": "-73.5667419"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "Maison symphonique de Montréal"
+    }
+  ]
+}, {
+  "@id": "http://kg.artsdata.ca/resource/K11-3",
+  "@type": [
+    "http://schema.org/Place",
+    "http://schema.org/PerformingArtsTheater"
+  ],
+  "http://schema.org/address": [
+    {
+      "@id": "http://kg.artsdata.ca/resource/K11-3#PostalAddress"
+    }
+  ],
+  "http://schema.org/sameAs": [
+    {
+      "@id": "https://en.wikipedia.org/wiki/Place_des_Arts"
+    },
+    {
+      "@id": "https://www.instagram.com/placedesarts/"
+    },
+    {
+      "@id": "http://www.wikidata.org/entity/Q1326219"
+    }
+  ],
+  "http://schema.org/disambiguatingDescription": [
+    {
+      "@value": "Montreal (QC) CA"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "Place des Arts"
+    },
+    {
+      "@language": "en",
+      "@value": "Place des Arts"
+    },
+    {
+      "@value": "Place des Arts"
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": "https://placedesarts.com"
+    }
+  ]
+},{
+  "@id": "http://kg.artsdata.ca/resource/K11-3#PostalAddress",
+  "@type": [
+    "http://schema.org/PostalAddress"
+  ],
+  "http://schema.org/addressCountry": [
+    {
+      "@value": "CA"
+    }
+  ],
+  "http://schema.org/addressLocality": [
+    {
+      "@value": "Montreal"
+    }
+  ],
+  "http://schema.org/addressRegion": [
+    {
+      "@value": "QC"
+    }
+  ],
+  "http://schema.org/postalCode": [
+    {
+      "@value": "H2X 1Y9"
+    }
+  ],
+  "http://schema.org/streetAddress": [
+    {
+      "@value": "175 rue Saint-Catherine Ouest"
+    }
+  ]
+},{
+  "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1#PostalAddress",
+  "@type": [
+    "http://schema.org/PostalAddress"
+  ],
+  "http://schema.org/addressCountry": [
+    {
+      "@language": "fr",
+      "@value": "CA"
+    }
+  ],
+  "http://schema.org/addressLocality": [
+    {
+      "@language": "fr",
+      "@value": "Montréal"
+    }
+  ],
+  "http://schema.org/addressRegion": [
+    {
+      "@language": "fr",
+      "@value": "QC"
+    }
+  ],
+  "http://schema.org/postalCode": [
+    {
+      "@value": "H2X 0S1"
+    }
+  ],
+  "http://schema.org/streetAddress": [
+    {
+      "@language": "fr",
+      "@value": "1600 rue Saint-Urbain"
+    }
+  ]
+},
+{
+  "@id": "https://placedesarts.com/fr/evenement/aubades-symphonique#WebPage",
+  "@type": [
+    "http://schema.org/WebPage"
+  ],
+  "http://schema.org/inLanguage": [
+    {
+      "@value": "fr"
+    }
+  ],
+  "http://schema.org/lastReviewed": [
+    {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-01-10T17:15:30.954-05:00"
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": "https://placedesarts.com/fr/evenement/aubades-symphonique"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#Offer_0",
+  "@type": [
+    "http://schema.org/Offer"
+  ],
+  "http://schema.org/availability": [
+    {
+      "@value": "http://schema.org/SoldOut"
+    }
+  ],
+  "http://schema.org/price": [
+    {
+      "@value": ""
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": ""
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#AggregateOffer",
+  "@type": [
+    "http://schema.org/AggregateOffer"
+  ],
+  "http://schema.org/additionalType": [
+    {
+      "@value": "Paid"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#Offer_1",
+  "@type": [
+    "http://schema.org/Offer"
+  ],
+  "http://schema.org/availability": [
+    {
+      "@value": "http://schema.org/SoldOut"
+    }
+  ],
+  "http://schema.org/price": [
+    {
+      "@value": ""
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": ""
+    }
+  ]
+},
+{
+  "@id": "http://kg.artsdata.ca/resource/K10-543",
+  "@type": [
+    "http://schema.org/Organization",
+    "http://schema.org/MusicGroup"
+  ],
+  "http://schema.org/address": [
+    {
+      "@id": "_:node4540843"
+    }
+  ],
+  "http://schema.org/sameAs": [
+    {
+      "@value": "https://www.facebook.com/OrchestreAgora/"
+    },
+    {
+      "@value": "https://twitter.com/OrchestreAgora"
+    }
+  ],
+  "http://schema.org/alternateName": [
+    {
+      "@language": "en",
+      "@value": "l'Orchestre de l’Agora"
+    },
+    {
+      "@language": "fr",
+      "@value": "l'Orchestre de l’Agora"
+    }
+  ],
+  "http://schema.org/disambiguatingDescription": [
+    {
+      "@value": "Montreal (QC) CA"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "en",
+      "@value": "Orchestre de l’Agora"
+    },
+    {
+      "@value": "Orchestre de l’Agora"
+    },
+    {
+      "@language": "fr",
+      "@value": "Orchestre de l’Agora"
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": "https://orchestreagora.com"
+    }
+  ],
+  "http://www.wikidata.org/prop/direct/P2002": [
+    {
+      "@value": "OrchestreAgora"
+    }
+  ],
+  "http://www.wikidata.org/prop/direct/P2013": [
+    {
+      "@value": "OrchestreAgora/"
+    }
+  ]
+},
+{
+  "@id": "http://kg.artsdata.ca/resource/K12-476",
+  "@type": [
+    "http://schema.org/Person"
+  ],
+  "http://schema.org/sameAs": [
+    {
+      "@value": "http://www.wikidata.org/entity/Q38932410"
+    }
+  ],
+  "http://schema.org/disambiguatingDescription": [
+    {
+      "@value": "Composer, pianist, musician"
+    }
+  ],
+  "http://schema.org/hasOccupation": [
+    {
+      "@value": "Composer, pianist, musician"
+    }
+  ],
+  "http://schema.org/image": [
+    {
+      "@id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Michel_Blais_at_Steinway_%26_Sons.jpg"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@value": "Jean-Michel Blais"
+    }
+  ],
+  "http://schema.org/url": [
+    {
+      "@value": "https://jeanmichelblais.com"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#2024-01-11T200000-0500",
+  "@type": [
+    "http://schema.org/Event"
+  ],
+  "http://schema.org/location": [
+    {
+      "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "Jean-Michel Blais et l'Orchestre de l'Agora - aubades symphonique Maison symphonique"
+    }
+  ],
+  "http://schema.org/startDate": [
+    {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-01-11T20:00:00-05:00"
+    }
+  ]
+},
+{
+  "@id": "http://kg.footlight.io/resource/placedesarts-com_aubades-symphonique#2024-01-12T200000-0500",
+  "@type": [
+    "http://schema.org/Event"
+  ],
+  "http://schema.org/location": [
+    {
+      "@id": "http://kg.footlight.io/resource/06bb54cf-25a8-4c98-899e-3b59f3e6e3b1"
+    }
+  ],
+  "http://schema.org/name": [
+    {
+      "@language": "fr",
+      "@value": "Jean-Michel Blais et l'Orchestre de l'Agora - aubades symphonique Maison symphonique"
+    }
+  ],
+  "http://schema.org/startDate": [
+    {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-01-12T20:00:00-05:00"
+    }
+  ]
+}
+]
