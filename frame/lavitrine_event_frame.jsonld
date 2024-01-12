@@ -255,12 +255,10 @@
       },
       "url": { "@omitDefault": true},
       "lowPrice": {
-        "@omitDefault": true,
-        "@type": "xsd:decimal"
+        "@omitDefault": true
       },
       "highPrice": {
-        "@omitDefault": true,
-        "@type": "xsd:decimal"
+        "@omitDefault": true
       },
       "additionalType": {
         "@omitDefault": true
