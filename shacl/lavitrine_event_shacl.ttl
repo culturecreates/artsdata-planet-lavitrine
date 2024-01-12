@@ -211,7 +211,9 @@ ads:PatternContainsSpaces sh:pattern " "  ;
 
 ads:PersonNode
     sh:targetClass schema:Person ;
-    sh:property ads:nameProp .
+    sh:property ads:nameProp ,
+                ads:sameAsProp ;
+    .
 
 ################
 # Organization 
@@ -219,7 +221,9 @@ ads:PersonNode
 
 ads:OrganizationNode
     sh:targetClass schema:Organization ;
-    sh:property ads:nameProp .
+    sh:property ads:nameProp ,
+                ads:sameAsProp ;
+     .
 
 
 ################
