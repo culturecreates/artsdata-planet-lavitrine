@@ -59,12 +59,12 @@ ads:additionalTypeProp
 
 ads:lowPriceProp
     sh:path schema:lowPrice ;
-    sh:minCount 1 ;
+    sh:minCount 0 ;
     .
 
 ads:highPriceProp
     sh:path schema:highPrice ;
-    sh:minCount 1 ;
+    sh:minCount 0 ;
     .
 
 ads:availabilityProp
@@ -73,7 +73,8 @@ ads:availabilityProp
                 "http://schema.org/SoldOut"
                 "http://schema.org/PreSale"
                 "http://schema.org/LimitedAvailability"
-                "http://schema.org/Discontinued"          );
+                "http://schema.org/Discontinued"   
+                "http://schema.org/OutOfStock"       );
     .
 
 ads:priceProp

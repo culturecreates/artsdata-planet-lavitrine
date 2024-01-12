@@ -7,10 +7,10 @@ def LavitrinePipeline(graph:)
   pipeline = ArtsdataPipeline.new
 
   # puts "Downloading data..."
-  # pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph)
-  # pipeline.dump("../output/raw-#{graph.split("/").last}.json")
+  pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph)
+  pipeline.dump("../output/raw-#{graph.split("/").last}.json")
 
-  pipeline.load(file: "../output/raw-#{graph.split("/").last}.json" )
+  #### pipeline.load(file: "../output/raw-#{graph.split("/").last}.json" )
   # Custom transformations that justify needing this code rather than using solely the Artsdata API. 
   puts "Starting transforms..."
   pipeline.transform("./sparql/remove_blank_literals.sparql")
