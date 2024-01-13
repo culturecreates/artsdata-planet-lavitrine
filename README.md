@@ -14,7 +14,7 @@ This repo generates the following artifacts derived from Artsdata and refreshes 
 * [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - see websites that are [part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
 * [hector-charland-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fhector-charland-com) 
 * [theatredumarais-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftheatredumarais-com) 
-* Tout Culture - coming soon
+* [tout-culture](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftout-culture) - Outaouais
 * Signé Laval - coming soon
 
 ### Artsdata Entities in Quebec
