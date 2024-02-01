@@ -13,7 +13,7 @@ View the history of workflow runs [here](https://github.com/culturecreates/artsd
 
 
 ### External websites
-Click on any of the following artifacts to look up a download link to the latest JSON dump file.
+Click on any of the following artifacts to get a link to download the JSON data **file**.
 * [grandtheatre-qc-ca](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca) - Website events from https://grandtheatre.qc.ca
 * [placedesarts-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fplacedesarts-com) - Website events from https://placedesarts.com
 * [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - 21 Quebec websites that are [part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
