@@ -1,0 +1,11 @@
+name: Push tout-culture-cms-events Events
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  call-artsdata-push-workflow:
+    uses: culturecreates/artsdata-planet-lavitrine/.github/workflows/push-artifact-to-artsdata.yml@main
+    with: 
+      artifact_name: tout-culture-cms-events
+    
