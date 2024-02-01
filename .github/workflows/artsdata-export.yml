@@ -99,3 +99,33 @@ jobs:
                     "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus",
                     "register_only": "true"
                   }'
+      - name: signe-laval-cms-events dump  # TODO add "reportCallbackUrl" to Github logs
+        run: |
+          curl \
+          -H 'Content-Type: application/json' \
+          -X POST http://api.artsdata.ca/databus/  \
+          --data '{ "publisher": "${{secrets.PUBLISHER_URI_GREGORY}}",
+                    "group": "${{ github.event.repository.name }}",
+                    "artifact": "signe-laval-cms-events",
+                    "version": "${{ steps.version.outputs.dumpdate }}",
+                    "downloadUrl": "https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.ca-central-1.amazonaws.com/lavitrine/${{ steps.version.outputs.dumpdate }}//signe-laval-cms-events.json",
+                    "downloadFile": "signe-laval-cms-events.json",
+                    "comment": "Dump of signe-laval-cms-events from Footlight CMS using Github workflows",
+                    "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus",
+                    "register_only": "true"
+                  }'
+      - name: tout-culture-cms-events dump  # TODO add "reportCallbackUrl" to Github logs
+        run: |
+          curl \
+          -H 'Content-Type: application/json' \
+          -X POST http://api.artsdata.ca/databus/  \
+          --data '{ "publisher": "${{secrets.PUBLISHER_URI_GREGORY}}",
+                    "group": "${{ github.event.repository.name }}",
+                    "artifact": "tout-culture-cms-events",
+                    "version": "${{ steps.version.outputs.dumpdate }}",
+                    "downloadUrl": "https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.ca-central-1.amazonaws.com/lavitrine/${{ steps.version.outputs.dumpdate }}//tout-culture-cms-events.json",
+                    "downloadFile": "tout-culture-cms-events.json",
+                    "comment": "Dump of tout-culture-cms-events from Footlight CMS using Github workflows",
+                    "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus",
+                    "register_only": "true"
+                  }'
