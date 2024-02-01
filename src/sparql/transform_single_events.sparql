@@ -19,12 +19,20 @@ insert {
 where {
   ?s a ex:EventForIndex , schema:Event .
   bind(URI(CONCAT(str(?s),"#SingleEvent"))  as  ?s_subevent)
-  ?s schema:startDate ?startDate ; 
-    schema:endDate ?endDate ;
-    schema:location ?location ;
-    schema:name ?name ;
-    schema:eventAttendanceMode ?eventAttendanceMode ;
-    schema:eventStatus ?eventStatus ;
-    schema:offers ?offer .
+  ?s schema:startDate ?startDate .
+  ?s schema:location ?location .
+  ?s schema:name ?name .
+  OPTIONAL {
+    ?s schema:endDate ?endDate .
+  }
+  OPTIONAL {
+    ?s schema:eventAttendanceMode ?eventAttendanceMode .
+  } 
+  OPTIONAL {
+    ?s schema:eventStatus ?eventStatus .
+  } 
+  OPTIONAL {
+    ?s schema:offers ?offer .
     ?offer ?a ?b .
+  }
 }
