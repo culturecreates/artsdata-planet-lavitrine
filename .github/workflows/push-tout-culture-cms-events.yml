@@ -7,5 +7,5 @@ jobs:
   call-artsdata-push-workflow:
     uses: culturecreates/artsdata-planet-lavitrine/.github/workflows/push-artifact-to-artsdata.yml@main
     with: 
-      artifact_name: tout-culture-cms-events
+      artifact_name: "tout-culture-cms-events"
     
