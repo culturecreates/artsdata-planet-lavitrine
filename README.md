@@ -35,6 +35,10 @@ All event data is passed through this JSON-LD Frame. The concept is similar to G
 
 The pipeline also checks the artifacts for violations based on the data model SHACL [here](https://github.com/culturecreates/artsdata-planet-lavitrine/tree/main/shacl). The list of violations for each artifact can be viewed by switching the extension of the download url from `.json` to `.yml`. If the file is empty then there are no violations. The list of violations contains a reference to the event URI and the related SHACL rules that are in violation.
 
+As new data arrives, new violations will occur due to the distributed community based nature of Artsdata. Most issues can be fixed direclty in this pipeline. Other issues will have to be communicated to the source data contributor. 
+
+> Please raise an issue in this Github repo if you find data model violations blocking your reuse of the data dumps.
+
 # Specific Cases
 
 ## Grand Théâtre de Québec
