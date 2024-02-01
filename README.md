@@ -29,9 +29,11 @@ Click on any of the following artifacts to look up a download link to the latest
 
 # Data Model
 
-For a formal documentation of the classes and properties of the La Vitrine data model used in this pipeline, please consult the JSON-LD Frame called [lavitrine_event_frame](https://github.com/culturecreates/artsdata-planet-lavitrine/blob/main/frame/lavitrine_event_frame.jsonld).
+For a formal documentation of the classes and properties of the La Vitrine data model used in this pipeline, please consult the JSON-LD Frame  [lavitrine_event_frame.jsonld](https://github.com/culturecreates/artsdata-planet-lavitrine/blob/main/frame/lavitrine_event_frame.jsonld).
 
-All event data is passed through this JSON-LD Frame which is conceptually similar to GraphQL. The Frame selects the properties to be extracted for each class.  It also selects properties in the nested classes.
+All event data is passed through this JSON-LD Frame. The concept is similar to GraphQL. The Frame selects the properties to be extracted for each class including nested classes.
+
+The pipeline also checks the artifacts for violations based on the data model SHACL [here](https://github.com/culturecreates/artsdata-planet-lavitrine/tree/main/shacl). The list of violations for each artifact can be viewed by switching the extension of the download url from `.json` to `.yml`. If the file is empty then there are no violations. The list of violations contains a reference to the event URI and the related SHACL rules that are in violation.
 
 # Specific Cases
 
