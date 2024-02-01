@@ -1,0 +1,243 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wdt": "http://www.wikidata.org/prop/direct/",
+    "facebook": {
+      "@id": "wdt:P2013"
+    },
+    "instagram": {
+      "@id": "wdt:P2003"
+    },
+    "twitter": {
+      "@id": "wdt:P2002"
+    },
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@container": "@language"
+    },
+    "name": {
+      "@container": "@language"
+    },
+    "alternateName": {
+      "@container": "@language"
+    },
+    "description": {
+      "@container": "@language"
+    },
+    "disambiguatingDescription": {
+      "@container": "@language"
+    },
+    "definition": {
+      "@id": "skos:definition",
+      "@container": "@language"
+    },
+    "startDateTime": {
+      "@id": "startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDateTime": {
+      "@id": "endDate",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "endDate",
+      "@type": "xsd:date"
+    },
+    "validFrom": {
+      "@id": "validFrom",
+      "@type": "xsd:dateTime"
+    },
+    "type": {
+      "@id": "@type"
+    },
+    "sameAs": {
+      "@id": "sameAs",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "image": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "performer": {
+      "@id": "performer",
+      "@container": "@set"
+    },
+    "organizer": {
+      "@id": "organizer",
+      "@container": "@set"
+    },
+    "url": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "eventAttendanceMode": {
+      "@id": "eventAttendanceMode",
+      "@type": "@id"
+    },
+    "eventStatus": {
+      "@id": "eventStatus",
+      "@type": "@id"
+    },
+    "EventScheduled": {
+      "@id": "EventScheduled",
+      "@type": "EventStatusType"
+    },
+    "representation": {
+      "@id": "subEvent",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "addressCountry": {
+      "@container": "@language"
+    },
+    "addressRegion": {
+      "@container": "@language"
+    },
+    "addressLocality": {
+      "@container": "@language"
+    },
+    "streetAddress": {
+      "@container": "@language"
+    },
+    "lowPrice": {
+      "@id": "lowPrice",
+      "@type": "xsd:decimal"
+    },
+    "highPrice": {
+      "@id": "highPrice",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "http://kg.footlight.io/resource/placedesarts-com_led-zeppelin-symphonic",
+      "type": "EventSeries",
+      "additionalType": {
+        "@id": "http://kg.footlight.io/resource/3649c000-e16d-4f65-85ec-35a20f401a3d",
+        "type": "skos:Concept",
+        "skos:closeMatch": {
+          "@id": "http://kg.artsdata.ca/resource/ClassicalMusicPerformance",
+          "type": [
+            "skos:Concept",
+            "http://www.w3.org/2002/07/owl#NamedIndividual",
+            "http://kg.artsdata.ca/ontology/EventType"
+          ],
+          "prefLabel": {
+            "fr": "Spectacle de musique classique",
+            "en": "Classical Music Performance"
+          }
+        },
+        "prefLabel": {
+          "fr": "PDA Musique classique"
+        }
+      },
+      "location": {
+        "@id": "http://kg.artsdata.ca/resource/K11-75",
+        "type": [
+          "Place",
+          "PerformingArtsTheater"
+        ],
+        "address": {
+          "@id": "http://kg.artsdata.ca/resource/K11-75#PostalAddress",
+          "type": "PostalAddress",
+          "addressCountry": {
+            "@none": "CA"
+          },
+          "addressLocality": {
+            "@none": "Montreal"
+          },
+          "addressRegion": {
+            "@none": "QC"
+          },
+          "postalCode": "H2X 1Y9",
+          "streetAddress": {
+            "@none": "175 rue Saint-Catherine Ouest"
+          }
+        },
+        "sameAs": [
+          "https://en.wikipedia.org/wiki/Salle_Wilfrid-Pelletier",
+          "https://fr.wikipedia.org/wiki/Salle_Wilfrid-Pelletier",
+          "http://www.wikidata.org/entity/Q3469896"
+        ],
+        "containedInPlace": {
+          "@id": "http://kg.artsdata.ca/resource/K11-3",
+          "type": [
+            "Place",
+            "PerformingArtsTheater"
+          ],
+          "address": {
+            "@id": "http://kg.artsdata.ca/resource/K11-3#PostalAddress",
+            "type": "PostalAddress",
+            "addressCountry": {
+              "@none": "CA"
+            },
+            "addressLocality": {
+              "@none": "Montreal"
+            },
+            "addressRegion": {
+              "@none": "QC"
+            },
+            "postalCode": "H2X 1Y9",
+            "streetAddress": {
+              "@none": "175 rue Saint-Catherine Ouest"
+            }
+          },
+          "name": {
+            "fr": "Place des Arts",
+            "en": "Place des Arts",
+            "@none": "Place des Arts"
+          }
+        },
+        "name": {
+          "fr": "Place des Arts - Salle Wilfrid-Pelletier",
+          "en": "Place des Arts - Salle Wilfrid-Pelletier",
+          "@none": "Place des Arts - Salle Wilfrid-Pelletier"
+        },
+        "latitude": null,
+        "longitude": null
+      },
+      "description": {
+        "fr": "\u003cp\u003e\u003cem\u003eWhole Lotta Love, Black Dog, Kashmir, Rock \u0026amp; Roll, Dazed \u0026amp; Confused \u003c/em\u003eet bien \u003cem\u003esûr Stairway To Heaven \u003c/em\u003e: Led Zeppelin, qui a été aux années 1970 ce que les Beatles ont été aux années 1960, a envoûté toute une génération. Son œuvre est portée encore plus loin avec le spectacle \u003cem\u003eLed Zeppelin Symphonic\u003c/em\u003e, présenté au Québec après avoir joué à guichets fermés au London Paladium de Londres et à l’Acropole à Athènes.\u003c/p\u003e \u003cp\u003eOn pourra s'attendre à voir sur scène un groupe rock composé de 4 musiciens, 3 chanteurs et un orchestre symphonique de plus de 30 musiciens, sous la direction musicale de Richard Sidwell, l'homme derrière \u003cem\u003eQueen Symphonic\u003c/em\u003e. Ils mêleront les genres pour interpréter 25 chansons du répertoire extraordinaire de Led Zeppelin. \u003c/p\u003e \u003cp\u003eLed Zeppelin Symphonic : musique rock, chansons inoubliables, nostalgie, orchestre symphonique, c’est le meilleur de tous les mondes!\u003c/p\u003e"
+      },
+      "name": {
+        "fr": "Led Zeppelin Symphonic Salle Wilfrid-Pelletier"
+      },
+      "representation": [
+        {
+          "@id": "http://kg.footlight.io/resource/placedesarts-com_led-zeppelin-symphonic#SingleEvent",
+          "type": "Event",
+          "startDateTime": "2025-03-15T20:00:00-04:00",
+          "endDate": "2025-03-15",
+          "name": {
+            "fr": "Led Zeppelin Symphonic Salle Wilfrid-Pelletier"
+          },
+          "eventAttendanceMode": "http://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "http://schema.org/EventScheduled",
+          "offers": {
+            "@id": "http://kg.footlight.io/resource/placedesarts-com_led-zeppelin-symphonic#SingleEvent_WrappedOffer",
+            "type": "AggregateOffer",
+            "url": "https://am.ticketmaster.com/pda/fr-ca/virtual-venue/UDVXMDMxNQ==",
+            "lowPrice": "92.50",
+            "highPrice": "92.50",
+            "offers": {
+              "@id": "http://kg.footlight.io/resource/placedesarts-com_led-zeppelin-symphonic#Offer_0",
+              "type": "Offer",
+              "availability": "http://schema.org/InStock",
+              "price": "92.50",
+              "url": "https://am.ticketmaster.com/pda/fr-ca/virtual-venue/UDVXMDMxNQ=="
+            }
+          }
+        }
+      ],
+      "image": "https://placedesarts.com/sites/default/files/led-zeppelin-symphonic_1600.jpg",
+      "url": "https://placedesarts.com/fr/evenement/led-zeppelin-symphonic"
+    }
+  ]
+}

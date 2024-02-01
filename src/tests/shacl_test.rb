@@ -8,7 +8,6 @@ class ShaclTest < Minitest::Test
     shapes_graph = RDF::Graph.load('../../shacl/lavitrine_event_shacl.ttl')
     shapes_graph << RDF::Graph.load('../../shacl/lavitrine_offer_shacl.ttl')
     @shacl = SHACL.get_shapes(shapes_graph)
-
   end
 
   def test_full_event_should_pass
@@ -44,6 +43,14 @@ class ShaclTest < Minitest::Test
     report =  @shacl.execute(graph)  
     # puts report
     assert !report.conform?
+  end
+
+  def test_led_zepplin
+    graph = RDF::Graph.load("./fixtures/output_led_zepplin.jsonld")
+    # pp JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
+    report =  @shacl.execute(graph)  
+    # puts report
+    assert report.conform?
   end
 
 
