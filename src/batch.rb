@@ -9,3 +9,4 @@ LavitrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/footlight/theatr
 LavitrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca")
 LavitrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture-cms-events")
 LavitrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval-cms-events")
+LavitrinePipeline(graph: "http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie-cms-events")
