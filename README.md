@@ -19,8 +19,9 @@ Click on any of the following artifacts to get a link to download the JSON data 
 * [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - 21 Quebec websites that are [part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
 * [hector-charland-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fhector-charland-com) - Website events from https://hector-charland.com
 * [theatredumarais-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftheatredumarais-com) - Website events from https://theatredumarais.com
-* [tout-culture-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftout-culture-cms-events) - Outaouais region events from https://toutculture.ca (event description, url, image and event types coming soon)
-* [signe-laval-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fsigne-laval-cms-events) - Laval region events from https://signelaval.com/fr (event description, url, image and event types coming soon)
+* [tout-culture-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftout-culture-cms-events) - Outaouais region events from https://toutculture.ca 
+* [signe-laval-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fsigne-laval-cms-events) - Laval region events from https://signelaval.com/fr
+* [culture-mauricie-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fculture-mauricie-cms-events) - Culture Mauricie region events
 
 ### Artsdata Entities in Quebec
 * Organizations - coming soon
