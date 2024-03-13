@@ -44,12 +44,16 @@ class SparqlTest < Minitest::Test
   def test_convert_offers_to_aggregate_offer
     sparql = "../sparql/convert_offers_to_aggregate_offer.sparql"
     @graph = RDF::Graph.load("./fixtures/two_offers.jsonld")
-    puts @graph.dump(:turtle)
+   # puts @graph.dump(:turtle)
     @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    puts @graph.dump(:turtle)
-    assert_equal 34, @graph.count
+    puts @graph.dump(:jsonld)
+    assert_equal "8.0", @graph.query([nil, RDF::Vocab::SCHEMA.lowPrice, nil]).first.object.to_s
+    assert_equal "20.0", @graph.query([nil, RDF::Vocab::SCHEMA.highPrice, nil]).first.object.to_s
+    assert_equal 1, @graph.query([RDF::URI("https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent_WrappedOffer"), RDF.type, RDF::Vocab::SCHEMA.AggregateOffer]).count
+    assert_equal 5, @graph.query([RDF::URI("https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent_WrappedOffer"), RDF::Vocab::SCHEMA.offers, nil]).count
   end
 
+  # Ensure only one AggregateOffer is created for an event
   def test_fix_aggreate_offer_url
     sparql = "../sparql/fix_aggregate_offer_url.sparql"
     @graph = RDF::Graph.load("./fixtures/two_offers_multiple_buy_urls.jsonld")

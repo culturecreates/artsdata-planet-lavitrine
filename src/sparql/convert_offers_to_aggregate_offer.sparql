@@ -25,9 +25,12 @@ where {
                schema:offers ?offer .
                OPTIONAL {
                 ?offer schema:price ?price .
-                bind(STRDT(str(?price),xsd:decimal) as ?price_decimal)
+                bind(STRDT(str(?price),xsd:float) as ?price_float)
+                filter(?price_float > 0 || xsd:decimal(str(?price_float) = 0))
+                bind(xsd:decimal(?price_float) as ?price_decimal)
+
                }
-          
+            
         } group by ?e having(count(?offer) > 1) 
     }
     ?e a schema:Event ; 

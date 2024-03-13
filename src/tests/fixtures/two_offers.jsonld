@@ -154,12 +154,28 @@
             {
               "type": "Offer",
               "url": "http://ticketlink1.com",
-              "price": "20.5"
+              "price": "20"
             },
             {
               "type": "Offer",
               "url": "http://ticketlink2.com",
-              "price": "35 USD"            }
+              "price": "19.5"
+            },
+            {
+              "type": "Offer",
+              "url": "http://ticketlink3.com",
+              "price": {"@value":"8.0E0","@type":"xsd:double"}
+            },
+            {
+              "type": "Offer",
+              "url": "http://ticketlink4.com",
+              "price": "35 USD"            
+            },
+            {
+              "type": "Offer",
+              "url": "http://ticketlink5.com",
+              "price": {"@value":"19.5","@type":"xsd:float"}
+            }
           ]
         }
       ],
