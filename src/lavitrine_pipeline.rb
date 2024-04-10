@@ -11,7 +11,7 @@ def LavitrinePipeline(**args)
     graph = args[:graph]
     artifact = graph.split("/").last
     puts "Downloading data..."
-    pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 30, graph: graph)
+    pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 10, graph: graph)
     pipeline.dump("../output/raw-#{artifact}.json")
   else
     file = args[:file]

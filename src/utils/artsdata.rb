@@ -31,9 +31,12 @@ class ArtsdataPipeline
       previous_count = 0
       i = 0
       loop do
-        result = sparql_client.query(sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}"))
+        sparql_str = sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}")
+        puts "Loading #{args[:limit]} events from #{i * args[:limit]}"
+        result = sparql_client.query(sparql_str)
+        puts "Loaded #{result.count} triples"
         add_to_graph(result)
-        if @graph.count == previous_count || i > 10
+        if @graph.count == previous_count || i > 40
           puts "Done loading."
           puts @adid.inspect
           break
