@@ -2,6 +2,8 @@ PREFIX schema: <http://schema.org/>
 PREFIX ex: <http://example.com/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX adm: <http://kg.artsdata.ca/minted/>
+PREFIX adr: <http://kg.artsdata.ca/resource/>
+
 construct {
     ?event ?p  ?o .
     ?event a ex:EventForIndex .
