@@ -112,7 +112,7 @@
     {
       "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10",
       "type": "EventSeries",
-      "url":"http://use.in.aggregateOffer.com",
+      "url": "http://use.in.aggregateOffer.com",
       "representation": [
         {
           "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent",
@@ -129,10 +129,18 @@
           "type": "Event",
           "offers": {
             "type": "AggregateOffer",
-            "url":"http://existing.com",
+            "url": "http://existing.com",
             "offers": {
               "type": "AggregateOffer"
             }
+          }
+        },
+        {
+          "id": "https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-30#SingleEvent",
+          "type": "Event",
+          "Name": "Event with no offers inside aggregateOffer",
+          "offers": {
+            "type": "AggregateOffer"
           }
         }
       ]

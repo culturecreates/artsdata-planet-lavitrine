@@ -46,7 +46,7 @@ class SparqlTest < Minitest::Test
     @graph = RDF::Graph.load("./fixtures/two_offers.jsonld")
    # puts @graph.dump(:turtle)
     @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    puts @graph.dump(:jsonld)
+    # puts @graph.dump(:jsonld)
     assert_equal "8.0", @graph.query([nil, RDF::Vocab::SCHEMA.lowPrice, nil]).first.object.to_s
     assert_equal "20.0", @graph.query([nil, RDF::Vocab::SCHEMA.highPrice, nil]).first.object.to_s
     assert_equal 1, @graph.query([RDF::URI("https://www.grandtheatre.qc.ca/programmation/midis-musique-25-octobre-2023-2023-10-25-16-10#SingleEvent_WrappedOffer"), RDF.type, RDF::Vocab::SCHEMA.AggregateOffer]).count
@@ -92,10 +92,10 @@ class SparqlTest < Minitest::Test
   def test_fix_aggregate_offers_missing_url
     sparql = "../sparql/fix_aggregate_offers_missing_url.sparql"
     @graph = RDF::Graph.load("./fixtures/aggregate_offers_missing_url.jsonld")
-    # puts @graph.dump(:turtle)
+    # puts "BEFORE: #{@graph.dump(:turtle)}"
     @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    # puts @graph.dump(:turtle)
-    assert_equal 16, @graph.count
+    # puts "AFTER: #{@graph.dump(:turtle)}"
+    assert_equal 22, @graph.count
   end
 
 end
