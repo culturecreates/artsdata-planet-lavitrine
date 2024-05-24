@@ -39,6 +39,9 @@ where {
                         filter(not exists {
                                 ?superEvent schema:subEvent ?event
                             })
+                        filter(not exists {
+                                ?event schema:additionalType adr:Festival
+                            })
                         filter(?startDate >= now() || ?endDate >= now())
                     } 
                     order by ?startDate
