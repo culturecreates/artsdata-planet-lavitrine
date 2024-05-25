@@ -1,0 +1,33 @@
+{
+  "@context": "http://schema.org",
+  "@graph": [
+    {
+      "@type": "Place",
+      "@id": "http://place.com/1",
+      "name": "Place with sameAs Artsdata ID",
+      "sameAs": [
+        "http://kg.artsdata.ca/resource/K11-1"
+      ]
+    },
+    {
+      "@type": "Place",
+      "@id": "http://place.com/2",
+      "name": "Place without sameAs Artsdata ID"
+    },{
+      "@type": "Place",
+      "@id": "http://place.com/3",
+      "name": "Place with one sameAs Artsdata ID and another sameAs not artsdata",
+      "sameAs": [
+        "http://kg.artsdata.ca/resource/K11-1","http://facebook.com/1"
+      ]
+    },
+    {
+      "@type": "Place",
+      "@id": "http://place.com/4",
+      "name": "Place with two sameAs Artsdata IDs",
+      "sameAs": [
+        "http://kg.artsdata.ca/resource/K11-1","http://kg.artsdata.ca/resource/K11-2"
+      ]
+    }
+  ]
+}
