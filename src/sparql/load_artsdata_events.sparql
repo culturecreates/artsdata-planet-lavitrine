@@ -38,12 +38,12 @@ where {
                             ?event  schema:endDate ?endDate .
                         }
                               
-                        filter(not exists {
+                        filter( not exists {
                                 ?superEvent schema:subEvent ?event
                             })
-                        filter(not exists {
-                                ?event schema:additionalType adr:Festival
-                            })
+                        filter( not exists { ?event schema:additionalType adr:Festival })
+                        filter( not exists { ?event schema:additionalType <http://api.footlight.io/concepts/65719e94a5ac3d006314ed96> }) # Mauricie
+                        filter( not exists { ?event schema:additionalType <http://api.footlight.io/concepts/6418ca425e4d4e0066a2ee9f> }) # Tout Culture
                         filter(?startDate >= now() || ?endDate >= now())
                     } 
                     order by ?startDate
