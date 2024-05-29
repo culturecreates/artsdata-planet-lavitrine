@@ -96,6 +96,12 @@ class ArtsdataPipeline
     puts "Conforms: #{@report.conform?}"
   end
 
+  def report_artsdata_ids(file)
+    @missing_artsdata_ids = @graph.query(SPARQL.parse(File.read("./sparql/select_missing_artsdata_ids.sparql")))
+    missing_list  = @missing_artsdata_ids.map { |solution| solution.uri.value}.join("\n")
+    File.write(file, missing_list)
+  end
+
   def report(file)
     File.write(file, @report)
   end

@@ -88,7 +88,7 @@ ads:priceCurrencyProp
     .
 
 ads:AggregateOffer-url
-    sh:description "Every Offer **MUST** have one url."@en ;
+    sh:description "Every AggregateOffer **MUST** have one url."@en ;
     sh:path schema:url ;
     sh:minCount 1 ;
     sh:maxCount 1 ;

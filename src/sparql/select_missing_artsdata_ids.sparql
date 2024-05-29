@@ -1,0 +1,14 @@
+PREFIX schema: <http://schema.org/>
+      select distinct ?uri where {
+        { select distinct ?uri where 
+          {
+            ?uri a schema:Place .
+          }
+        }
+        OPTIONAL {
+            ?uri schema:sameAs ?adid .
+            filter(strstarts(str(?adid),"http://kg.artsdata.ca/resource/"))
+        }
+        filter(!BOUND(?adid))
+        filter(!strstarts(str(?uri),"http://kg.artsdata.ca/resource/"))
+      }
