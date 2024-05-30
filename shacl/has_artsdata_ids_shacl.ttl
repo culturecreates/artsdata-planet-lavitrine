@@ -7,15 +7,24 @@
 
 
 ads:PlaceCheck
-  a sh:PropertyShape ;
-  sh:targetClass schema:Place ;
+  a sh:NodeShape ;
+  sh:targetClass ( schema:Place ) ;
+  sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Missing a sameAs adid." ;
+		sh:prefixes schema: ;
+		sh:select """
+      PREFIX schema: <http://schema.org/>
+      select distinct $this where {
+        $this a schema:Place .
+        OPTIONAL {
+            $this schema:sameAs ?adid .
+            filter(strstarts(str(?adid),"http://kg.artsdata.ca/resource/"))
+        }
+        filter(!BOUND(?adid))
+      } 
+		""" ;
+	] 
 
-    sh:path schema:sameAs ;
-    sh:nodeKind sh:IRI ;
-    sh:message "Should have alteast one Artsdata URI" ;
-    sh:severity sh:Violation ;
-   sh:qualifiedValueShape [
-        sh:pattern "http://kg.artsdata.ca/resource/K.*" ;
-    ] ;
-    sh:qualifiedMinCount 1 ;
+
 .
