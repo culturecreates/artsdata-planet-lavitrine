@@ -21,7 +21,7 @@ ads:EventSeriesNode
                 ads:nameProp, 
                 ads:performerProp, 
                 ads:organizerProp, 
-                ads:urlProp, 
+            #    ads:urlProp, 
                 ads:subEventProp ;
     .
 
@@ -181,7 +181,7 @@ ads:nameProp
     ) .
 
 ads:urlProp
-    sh:description "EventSeries and VirtualLocation **MUST** have one and only one url."@en ;
+    sh:description "VirtualLocation **MUST** have one and only one url."@en ;
     sh:path schema:url ;
     sh:nodeKind sh:IRI ;
     sh:minCount 1 ;

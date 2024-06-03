@@ -111,7 +111,7 @@ class ArtsdataPipeline
   def add_to_graph(result)
     result.each_statement do |statement|
        # check if ADID and add to list for second step dereference
-      @adid << statement.object.value if statement.object.uri? && statement.object.value.start_with?("http://kg.artsdata.ca/resource/")
+      @adid << statement.object.value if statement.object.uri? && statement.object.value.start_with?("http://kg.artsdata.ca/resource/") && !statement.predicate.value.include?("sameAs")
       @adid.uniq!
       @graph << statement 
     end
