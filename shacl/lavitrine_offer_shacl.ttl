@@ -53,7 +53,8 @@ ads:nestedOffersProp
 
 ads:additionalTypeProp
     sh:path schema:additionalType ;
-    sh:in  (  adr:OfferRequiresRegistration );
+    # TODO: Implement this controlled vocabulary
+    # sh:in  (  adr:OfferRequiresRegistration );
     sh:description "An Offer that requires registration **MUST** have schema:additionalType set to 'http://kg.artsdata.ca/resource/OfferRequiresRegistration'"@en
     .
 

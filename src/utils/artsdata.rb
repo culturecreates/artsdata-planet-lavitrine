@@ -32,7 +32,7 @@ class ArtsdataPipeline
       i = 0
       loop do
         sparql_str = sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}")
-        puts "Loading #{args[:limit]} events from #{i * args[:limit]}"
+        puts "Loading #{args[:limit]} events from offset #{i * args[:limit]}"
         result = sparql_client.query(sparql_str)
         puts "Loaded #{result.count} triples"
         add_to_graph(result)

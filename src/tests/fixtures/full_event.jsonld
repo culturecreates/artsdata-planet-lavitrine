@@ -225,7 +225,7 @@
             "price": "0.00",
             "priceCurrency": "CAD",
             "url": "http://buyticket.com",
-            "additionalType": null
+            "additionalType": "Free"
           }
         }
       ],
