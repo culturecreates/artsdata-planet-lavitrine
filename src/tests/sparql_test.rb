@@ -94,7 +94,7 @@ class SparqlTest < Minitest::Test
     @graph = RDF::Graph.load("./fixtures/offers_footlight_aggregate_offer_keep.jsonld")
     # puts @graph.dump(:turtle)
     @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    puts @graph.dump(:turtle)
+    # puts @graph.dump(:turtle)
     assert_equal 6, @graph.count
   end
 

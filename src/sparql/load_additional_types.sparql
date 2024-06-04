@@ -1,0 +1,24 @@
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+construct {
+    ?event schema:additionalType ?type .
+    ?type skos:prefLabel ?prefLabel .
+    ?type a skos:Concept .
+    ?type skos:closeMatch ?closeMatch .
+    ?closeMatch skos:prefLabel ?closePrefLabel .
+    ?closeMatch a skos:Concept .
+}
+where {
+    graph <graph_placeholder> {
+        ?event schema:additionalType ?type .
+    }
+    graph <http://kg.artsdata.ca/culture-creates/artsdata-planet-gtq/grandtheatre-qc-ca-event-type-mapping> {
+        ?type skos:prefLabel ?prefLabel .
+        ?type skos:closeMatch ?closeMatch .
+    }
+    OPTIONAL {
+        graph <http://kg.artsdata.ca/culture-creates/artsdata-data-model/skos-event-types> {
+            ?closeMatch skos:prefLabel ?closePrefLabel .
+        }
+    }
+}

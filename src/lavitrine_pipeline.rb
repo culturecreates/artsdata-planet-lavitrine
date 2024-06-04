@@ -24,18 +24,26 @@ def LavitrinePipeline(**args)
   # Custom transformations that justify needing this code rather than using solely the Artsdata API. 
   puts "#{Time.now}: Starting transforms..."
    pipeline.transform("./sparql/remove_blank_literals.sparql")
+   puts "#{Time.now}: Starting transform transform_single_events..."
    pipeline.transform("./sparql/transform_single_events.sparql")
+   puts "#{Time.now}: Starting transform transform_series_events..."
    pipeline.transform("./sparql/transform_series_events.sparql")
+   puts "#{Time.now}: Starting small transforms..."
    pipeline.transform("./sparql/remove_eventforindex.sparql")
    pipeline.transform("./sparql/remove_temporary_eventtype.sparql")
    pipeline.transform("./sparql/convert_image_object_to_url.sparql")
    pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
    pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
    pipeline.transform("./sparql/convert_sameas_literal_to_uri.sparql")
+   puts "#{Time.now}: Starting transform convert_offers_to_aggregate_offer..."
    pipeline.transform("./sparql/convert_offers_to_aggregate_offer.sparql")
+   puts "#{Time.now}: Starting transform remove_footlight_aggregate_offer..."
    pipeline.transform("./sparql/remove_footlight_aggregate_offer.sparql")
+   puts "#{Time.now}: Starting transform fix_aggregate_offer_url..."
    pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
+   puts "#{Time.now}: Starting transform fix_aggregate_offers_missing_url..."
    pipeline.transform("./sparql/fix_aggregate_offers_missing_url.sparql")
+   puts "#{Time.now}: Starting transform remove_blank_literals..."
    pipeline.transform("./sparql/remove_blank_literals.sparql")
   
 
