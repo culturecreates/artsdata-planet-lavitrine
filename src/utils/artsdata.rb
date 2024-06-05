@@ -61,7 +61,7 @@ class ArtsdataPipeline
     end
 
     # load additionalTypes
-    sparql = File.read("./sparql/load_additional_types.sparql").gsub("<graph_placeholder>", uri_list)
+    sparql = File.read("./sparql/load_additional_types.sparql").gsub("graph_placeholder", args[:graph])
     result = sparql_client.query(sparql)
     add_to_graph(result)
     
