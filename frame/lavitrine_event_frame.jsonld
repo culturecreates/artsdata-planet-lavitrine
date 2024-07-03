@@ -118,6 +118,10 @@
   "@type": "EventSeries",
   "@explicit": true,
   "@embed": "@always",
+  "sameAs": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
   "additionalType": {
     "@type": "skos:Concept",
     "@explicit": true,
