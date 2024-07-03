@@ -1,0 +1,70 @@
+[{ "@context": "http://schema.org",
+  "@id": "http://first_event.com",
+  "type": "EventSeries",
+  "name": "with event URI used as offer url because event url is missing",
+  "subEvent": [
+    {
+      "@id": "http://first_subEvent.com",
+      "type": "Event",
+      "offers": {
+        "@id": "http://first_offer.com",
+        "type": "AggregateOffer"
+      }
+    }
+  ],
+  "url": null
+},
+{ 
+  "@context": "http://schema.org",
+  "@id": "http://second_event",
+  "type": "EventSeries",
+  "name": "second_event with event url used as offer url",
+  "subEvent": [
+    {
+      "@id": "http://second_subEvent",
+      "type": "Event",
+      "offers": {
+        "@id": "http://second_offer.com",
+        "type": "AggregateOffer"
+      }
+    }
+  ],
+  "url": "http://event.url.com"
+},
+{ 
+  "@context": "http://schema.org",
+  "@id": "http://third_event.com",
+  "type": "EventSeries",
+  "name": "third_event with inside offer url",
+  "subEvent": [
+    {
+      "@id": "http://third_subEvent.com",
+      "type": "Event",
+      "offers": {
+        "@id": "http://third_offer.com",
+        "type": "AggregateOffer",
+        "url": "http://offer.url.com"
+      }
+    }
+  ],
+  "url": null
+},
+{ 
+  "@context": "http://schema.org",
+  "@id": "http://fourth_event.com",
+  "type": "EventSeries",
+  "name": "fourth_event with inside offer url even though event url is present",
+  "subEvent": [
+    {
+      "@id": "http://fourth_subEvent.com",
+      "type": "Event",
+      "offers": {
+        "@id": "http://fourth_offer.com",
+        "type": "AggregateOffer",
+        "url": "http://offer.url.com"
+      }
+    }
+  ],
+  "url": "http://event.url.com"
+}
+]

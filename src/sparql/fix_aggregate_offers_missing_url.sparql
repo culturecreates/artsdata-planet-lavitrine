@@ -6,14 +6,18 @@ PREFIX adr: <http://kg.artsdata.ca/resource/>
 PREFIX schema: <http://schema.org/>
 
 insert {
-  ?AggregateOffer schema:url ?event_url .
+  ?AggregateOffer schema:url ?offer_url .
 }
 where {
   ?event a schema:EventSeries ; 
-    schema:url ?event_url ; 
     schema:subEvent ?subEvent .
+    OPTIONAL {
+      ?event schema:url ?event_url .
+    }
   ?subEvent a schema:Event ;
     schema:offers ?AggregateOffer .
   FILTER NOT EXISTS {  ?AggregateOffer schema:url ?any_url  }
+
+  BIND(COALESCE(?event_url, ?event) as ?offer_url)
  
 } 

@@ -70,6 +70,19 @@ class SparqlTest < Minitest::Test
     assert multiple_urls.false?
   end
 
+  def test_fix_aggregatte_offer_url_no_url
+    sparql = "../sparql/fix_aggregate_offers_missing_url.sparql"
+    @graph = RDF::Graph.load("./fixtures/event_missing_aggregate_offer_url.jsonld")
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    ## puts graph.dump(:turtle)
+    assert_equal 'http://first_event.com', graph.query([RDF::URI("http://first_offer.com"),RDF::Vocab::SCHEMA.url, nil]).first.object.to_s
+    assert_equal 'http://event.url.com', graph.query([RDF::URI("http://second_offer.com"),RDF::Vocab::SCHEMA.url, nil]).first.object.to_s
+    assert_equal 'http://offer.url.com', graph.query([RDF::URI("http://third_offer.com"),RDF::Vocab::SCHEMA.url, nil]).first.object.to_s
+    assert_equal 'http://offer.url.com', graph.query([RDF::URI("http://fourth_offer.com"),RDF::Vocab::SCHEMA.url, nil]).first.object.to_s
+ 
+  end
+
+
   def test_remove_temporary_eventtype
     sparql = "../sparql/remove_temporary_eventtype.sparql"
     @graph = RDF::Graph.load("./fixtures/event_with_additional_types.jsonld")
@@ -98,7 +111,7 @@ class SparqlTest < Minitest::Test
     assert_equal 6, @graph.count
   end
 
-  
+
   def test_fix_aggregate_offers_missing_url
     sparql = "../sparql/fix_aggregate_offers_missing_url.sparql"
     @graph = RDF::Graph.load("./fixtures/aggregate_offers_missing_url.jsonld")

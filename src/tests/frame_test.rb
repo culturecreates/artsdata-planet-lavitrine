@@ -11,6 +11,8 @@ class FrameTest < Minitest::Test
     input = JSON.parse(File.read('./fixtures/full_event.jsonld'))
     framed_json = JSON::LD::API.frame(input, @frame)
     assert framed_json
+    expected = ["http://kg.artsdata.ca/resource/K-test"]
+    assert_equal expected, framed_json["sameAs"]
   end
 
   def test_nested_offers_does_not_contain_bad
