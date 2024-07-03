@@ -1,6 +1,8 @@
 name: Artsdata Export
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'  # Runs daily at 4 AM UTC, which is 11 PM EST
 jobs:
   deploy:
     env:
