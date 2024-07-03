@@ -90,3 +90,13 @@ One way to visually check if the event data looks good is to compare event image
 The PDA event data from Artsdata is saved to a dump daily using Github workflows managed in this repo. To download a dump you must call the Artsdata Databus API and pass the URI of the artifact. This will return the downloadUrl to download the data dump. 
 
 Data dump [latest artifact](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fplacedesarts-com) | [all artifacts](https://api.artsdata.ca/databus/artifact?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fplacedesarts-com) 
+
+
+## Installation
+
+The pipeline can be run locally for development and testing. You will need Ruby 3 installed.
+
+1. Clone repository from Github.
+2. `bundle install`
+3. `rake test`
+4. `cd src ; bundle exec ruby batch.rb`
