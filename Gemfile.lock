@@ -74,6 +74,8 @@ GEM
       connection_pool (~> 2.2)
     nokogiri (1.16.6-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.6-x86_64-linux)
+      racc (~> 1.4)
     psych (5.1.2)
       stringio
     public_suffix (6.0.0)
@@ -190,6 +192,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   linkeddata
