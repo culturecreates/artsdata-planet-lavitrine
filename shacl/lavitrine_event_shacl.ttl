@@ -1,4 +1,3 @@
-@prefix dash: <http://datashapes.org/dash#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
@@ -11,49 +10,73 @@
 # Lavitrine Events SHACL v1
 #
 # Main difference with Artsdsata:
-# - Single Events are transformed into EventSeries with single subEvent.
+# Single Events are transformed into EventSeries (spectacle) 
+# with a single subEvent (performance).
 ####################################################
 
 ads:EventSeriesNode
+    sh:description "An EventSeries is roughly equivalent to a spectacle. It is a collection of performance(s)."@en ;
     sh:targetClass schema:EventSeries ;
-    sh:property ads:descriptionProp,
+    sh:property ads:nameProp, 
+                ads:descriptionPerLanguage,  
+                ads:descriptionNotMissing,
                 ads:locationProp, 
-                ads:nameProp, 
                 ads:performerProp, 
                 ads:organizerProp, 
-            #    ads:urlProp, 
                 ads:subEventProp ;
     .
 
-ads:descriptionProp
+ads:nameProp
+    sh:path schema:name ;
+    sh:uniqueLang true ;
+    sh:minCount 1 ;
+    sh:severity sh:Violation ;
+.
+
+ads:descriptionPerLanguage
+    sh:description "An Event **MUST** not have more than one description per language"@en ; 
     sh:path schema:description ;
     sh:uniqueLang true ;
-    sh:minCount 1  .
+    sh:severity sh:Violation ;
+.
+
+ads:descriptionNotMissing
+    sh:description "An Event **SHOULD** have atleast one description"@en ;
+    sh:path schema:description ;
+    sh:minCount 1 ;
+    sh:severity sh:Warning  .
+
 
 ads:locationProp
+    sh:description "An Event **MUST** have one location."@en ;
     sh:path schema:location ;
     sh:minCount 1  ;
+    sh:maxCount 1  ;
     sh:or (
-        [ sh:node ads:PlaceNode ; ]
-        [ sh:node ads:VirtualLocationNode ; ]
-    ) .
+        [ sh:class schema:Place ; ]
+        [ sh:class schema:VirtualLocation ; ]
+    ) ;
+    sh:severity sh:Violation ;
+    # see shacl/lavitrine_place_shacl.ttl
+.
 
 ads:performerProp
     sh:path schema:performer ;
     sh:or (
-        [ sh:node ads:PersonNode ; ]
-        [ sh:node ads:OrganizationNode ; ]
+        [ sh:class schema:Person ; ]
+        [ sh:class schema:Organization ; ]
     ) .
 
 ads:organizerProp
-    sh:path schema:performer ;
+    sh:path schema:organizer ;
     sh:or (
-        [ sh:node ads:PersonNode ; ]
-        [ sh:node ads:OrganizationNode ; ]
+        [ sh:class schema:Person ; ]
+        [ sh:class schema:Organization ; ]
     ) ;
 .
 
 ads:subEventProp
+    sh:description "An Event **MUST** have a subEvent (representation)"@en ; 
     sh:path schema:subEvent ;
     sh:minCount 1  ;
     sh:node sh:EventNode .
@@ -64,6 +87,7 @@ ads:subEventProp
 ################
 
 ads:EventNode
+    sh:description "An Event is roughly equivalent to a representation."@en ;
     sh:targetClass  schema:Event ;
     sh:property ads:nameProp, 
                 ads:startDateProp,
@@ -95,20 +119,23 @@ ads:offersProp
     sh:path schema:offers ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-   sh:or (
-       [ sh:node ads:AggregateOfferNode ; ]
-       [ sh:node ads:OfferNode ; ]
-   ) ;
+    sh:or (
+        [ sh:node ads:AggregateOfferNode ; ]
+        [ sh:node ads:OfferNode ; ]
+    ) ;
     .
 
 ads:eventStatusProp
+    sh:description "An Event **SHOULD** have a status from the list."@en ;
     sh:path schema:eventStatus ;
     sh:minCount 1 ;
     sh:in  (    schema:EventCancelled
                 schema:EventPostponed 
                 schema:EventScheduled  
                 schema:EventRescheduled  
-                schema:EventMovedOnline ) .
+                schema:EventMovedOnline ) ;
+    sh:severity sh:Warning ;
+.
 
 ads:eventAttendanceModeProp
     sh:path schema:eventAttendanceMode ;
@@ -117,168 +144,3 @@ ads:eventAttendanceModeProp
                 schema:OfflineEventAttendanceMode 
                 schema:HybridEventAttendanceMode ) 
     .
-
-
-
-################
-# Place 
-################
-ads:PlaceNode
-    sh:targetClass schema:Place ;
-    sh:closed true ;
-    sh:ignoredProperties (rdf:type) ;
-    sh:property ads:nameProp, 
-                ads:sameAsProp,
-                ads:addressProp,
-                ads:containedInPlaceProp,
-                ads:longitudeProp,
-                ads:latitudeProp ;
-.
-
-ads:containedInPlaceProp
-    sh:path schema:containedInPlace ;
-    sh:minCount 0 ;
-.
-
-ads:longitudeProp
-    sh:path schema:longitude ;
-     sh:minCount 0 ;
-.
-
-ads:latitudeProp
-    sh:path schema:latitude ;
-    sh:minCount 0 ;
-.
-
-ads:addressProp
-    sh:path schema:address ;
-    sh:minCount 1 ;
-    sh:node ads:PostalAddressNode ;
-.
-  
-
-
-################
-# VirtualLocation 
-################
-
-ads:VirtualLocationNode
-    sh:targetClass schema:VirtualLocation ;
-    sh:property ads:urlProp .
-
-
-################
-# Common properties 
-################
-
-ads:nameProp
-    sh:path schema:name ;
-    sh:uniqueLang true ;
-    sh:minCount 1 ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
-ads:urlProp
-    sh:description "VirtualLocation **MUST** have one and only one url."@en ;
-    sh:path schema:url ;
-    sh:nodeKind sh:IRI ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:pattern "^http" ;
-    sh:not (
-        [sh:pattern "http://schema.org" ;]
-    ) .
-
-
-ads:sameAsProp
-    sh:path schema:sameAs ;
-    sh:minCount 0 ;
-    sh:pattern "^http" ;
-    sh:not ads:PatternContainsSpaces ;
-    sh:description "sameAs properties must be URIs and start with http and not contain spaces."@en ;
-    sh:nodeKind sh:IRI .
-
-ads:PatternContainsSpaces sh:pattern " "  ;
-    sh:description "String contains spaces which should not be allowed for URIs"@en .
-
-
-
-################
-# Person 
-################
-
-ads:PersonNode
-    sh:targetClass schema:Person ;
-    sh:property ads:nameProp ,
-                ads:sameAsProp ;
-    .
-
-################
-# Organization 
-################
-
-ads:OrganizationNode
-    sh:targetClass schema:Organization ;
-    sh:property ads:nameProp ,
-                ads:sameAsProp ;
-     .
-
-
-################
-# PostalAddress Shape 
-################
-ads:PostalAddressNode
-    sh:targetClass schema:PostalAddress ;
-    sh:closed true ;
-    sh:ignoredProperties (rdf:type) ;
-    sh:property ads:streetAddressProp, 
-                ads:addressCountryProp, 
-                ads:addressRegionProp, 
-                ads:postalCodeProp, 
-                ads:addressLocalityProp ;
-.
-    
-ads:streetAddressProp
-    sh:path schema:streetAddress ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
-ads:addressCountryProp
-    sh:path schema:addressCountry ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
- ads:addressRegionProp
-    sh:path schema:addressRegion ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
-ads:postalCodeProp
-    sh:path schema:postalCode ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string .
-
-ads:addressLocalityProp
-    sh:path schema:addressLocality ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-    

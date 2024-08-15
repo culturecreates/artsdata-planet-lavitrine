@@ -1,0 +1,6 @@
+{
+  "@context": "http://schema.org/",
+  "type": "EventSeries",
+  "name": "Event with a valid Facebook sameAs",
+  "sameAs": "https://www.facebook.com/events/12345"
+}

@@ -1,0 +1,9 @@
+{
+  "@context": "http://schema.org/",
+  "type": "PostalAddress",
+  "schema:streetAddress": "123 street",
+  "schema:addressCountry": "Canada",  
+  "schema:addressRegion": "Quebec",
+  "schema:postalCode": "H1H 1H1", 
+  "schema:addressLocality": "Montreal"
+}

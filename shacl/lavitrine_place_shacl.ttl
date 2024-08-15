@@ -1,0 +1,80 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ads: <http://kg.artsdata.ca/shacl/> .
+
+
+
+################
+# Place 
+################
+
+ads:PlaceNode
+    sh:targetClass schema:Place ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:property ads:placeNameProp, 
+                ads:placeSameAsProp,
+                ads:addressProp,
+                ads:containedInPlaceProp,
+                ads:longitudeProp,
+                ads:latitudeProp ;
+.
+
+ads:placeNameProp
+    sh:path schema:name ;
+    sh:uniqueLang true ;
+    sh:minCount 1 ;
+    sh:or ( 
+        [sh:datatype rdf:langString ;] 
+        [sh:datatype xsd:string ;]
+    ) .
+
+ads:placeSameAsProp
+    sh:path schema:sameAs ;
+    sh:minCount 0 ;
+    sh:pattern "^http" ;
+    sh:nodeKind sh:IRI .
+
+ads:addressProp
+    sh:path schema:address ;
+    sh:minCount 1 ;
+.
+
+
+ads:containedInPlaceProp
+    sh:path schema:containedInPlace ;
+    sh:minCount 0 ;
+.
+
+ads:longitudeProp
+    sh:path schema:longitude ;
+     sh:minCount 0 ;
+.
+
+ads:latitudeProp
+    sh:path schema:latitude ;
+    sh:minCount 0 ;
+.
+
+
+################
+# VirtualLocation 
+################
+
+ads:VirtualLocationNode
+    sh:targetClass schema:VirtualLocation ;
+    sh:property [
+      sh:description "VirtualLocation **MUST** have one and only one url."@en ;
+      sh:path schema:url ;
+      sh:nodeKind sh:IRI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:pattern "^http" ;
+      sh:not (
+          [sh:pattern "http://schema.org" ;]
+      ) 
+    ] .
+

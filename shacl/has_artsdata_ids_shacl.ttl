@@ -9,9 +9,10 @@
 ads:PlaceCheck
   a sh:NodeShape ;
   sh:targetClass ( schema:Place ) ;
+   sh:severity sh:Warning ;
   sh:sparql [
 		a sh:SPARQLConstraint ;   # This triple is optional
-		sh:message "Missing a sameAs adid." ;
+		sh:message "Missing a Place sameAs adid." ;
 		sh:prefixes schema: ;
 		sh:select """
       PREFIX schema: <http://schema.org/>

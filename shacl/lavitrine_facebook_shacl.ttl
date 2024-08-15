@@ -1,0 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ads: <http://kg.artsdata.ca/shacl/> .
+
+ads:EventSeriesNode
+    sh:targetClass schema:EventSeries ;
+    sh:property ads:SameAsFacebookEvent;
+.
+
+ads:SameAsFacebookEvent
+    sh:description "Only Facebook URLs for events are allowed for Event sameAs." ;
+    sh:path schema:sameAs ;
+    sh:pattern "^https?://www.facebook.com/events"  ;  
+    sh:severity sh:Warning ;
+.
+    

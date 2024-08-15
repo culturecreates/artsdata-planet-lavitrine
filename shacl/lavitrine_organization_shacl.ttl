@@ -12,16 +12,14 @@
 
 ads:OrganizationNode
     sh:targetClass schema:Organization ;
-    sh:property ads:nameProp ,
-                ads:urlProp ,
-                ads:sameAsProp ,
-                ads:addressProp ,
-                ads:NEQProp ,
-                ads:CanadianBusinessNumberProp ;
+    sh:property ads:organizationNameProp ,
+                ads:organizationUrlProp ,
+                ads:organizationSameAsProp ,
+                ads:organizationAddressProp  ;
 .
 
 
-ads:nameProp
+ads:organizationNameProp
     sh:path schema:name ;
     sh:uniqueLang true ;
     sh:minCount 1 ;
@@ -30,7 +28,7 @@ ads:nameProp
         [sh:datatype xsd:string ;]
     ) .
 
-ads:urlProp
+ads:organizationUrlProp
     sh:path schema:url ;
     sh:nodeKind sh:IRI ;
     sh:minCount 0 ;
@@ -40,89 +38,16 @@ ads:urlProp
     ) .
 
 
-ads:sameAsProp
+ads:organizationSameAsProp
     sh:path schema:sameAs ;
     sh:minCount 0 ;
     sh:pattern "^http" ;
     sh:description "sameAs properties must be URIs and start with http and not contain spaces or @" ;
     sh:nodeKind sh:IRI .
 
-ads:addressProp
+ads:organizationAddressProp
     sh:path schema:address ;
-    sh:minCount 1 ;
-    sh:node ads:PostalAddressNode ;
+    sh:minCount 0 ;
 .
 
-ads:NEQProp
-    sh:path  wdt:P10503 ;
-    sh:pattern "^\\d{10}$" ;
-    sh:minCount 0 ;
-    sh:not [
-		  sh:hasValue "0000000000"  
-	] .
 
-ads:CanadianBusinessNumberProp
-    sh:path  wdt:P8860 ;
-    sh:pattern "^\\d{9}$" ;
-    sh:minCount 0 ;
-    sh:not [
-		  sh:hasValue "000000000"  
-	] .
-
-
-################
-# PostalAddress Shape 
-################
-ads:PostalAddressNode
-    sh:targetClass schema:PostalAddress ;
-    sh:closed true ;
-    sh:ignoredProperties (rdf:type) ;
-    sh:property ads:streetAddressProp, 
-                ads:addressCountryProp, 
-                ads:addressRegionProp, 
-                ads:postalCodeProp, 
-                ads:addressLocalityProp ;
-.
-    
-ads:streetAddressProp
-    sh:path schema:streetAddress ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
-ads:addressCountryProp
-    sh:path schema:addressCountry ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
- ads:addressRegionProp
-    sh:path schema:addressRegion ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-
-ads:postalCodeProp
-    sh:path schema:postalCode ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:datatype xsd:string .
-
-ads:addressLocalityProp
-    sh:path schema:addressLocality ;
-    sh:minCount 1 ;
-    sh:uniqueLang true ;
-    sh:or ( 
-        [sh:datatype rdf:langString ;] 
-        [sh:datatype xsd:string ;]
-    ) .
-    

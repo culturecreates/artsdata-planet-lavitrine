@@ -1,0 +1,6 @@
+{
+  "@context": "http://schema.org/",
+  "type": "EventSeries",
+  "name": "Event with bad Facebook sameAs",
+  "sameAs": "https://www.facebook.com/corposite"
+}

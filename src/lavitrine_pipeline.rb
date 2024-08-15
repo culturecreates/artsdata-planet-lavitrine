@@ -6,6 +6,10 @@ def LavitrinePipeline(**args)
   
   pipeline = ArtsdataPipeline.new
 
+  #################
+  # Loading
+  #################
+
   artifact = ''
   if args[:graph]
     graph = args[:graph]
@@ -20,36 +24,39 @@ def LavitrinePipeline(**args)
     pipeline.load(file: file)
   end
 
-  #### pipeline.load(file: "../output/raw-#{graph.split("/").last}.json" )
+  ################# 
+  # Transforming
   # Custom transformations that justify needing this code rather than using solely the Artsdata API. 
-  puts "#{Time.now}: Starting transforms..."
-   pipeline.transform("./sparql/remove_blank_literals.sparql")
-   puts "#{Time.now}: Starting transform transform_single_events..."
-   pipeline.transform("./sparql/transform_single_events.sparql")
-   puts "#{Time.now}: Starting transform transform_series_events..."
-   pipeline.transform("./sparql/transform_series_events.sparql")
-   puts "#{Time.now}: Starting small transforms..."
-   pipeline.transform("./sparql/remove_eventforindex.sparql")
-   pipeline.transform("./sparql/remove_temporary_eventtype.sparql")
-   pipeline.transform("./sparql/convert_image_object_to_url.sparql")
-   pipeline.transform("./sparql/convert_image_literal_to_uri.sparql")
-   pipeline.transform("./sparql/convert_url_literal_to_uri.sparql")
-   pipeline.transform("./sparql/convert_sameas_literal_to_uri.sparql")
-   puts "#{Time.now}: Starting transform convert_offers_to_aggregate_offer..."
-   pipeline.transform("./sparql/convert_offers_to_aggregate_offer.sparql")
-   puts "#{Time.now}: Starting transform remove_footlight_aggregate_offer..."
-   pipeline.transform("./sparql/remove_footlight_aggregate_offer.sparql")
-   puts "#{Time.now}: Starting transform fix_aggregate_offer_url..."
-   pipeline.transform("./sparql/fix_aggregate_offer_url.sparql")
-   puts "#{Time.now}: Starting transform fix_aggregate_offers_missing_url..."
-   pipeline.transform("./sparql/fix_aggregate_offers_missing_url.sparql")
-   puts "#{Time.now}: Starting transform remove_blank_literals..."
-   pipeline.transform("./sparql/remove_blank_literals.sparql")
-  
+  # Groups must be run in order.
+  # --> shortcut start to here:  pipeline.load(file: "../output/raw-#{graph.split("/").last}.json" )
+  #################
 
-   pipeline.dump("../output/transformed-#{artifact}.json")
+  ## group A 
+  puts "#{Time.now}: Starting group A transforms..."
+  sparql_files = Dir.glob("src/sparql/transformations/group_a/*.sparql")
+  pipeline.transform(*sparql_files)
 
- ###### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )
+  ## group B
+  puts "#{Time.now}: Starting group B transforms..."
+  sparql_files = Dir.glob("src/sparql/transformations/group_b/*.sparql")
+  pipeline.transform(*sparql_files)
+
+  ## group C
+  puts "#{Time.now}: Starting group C transforms..."
+  sparql_files = Dir.glob("src/sparql/transformations/group_c/*.sparql")
+  pipeline.transform(*sparql_files)
+
+  ## group D
+  puts "#{Time.now}: Starting group D transforms..."
+  sparql_files = Dir.glob("src/sparql/transformations/group_d/*.sparql")
+  pipeline.transform(*sparql_files)
+
+  pipeline.dump("../output/transformed-#{artifact}.json")
+
+  #################
+  # Framing
+  # --> shortcut start to here:  pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )
+  #################
 
   puts "#{Time.now}: Framing..."
   pipeline.frame( "../frame/lavitrine_event_frame.jsonld")
@@ -57,11 +64,17 @@ def LavitrinePipeline(**args)
   puts "#{Time.now}: Saving JSON-LD..."
   pipeline.dump("../output/#{artifact}.json")
 
+  #################
+  # SHACL Validation
+  #################
+
   puts "#{Time.now}: Validating shapes... #{artifact}"
-  pipeline.validate(
-    "../shacl/lavitrine_event_shacl.ttl",
-    "../shacl/lavitrine_offer_shacl.ttl"
-    )
+  # Get all Turtle files in the /shacl/ directory
+  shacl_files = Dir.glob("shacl/*.ttl")
+
+  # Validate all the SHACL files
+  pipeline.validate(*shacl_files)
+
   puts "#{Time.now}: Listing missing artsdata ids... #{artifact}"
   pipeline.report_artsdata_ids("../output/#{artifact}-missing-artsdata-ids.txt")
   

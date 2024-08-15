@@ -164,7 +164,8 @@
         "sameAs": [
           "https://en.wikipedia.org/wiki/Salle_Wilfrid-Pelletier",
           "https://fr.wikipedia.org/wiki/Salle_Wilfrid-Pelletier",
-          "http://www.wikidata.org/entity/Q3469896"
+          "http://www.wikidata.org/entity/Q3469896",
+          "http://kg.artsdata.ca/resource/K11-75"
         ],
         "containedInPlace": {
           "@id": "http://kg.artsdata.ca/resource/K11-3",
@@ -193,7 +194,8 @@
             "fr": "Place des Arts",
             "en": "Place des Arts",
             "@none": "Place des Arts"
-          }
+          },
+          "sameAs": "http://kg.artsdata.ca/resource/K11-3"
         },
         "name": {
           "fr": "Place des Arts - Salle Wilfrid-Pelletier",

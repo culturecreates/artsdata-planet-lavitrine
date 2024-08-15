@@ -69,7 +69,12 @@ class ArtsdataPipeline
 
 
   def transform(sparql)
-    @graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    # if !sparql.is_a? Array
+    #   sparql = [sparql]
+    # end
+    sparql.each do |sparql_file|
+      @graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    end
   end
 
   def frame(frame)
