@@ -8,13 +8,13 @@ def LavitrinePipeline(**args)
   artifact = ''
   if args[:graph]
     graph = args[:graph]
-    artifact = graph.split("/").last
+    artifact = args[:artifact] ||= graph.split("/").last
     puts "#{Time.now}: Downloading #{artifact} data..."
     pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 10, graph: graph)
     pipeline.dump("../output/raw-#{artifact}.json")
   else
     file = args[:file]
-    artifact = file.split("/").last.split(".").first
+    artifact = args[:artifact] ||= file.split("/").last.split(".").first
     puts "#{Time.now}: Loading #{artifact} file..."
     pipeline.load(file: file)
   end
@@ -76,7 +76,8 @@ end
 
 # Get the graph parameter
 graph = ARGV[0]
+artifact = ARGV[1]
 
-# Call the LavitrinePipeline method with the graph parameter
-LavitrinePipeline(graph: graph)
+# Call the LavitrinePipeline method with the graph parameter and optional artifact parameter
+LavitrinePipeline(graph: graph, artifact: artifact)
 
