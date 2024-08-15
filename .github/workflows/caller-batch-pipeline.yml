@@ -5,44 +5,48 @@ on:
   schedule:
     - cron: '0 4 * * *'  # Runs daily at 4 AM UTC, which is 11 PM EST
 
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+  
 jobs:
   one:
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
       artifact: 'grandtheatre-qc-ca'
-  two:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com'
-      artifact: 'placedesarts-com'
-  three:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/resource/dia-logGraphs'
-      artifact: 'dia-logGraphs'  
-  four:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/hector-charland-com'
-      artifact: 'hector-charland-com'
-  five:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/theatredumarais-com'
-      artifact: 'theatredumarais-com' 
-  six:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture-cms-events'
-      artifact: 'tout-culture-cms-events'
-  seven:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval-cms-events'
-      artifact: 'signe-laval-cms-events'
-  eight:
-    uses: ./.github/workflows/pipeline.yml
-    with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie-cms-events'
-      artifact: 'culture-mauricie-cms-events' 
+  # two:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com'
+  #     artifact: 'placedesarts-com'
+  # three:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/resource/dia-logGraphs'
+  #     artifact: 'dia-logGraphs'  
+  # four:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/hector-charland-com'
+  #     artifact: 'hector-charland-com'
+  # five:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/theatredumarais-com'
+  #     artifact: 'theatredumarais-com' 
+  # six:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture-cms-events'
+  #     artifact: 'tout-culture-cms-events'
+  # seven:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval-cms-events'
+  #     artifact: 'signe-laval-cms-events'
+  # eight:
+  #   uses: ./.github/workflows/pipeline.yml
+  #   with:
+  #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie-cms-events'
+  #     artifact: 'culture-mauricie-cms-events' 
