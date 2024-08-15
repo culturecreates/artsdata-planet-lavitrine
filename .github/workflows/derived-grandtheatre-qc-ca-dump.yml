@@ -18,7 +18,7 @@ jobs:
 
     - name: Run Main Script
       run: |
-          bundle exec ruby src/lavitrine_pipeline.rb \
+          mkdir output ; cd src ; bundle exec ruby lavitrine_pipeline.rb \
           http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca 
 
     - name: Upload artifacts
