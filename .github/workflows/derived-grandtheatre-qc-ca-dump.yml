@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
       
 jobs:
-  setup:
+  fetch-transform-data:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -15,11 +14,8 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+        ruby-version: 3.1
 
-  fetch-data:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
     - name: Run Main Script
       run: |
           bundle exec ruby src/lavitrine_pipeline.rb \
@@ -37,7 +33,7 @@ jobs:
         retention-days: 1
       
   upload-to-s3:
-    needs: fetch-data
+    needs: fetch-transform-data
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
