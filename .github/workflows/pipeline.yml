@@ -61,26 +61,33 @@ jobs:
       AWS_REGION: ca-central-1 
       WEBHOSTING_BUCKET_NAME: huginn-data
     runs-on: ubuntu-latest
+    outputs:
+      VERSION: ${{ steps.set-version.outputs.VERSION }}
+      DOWNLOAD_URL: ${{ steps.set-download-url.outputs.DOWNLOAD_URL }}
     steps:
     - name: Set current date as version
       id: set-version  # this is used on variable path
-      run: echo "::set-output name=version::$(date + '%Y-%m-%dT%H-%M-%S')"
+      run: echo "VERSION=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
     - name: Get artifacts
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifact }}
         path: ./output
     - name: Upload to S3
-      run: aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.set-version.outputs.version }}/ --acl public-read --recursive
+      run: aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.set-version.outputs.VERSION }}/ --acl public-read --recursive
     - name: Set downloadUrl
       id: set-download-url
-      run: echo "::set-output name=downloadUrl::https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/lavitrine/${{ steps.set-version.outputs.version }}/${{ inputs.artifact }}.json"
-       
+      run: echo "DOWNLOAD_URL=https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/lavitrine/${{ steps.set-version.outputs.VERSION }}/${{ inputs.artifact }}.json" >> $GITHUB_OUTPUT
+     
   register-on-artsdata-databus:
-    runs-on: ubuntu-latest
     needs: s3
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.s3.outputs.VERSION }}
+      DOWNLOAD_URL: ${{ needs.s3.outputs.DOWNLOAD_URL }}
     steps:
       - name: Register dump on Artsdata Databus
+        
         run: |
           curl \
           -H 'Content-Type: application/json' \
@@ -89,8 +96,8 @@ jobs:
                     "comment": "Dump of ${{ inputs.artifact }} using Github workflows",
                     "publisher": "${{ secrets.PUBLISHER_URI_GREGORY }}",
                     "group": "${{ github.event.repository.name }}",
-                    "version": "${{ needs.s3.outputs.version }}",
-                    "downloadUrl": "${{ needs.s3.outputs.downloadUrl }}",
+                    "version": "$VERSION",
+                    "downloadUrl": "$DOWNLOAD_URL",
                     "downloadFile": "${{ inputs.artifact }}.json",
                     "register_only": "true"
                   }'   
