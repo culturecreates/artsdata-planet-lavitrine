@@ -53,11 +53,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.artifact }}
-        path: |
-          ./output/raw-${{ inputs.artifact }}.json
-          ./output/${{ inputs.artifact }}.json
-          ./output/${{ inputs.artifact }}.yml
-          ./output/${{ inputs.artifact }}-missing-artsdata-ids.txt
+        path: ./output
         retention-days: 1
       
   s3:

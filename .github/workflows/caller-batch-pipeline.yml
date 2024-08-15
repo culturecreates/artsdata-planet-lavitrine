@@ -11,7 +11,7 @@ env:
   PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
 
 jobs:
-  one:
+  grandtheatre-qc-ca:
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
@@ -20,37 +20,37 @@ jobs:
       AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
       PUBLISHER: $PUBLISHER
-  # two:
+  # placedesarts-com:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com'
   #     artifact: 'placedesarts-com'
-  # three:
+  # dia-logGraphs:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/resource/dia-logGraphs'
   #     artifact: 'dia-logGraphs'  
-  # four:
+  # hector-charland:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/hector-charland-com'
   #     artifact: 'hector-charland-com'
-  # five:
+  # theatredumarais-com:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/theatredumarais-com'
   #     artifact: 'theatredumarais-com' 
-  # six:
+  # tout-culture:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture-cms-events'
   #     artifact: 'tout-culture-cms-events'
-  # seven:
+  # signe-laval:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval-cms-events'
   #     artifact: 'signe-laval-cms-events'
-  # eight:
+  # culture-mauricie:
   #   uses: ./.github/workflows/pipeline.yml
   #   with:
   #     graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie-cms-events'
