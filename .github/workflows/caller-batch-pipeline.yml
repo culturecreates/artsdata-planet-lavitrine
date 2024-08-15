@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
-      artifact: 'derived-grandtheatre-qc-ca'
+      artifact: 'grandtheatre-qc-ca'
   two:
     uses: ./.github/workflows/pipeline.yml
     with:

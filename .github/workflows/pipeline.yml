@@ -12,7 +12,7 @@ on:
         description: 'Artifact'
         type: string
         required: true
-        default: 'derived-grandtheatre-qc-ca'
+        default: 'grandtheatre-qc-ca'
   workflow_call:
     inputs:
       graph_url:
