@@ -1,0 +1,11 @@
+name: Caller Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-pipeline:
+    uses: ./.github/workflows/pipeline.yml
+    with:
+      graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
+      artifact: 'derived-grandtheatre-qc-ca'
