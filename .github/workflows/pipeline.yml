@@ -62,6 +62,8 @@ jobs:
       WEBHOSTING_BUCKET_NAME: huginn-data
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
     - name: Set current date as version
       id: set-version  # this is used on variable path
       run: |
