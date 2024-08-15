@@ -4,8 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-pipeline:
+  one:
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
       artifact: 'derived-grandtheatre-qc-ca'
+  two:
+    uses: ./.github/workflows/pipeline.yml
+    with:
+      graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com'
+      artifact: 'placedesarts-com'
+  three:
+    uses: ./.github/workflows/pipeline.yml
+    with:
+      graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/placedesarts-com'
+      artifact: 'placedesarts-com'  

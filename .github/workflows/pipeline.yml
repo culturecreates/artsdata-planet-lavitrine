@@ -53,7 +53,7 @@ jobs:
           ./output/${{ inputs.artifact }}-missing-artsdata-ids.txt
         retention-days: 1
       
-  upload-to-s3:
+  s3:
     needs: fetch-transform-data
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
@@ -64,23 +64,21 @@ jobs:
     steps:
     - name: Set current date as version
       id: set-version  # this is used on variable path
-      run: |
-        echo "version=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+      run: echo "::set-output name=version::$(date + '%Y-%m-%dT%H-%M-%S')"
     - name: Get artifacts
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.artifact }}
         path: ./output
     - name: Upload to S3
-      run:  |
-        aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.set-version.outputs.version }}/ --acl public-read --recursive
+      run: aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.set-version.outputs.version }}/ --acl public-read --recursive
     - name: Set downloadUrl
-      run: |
-        echo "downloadUrl=https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/lavitrine/${{ steps.set-version.outputs.version }}/${{ github.event.inputs.artifact }}.json" >> $GITHUB_OUTPUT
-
+      id: set-download-url
+      run: echo "::set-output name=downloadUrl::https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/lavitrine/${{ steps.set-version.outputs.version }}/${{ inputs.artifact }}.json"
+       
   register-on-artsdata-databus:
     runs-on: ubuntu-latest
-    needs: upload-to-s3
+    needs: s3
     steps:
       - name: Register dump on Artsdata Databus
         run: |
@@ -88,11 +86,11 @@ jobs:
           -H 'Content-Type: application/json' \
           -X POST http://api.artsdata.ca/databus/  \
           --data '{ "artifact": "derived-grandtheatre-qc-ca",
-                    "comment": "Dump of ${{ github.event.inputs.artifact }} using Github workflows",
+                    "comment": "Dump of ${{ inputs.artifact }} using Github workflows",
                     "publisher": "${{ secrets.PUBLISHER_URI_GREGORY }}",
                     "group": "${{ github.event.repository.name }}",
-                    "version": "${{ needs.upload-to-s3.outputs.version }}",
-                    "downloadUrl": "${{ needs.upload-to-s3.outputs.downloadUrl }}",
-                    "downloadFile": "${{ github.event.inputs.artifact }}.json",
+                    "version": "${{ needs.s3.outputs.version }}",
+                    "downloadUrl": "${{ needs.s3.outputs.downloadUrl }}",
+                    "downloadFile": "${{ inputs.artifact }}.json",
                     "register_only": "true"
                   }'   
