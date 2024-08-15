@@ -47,7 +47,7 @@ jobs:
 
     - name: Run Main Script
       run: |
-        mkdir output ; cd src ; bundle exec ruby lavitrine_pipeline.rb ${{ inputs.graph_url }}
+        mkdir output ; cd src ; bundle exec ruby lavitrine_pipeline.rb ${{ inputs.graph_url }} ${{ inputs.artifact }}
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
