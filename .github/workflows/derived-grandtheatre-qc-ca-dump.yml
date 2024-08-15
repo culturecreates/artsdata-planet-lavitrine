@@ -1,0 +1,81 @@
+name: derived-grandtheatre-qc-ca dump
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+
+  fetch-data:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Main Script
+      run: |
+          bundle exec ruby src/lavitrine_pipeline.rb \
+          http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca 
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: derived-grandtheatre-qc-ca
+        path: |
+          ./output/raw-derived-grandtheatre-qc-ca.json
+          ./output/derived-grandtheatre-qc-ca.json
+          ./output/derived-grandtheatre-qc-ca.yml
+          ./output/derived-grandtheatre-qc-ca-missing-artsdata-ids.txt
+        retention-days: 1
+      
+  upload-to-s3:
+    needs: fetch-data
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+      AWS_REGION: ca-central-1 
+      WEBHOSTING_BUCKET_NAME: huginn-data
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set current date as version
+      id: set-version  # this is used on variable path
+      run: |
+        echo "version=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+    - name: Get artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: derived-grandtheatre-qc-ca
+        path: ./output
+    - name: Upload to S3
+      run:  |
+        aws s3 cp ./output/ s3://${{ env.WEBHOSTING_BUCKET_NAME }}/lavitrine/${{ steps.set-version.outputs.version }}/ --acl public-read --recursive
+    - name: Set downloadUrl
+      run: |
+        echo "downloadUrl=https://${{ env.WEBHOSTING_BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/lavitrine/${{ steps.set-version.outputs.version }}/derived-grandtheatre-qc-ca.json" >> $GITHUB_OUTPUT
+
+  artsdata-databus:
+    runs-on: ubuntu-latest
+    needs: upload-to-s3
+    steps:
+      - name: Register dump on Artsdata Databus
+        run: |
+          curl \
+          -H 'Content-Type: application/json' \
+          -X POST http://api.artsdata.ca/databus/  \
+          --data '{ "artifact": "derived-grandtheatre-qc-ca",
+                    "comment": "Dump of derived-grandtheatre-qc-ca using Github workflows",
+                    "publisher": "${{ secrets.PUBLISHER_URI_GREGORY }}",
+                    "group": "${{ github.event.repository.name }}",
+                    "version": "${{ needs.upload-to-s3.outputs.version }}",
+                    "downloadUrl": "${{ needs.upload-to-s3.outputs.downloadUrl }}",
+                    "downloadFile": "derived-grandtheatre-qc-ca.json",
+                    "register_only": "true"
+                  }'   
