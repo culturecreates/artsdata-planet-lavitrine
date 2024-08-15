@@ -85,19 +85,21 @@ jobs:
     env:
       VERSION: ${{ needs.s3.outputs.VERSION }}
       DOWNLOAD_URL: ${{ needs.s3.outputs.DOWNLOAD_URL }}
+      ARTIFACT: ${{ inputs.artifact }}
+      GROUP: ${{ github.event.repository.name }}
+      PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
     steps:
       - name: Register dump on Artsdata Databus
-        
         run: |
           curl \
           -H 'Content-Type: application/json' \
           -X POST http://api.artsdata.ca/databus/  \
           --data '{ "artifact": "derived-grandtheatre-qc-ca",
-                    "comment": "Dump of ${{ inputs.artifact }} using Github workflows",
-                    "publisher": "${{ secrets.PUBLISHER_URI_GREGORY }}",
-                    "group": "${{ github.event.repository.name }}",
-                    "version": "$VERSION",
-                    "downloadUrl": "$DOWNLOAD_URL",
-                    "downloadFile": "${{ inputs.artifact }}.json",
+                    "comment": "Dump of ${ARTIFACT} using Github workflows",
+                    "publisher": "${PUBLISHER}",
+                    "group": "${GROUP}",
+                    "version": "${VERSION}",
+                    "downloadUrl": "${DOWNLOAD_URL}",
+                    "downloadFile": "${ARTIFACT}.json",
                     "register_only": "true"
                   }'   
