@@ -1,18 +1,6 @@
 name: Individual LaVitrine Pipeline
 
 on:
-  workflow_dispatch:
-    inputs:
-      graph_url:
-        description: 'Graph URL'
-        type: string
-        required: true
-        default: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
-      artifact:
-        description: 'Artifact'
-        type: string
-        required: true
-        default: 'grandtheatre-qc-ca'
   workflow_call:
     inputs:
       graph_url:
