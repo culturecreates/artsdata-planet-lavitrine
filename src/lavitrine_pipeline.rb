@@ -80,8 +80,8 @@ def LavitrinePipeline(**args)
 end
 
 # Check if a parameter is provided
-if ARGV.length > 0
-  puts "Usage: ruby lavitrine_pipeline.rb <graph> <artifact>"
+if ARGV.length == 0
+  puts "Usage: ruby lavitrine_pipeline.rb <graph> [<artifact>]"
   exit
 end
 
