@@ -85,7 +85,7 @@ jobs:
           curl \
           -H 'Content-Type: application/json' \
           -X POST http://api.artsdata.ca/databus/  \
-          --data '{ "artifact": "derived-grandtheatre-qc-ca",
+          --data '{ "artifact": "${{ env.ARTIFACT }}",
                     "comment": "Dump of ${{ env.ARTIFACT }} using Github workflows",
                     "publisher": "${{ env.PUBLISHER }}",
                     "group": "${{ env.GROUP }}",
