@@ -2,6 +2,17 @@
 
 require_relative './utils/artsdata'
 
+############
+# LavitrinePipeline class
+# 
+# This class is used to create a pipeline for the Lavitrine project
+# It uses the ArtsdataPipeline class to load, transform, frame, dump, validate, and report the data
+# Parameters:
+# - graph: the graph name in Artsdata to load the data from
+# - artifact: OPTIONAL - the artifact to save the data to
+#   If not provided, the artifact is set to the last part of the graph URL
+# - file: OPTIONAL - when no graph is given then the data is loaded from the file
+#############
 def LavitrinePipeline(**args)
   pipeline = ArtsdataPipeline.new
 
@@ -69,8 +80,8 @@ def LavitrinePipeline(**args)
 end
 
 # Check if a parameter is provided
-if ARGV.length != 1
-  puts "Usage: ruby lavitrine_pipeline.rb <graph>"
+if ARGV.length >= 1
+  puts "Usage: ruby lavitrine_pipeline.rb <graph> <artifact>"
   exit
 end
 
@@ -79,5 +90,7 @@ graph = ARGV[0]
 artifact = ARGV[1]
 
 # Call the LavitrinePipeline method with the graph parameter and optional artifact parameter
-LavitrinePipeline(graph: graph, artifact: artifact)
+if graph
+  LavitrinePipeline(graph: graph, artifact: artifact)
+end
 
