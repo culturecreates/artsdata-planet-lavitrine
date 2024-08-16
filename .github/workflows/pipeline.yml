@@ -90,7 +90,7 @@ jobs:
       DOWNLOAD_URL: ${{ needs.s3.outputs.DOWNLOAD_URL }}
       ARTIFACT: ${{ inputs.artifact }}
       GROUP: ${{ github.event.repository.name }}
-      PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
+      PUBLISHER: ${{ secrets.PUBLISHER }}
     steps:
       - name: Register dump on Artsdata Databus
         run: |
