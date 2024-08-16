@@ -1,4 +1,4 @@
-name: Individual LaVitrine Pipeline
+name: LaVitrine Pipeline
 
 on:
   workflow_call:
