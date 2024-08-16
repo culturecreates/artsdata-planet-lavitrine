@@ -59,8 +59,8 @@ jobs:
   s3:
     needs: fetch-transform-data
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ca-central-1 
       WEBHOSTING_BUCKET_NAME: huginn-data
     runs-on: ubuntu-latest
