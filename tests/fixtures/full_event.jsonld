@@ -162,41 +162,6 @@
       "name": {
         "none": "Midis-musique"
       },
-      "organizer": [
-        {
-          "type": "Organization",
-          "sameAs": [
-            "https://www.instagram.com/grandtheatreqc/",
-            "https://twitter.com/GrandTheatreQc",
-            "http://www.wikidata.org/entity/Q3114610",
-            "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
-            "https://www.facebook.com/grandtheatre",
-            "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
-          ],
-          "contactPoint": {
-            "type": "ContactPoint",
-            "areaServed": "CA",
-            "availableLanguage": [
-              "FR",
-              "EN"
-            ],
-            "contactType": "customer support",
-            "email": "gtq@grandtheatre.qc.ca",
-            "telephone": "+14186438131"
-          },
-          "description": {
-            "fr": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
-          },
-          "logo": {
-            "type": "ImageObject",
-            "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
-          },
-          "name": {
-            "none": "Grand Théâtre de Québec"
-          },
-          "url": "https://grandtheatre.qc.ca/"
-        }
-      ],
       "performer": [
         {
           "id": "https://www.grandtheatre.qc.ca/programmation/conservatoire-de-musique-de-quebec",
@@ -219,6 +184,41 @@
           },
           "eventAttendanceMode": "OfflineEventAttendanceMode",
           "eventStatus": "EventScheduled",
+          "organizer": [
+            {
+              "type": "Organization",
+              "sameAs": [
+                "https://www.instagram.com/grandtheatreqc/",
+                "https://twitter.com/GrandTheatreQc",
+                "http://www.wikidata.org/entity/Q3114610",
+                "https://fr.wikipedia.org/wiki/Grand_Th%C3%A9%C3%A2tre_de_Qu%C3%A9bec",
+                "https://www.facebook.com/grandtheatre",
+                "https://www.youtube.com/channel/UCcrgPnIkEmTMe7tvJRiUMow"
+              ],
+              "contactPoint": {
+                "type": "ContactPoint",
+                "areaServed": "CA",
+                "availableLanguage": [
+                  "FR",
+                  "EN"
+                ],
+                "contactType": "customer support",
+                "email": "gtq@grandtheatre.qc.ca",
+                "telephone": "+14186438131"
+              },
+              "description": {
+                "fr": "Le Grand Théâtre de Québec est un complexe artistique et culturel national situé dans la ville de Québec et comprenant deux salles de spectacle, de théâtre et d'opéra ainsi que plusieurs foyers."
+              },
+              "logo": {
+                "type": "ImageObject",
+                "url": "https://www.grandtheatre.qc.ca/static/build/img/logo.png"
+              },
+              "name": {
+                "none": "Grand Théâtre de Québec"
+              },
+              "url": "https://grandtheatre.qc.ca/"
+            }
+          ],
           "offers": {
             "type": "Offer",
             "availability": "http://schema.org/InStock",

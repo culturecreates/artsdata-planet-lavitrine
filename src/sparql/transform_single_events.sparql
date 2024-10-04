@@ -13,6 +13,7 @@ insert {
     schema:name ?name ;
     schema:eventAttendanceMode ?eventAttendanceMode ;
     schema:eventStatus ?eventStatus ;
+    schema:organizer ?organizer ;
     schema:offers ?offer .
     ?offer ?a ?b .
 }
@@ -24,6 +25,9 @@ where {
   ?s schema:name ?name .
   OPTIONAL {
     ?s schema:endDate ?endDate .
+  }
+  OPTIONAL {
+    ?s schema:organizer ?organizer .
   }
   OPTIONAL {
     ?s schema:eventAttendanceMode ?eventAttendanceMode .

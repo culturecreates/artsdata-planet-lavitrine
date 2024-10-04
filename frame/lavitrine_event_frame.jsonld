@@ -211,23 +211,6 @@
       "@omitDefault": true
     }
   },
-  "organizer": {
-    "@type": [
-      "Person",
-      "Organization"
-    ],
-    "@omitDefault": true,
-    "@explicit": true,
-    "@embed": "@always",
-    "name": {},
-    "sameAs": {
-      "@embed": "@never",
-      "@omitDefault": true
-    },
-    "url": {
-      "@omitDefault": true
-    }
-  },
   "url": {},
   "representation": {
     "@type": "Event",
@@ -240,6 +223,23 @@
     },
     "eventStatus": {},
     "eventAttendanceMode": {},
+    "organizer": {
+      "@type": [
+        "Person",
+        "Organization"
+      ],
+      "@omitDefault": true,
+      "@explicit": true,
+      "@embed": "@always",
+      "name": {},
+      "sameAs": {
+        "@embed": "@never",
+        "@omitDefault": true
+      },
+      "url": {
+        "@omitDefault": true
+      }
+    },
     "offers": {
       "@type": [
         "AggregateOffer",

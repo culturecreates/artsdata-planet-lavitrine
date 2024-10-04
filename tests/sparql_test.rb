@@ -16,7 +16,28 @@ class SparqlTest < Minitest::Test
   def test_transform_single_events
     sparql = "./src/sparql/transform_single_events.sparql"
     graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
-    assert_equal 264, graph.count
+    assert_equal 265, graph.count
+  end
+
+  # https://github.com/culturecreates/artsdata-planet-lavitrine/issues/37
+  # Test: Link schema:organizer to referentiel:Représentation
+  def test_transform_single_events_organizer
+    sparql = "./src/sparql/transform_single_events.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    id = "https://www.grandtheatre.qc.ca/programmation/20-maline-marie-jo-therio-2023-10-12-00-00"
+  
+    assert_equal 1, graph.query([RDF::URI("#{id}#SingleEvent"), RDF::URI("http://schema.org/organizer"), nil]).count
+  end
+
+  def test_transform_series_events
+    sparql = "./src/sparql/transform_series_events.sparql"
+    graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
+    assert_equal 257, graph.count
+    subevent = "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance-2023-09-23-00-00"
+    assert_equal 1, graph.query([RDF::URI(subevent), RDF::URI("http://schema.org/organizer"), nil]).count
+    subevent = "https://www.grandtheatre.qc.ca/programmation/alexandra-streliski-neo-romance-2023-09-24-00-00"
+    assert_equal 1, graph.query([RDF::URI(subevent), RDF::URI("http://schema.org/organizer"), nil]).count
+
   end
 
   def test_convert_image_object_to_url

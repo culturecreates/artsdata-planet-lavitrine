@@ -17,6 +17,12 @@ class FrameTest < Minitest::Test
     assert_equal expected, framed_json["type"]
   end
 
+  def test_top_level_organizer_removed
+    input = JSON.parse(File.read('./tests/fixtures/full_event.jsonld'))
+    framed_json = JSON::LD::API.frame(input, @frame)
+    assert  !framed_json["organizer"]
+  end
+
   def test_nested_offers_does_not_contain_bad
     input = JSON.parse(File.read('./tests/fixtures/event_offers.jsonld'))
     framed_json = JSON::LD::API.frame(input, @frame)
