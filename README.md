@@ -99,4 +99,4 @@ The pipeline can be run locally for development and testing. You will need Ruby 
 1. Clone repository from Github.
 2. `bundle install`
 3. `rake test`
-4. `cd src ; bundle exec ruby batch.rb`
+4. `cd src ; ./batch.sh`
