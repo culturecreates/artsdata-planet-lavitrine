@@ -72,10 +72,17 @@ class ArtsdataPipeline
     @graph = @graph.query(SPARQL.parse(File.read(sparql), update: true))
   end
 
-  def frame(frame)
-    frame = JSON.parse(File.read(frame))
-    input = JSON.parse(@graph.dump(:jsonld))
-    @framed_json = JSON::LD::API.frame(input, frame)
+  def frame(frame_list)
+    frame_list = [frame_list] unless frame_list.is_a?(Array)
+    @framed_json = {"@context" => [], "@graph" => []}
+    frame_list.each do |frame|
+      frame = JSON.parse(File.read(frame))
+      input = JSON.parse(@graph.dump(:jsonld))
+      framed_json = JSON::LD::API.frame(input, frame)
+      @framed_json["@context"] = framed_json["@context"]
+      @framed_json["@graph"] += framed_json["@graph"]
+    end
+    
   end
 
   def dump(file)

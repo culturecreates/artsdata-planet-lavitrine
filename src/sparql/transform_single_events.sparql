@@ -1,5 +1,6 @@
 PREFIX schema: <http://schema.org/>
 PREFIX ex: <http://example.com/>
+PREFIX adr: <http://kg.artsdata.ca/resource/>
 
 delete {
    ?s a  ex:EventForIndex , schema:Event .
@@ -39,4 +40,5 @@ where {
     ?s schema:offers ?offer .
     ?offer ?a ?b .
   }
+  filter (not exists { ?s schema:additionalType adr:ExhibitionEvent })
 }

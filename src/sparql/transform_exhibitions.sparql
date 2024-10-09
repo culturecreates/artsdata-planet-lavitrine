@@ -1,0 +1,25 @@
+PREFIX schema: <http://schema.org/>
+PREFIX ex: <http://example.com/>
+PREFIX adr: <http://kg.artsdata.ca/resource/>
+
+delete {
+  ?s a  ex:EventForIndex ;
+    schema:offers ?offer ;
+    schema:endDate ?endDate .
+  ?offer ?a ?b .
+}
+insert {
+  ?s a schema:ExhibitionEvent .
+}
+where {
+  ?s a ex:EventForIndex, schema:Event ;
+    schema:additionalType adr:ExhibitionEvent .
+ 
+  OPTIONAL {
+    ?s schema:endDate ?endDate .
+  }
+  OPTIONAL {
+    ?s schema:offers ?offer .
+    ?offer ?a ?b .
+  }
+}

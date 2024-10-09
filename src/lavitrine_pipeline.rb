@@ -38,6 +38,8 @@ def LavitrinePipeline(**args)
   pipeline.transform("./sparql/transform_single_events.sparql")
   puts "#{Time.now}: Starting transform transform_series_events..."
   pipeline.transform("./sparql/transform_series_events.sparql")
+  puts "#{Time.now}: Starting transform transform_exhibitions..."
+  pipeline.transform("./sparql/transform_exhibitions.sparql")
   puts "#{Time.now}: Starting small transforms..."
   pipeline.transform("./sparql/remove_eventforindex.sparql")
   pipeline.transform("./sparql/remove_temporary_eventtype.sparql")
@@ -62,7 +64,7 @@ def LavitrinePipeline(**args)
   #### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )
 
   puts "#{Time.now}: Framing..."
-  pipeline.frame( "../frame/lavitrine_event_frame.jsonld")
+  pipeline.frame( ["../frame/lavitrine_event_frame.jsonld","../frame/lavitrine_exposition_frame.jsonld"])
 
   puts "#{Time.now}: Saving JSON-LD..."
   pipeline.dump("../output/#{artifact}.json")

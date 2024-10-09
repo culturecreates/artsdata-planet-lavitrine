@@ -10,12 +10,7 @@ construct {
     ?o ?op ?oo .
     ?oo ?oop ?ooo .
     ?ooo ?ooop ?oooo .
-    # ?event schema:additionalType ?type .
-    # ?type skos:prefLabel ?prefLabel .
-    # ?type a skos:Concept .
-    # ?type skos:closeMatch ?closeMatch .
-    # ?closeMatch skos:prefLabel ?closePrefLabel .   
-    # ?closeMatch a skos:Concept .
+    ?event schema:additionalType ?selectType .
     ?event schema:location ?location .
     ?location ?loc_pred ?loc_obj ; schema:address ?address ;  schema:sameAs   ?adid .
     ?address ?address_p ?addres_o .
@@ -44,7 +39,7 @@ where {
                         filter( not exists { ?event schema:additionalType adr:Festival }) 
                         filter( not exists { ?event schema:additionalType <http://lod.footlight.io/resource/65719e94a5ac3d006314ed96> }) # Mauricie
                         filter( not exists { ?event schema:additionalType <http://lod.footlight.io/resource/6418ca425e4d4e0066a2ee9f> }) # Tout Culture
-                        filter(?startDate >= now() || ?endDate >= now())
+                        filter(strdt(str(?startDate),xsd:dateTime) >= now() || strdt(str(?endDate),xsd:dateTime) >= now())
                     } 
                     order by ?startDate
                     limit 10 offset 0 
@@ -64,40 +59,31 @@ where {
                     ?ooo ?ooop ?oooo .
                     filter(!isBlank(?oooo))
                 }
-                # OPTIONAL {
-                #     ?event schema:additionalType ?type .
-                # }   
+               
             } 
             
         }
     }
-       graph ?location_graph {
-         ?location schema:address ?address .
-             ?address ?address_p ?addres_o .
+    graph ?location_graph {
+        ?location schema:address ?address .
+        ?address ?address_p ?addres_o .
     }
             
-       
     
-     OPTIONAL {
+    OPTIONAL {
          ?adid schema:sameAs ?location .
          filter (strstarts(str(?adid),"http://kg.artsdata.ca/resource/K"))
      }
-      OPTIONAL {
+    OPTIONAL {
          ?location schema:sameAs ?adid .
          filter (strstarts(str(?adid),"http://kg.artsdata.ca/resource/K"))
      }
+    OPTIONAL {
+        values ?selectType {
+           adr:ExhibitionEvent
+        }
+        ?event schema:additionalType ?additionalType .
+        ?additionalType skos:broader*/skos:closeMatch* ?selectType
+    }
 
-
-    # OPTIONAL {
-    #     ?event schema:additionalType ?type .
-    #     graph <http://kg.artsdata.ca/culture-creates/artsdata-planet-gtq/grandtheatre-qc-ca-event-type-mapping> {
-    #         ?type skos:prefLabel ?prefLabel .
-    #         ?type skos:closeMatch ?closeMatch .
-    #     }
-    #     OPTIONAL {
-    #         graph <http://kg.artsdata.ca/culture-creates/artsdata-data-model/skos-event-types> {
-    #             ?closeMatch skos:prefLabel ?closePrefLabel .
-    #         }
-    #     }
-    # }
 }
