@@ -54,8 +54,8 @@ jobs:
   tout-culture:
     uses: ./.github/workflows/pipeline.yml
     with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture-cms-events'
-      artifact: 'tout-culture-cms-events'
+      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture'
+      artifact: 'tout-culture'
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
@@ -63,8 +63,8 @@ jobs:
   signe-laval:
     uses: ./.github/workflows/pipeline.yml
     with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval-cms-events'
-      artifact: 'signe-laval-cms-events'
+      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval'
+      artifact: 'signe-laval'
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
@@ -72,8 +72,8 @@ jobs:
   culture-mauricie:
     uses: ./.github/workflows/pipeline.yml
     with:
-      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie-cms-events'
-      artifact: 'culture-mauricie-cms-events'
+      graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie'
+      artifact: 'culture-mauricie'
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
