@@ -3,7 +3,7 @@ name: Batch LaVitrine Pipeline
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'  # Runs daily at 3 AM UTC, which is 10 PM EST
+    - cron: '0 3 * * *'  # Runs daily at 2 AM UTC, which is 10 PM EST
 
 jobs:
   grandtheatre-qc-ca:
