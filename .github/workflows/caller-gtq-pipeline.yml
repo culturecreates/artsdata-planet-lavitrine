@@ -1,4 +1,4 @@
-name: Batch LaVitrine Pipeline
+name: GTQ LaVitrine Pipeline
 
 on:
   workflow_dispatch:
