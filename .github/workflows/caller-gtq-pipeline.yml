@@ -1,0 +1,17 @@
+name: Batch LaVitrine Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 1 * * *'  # Runs daily at 1 AM UTC, which is 9 PM EST
+
+jobs:
+  grandtheatre-qc-ca:
+    uses: ./.github/workflows/pipeline.yml
+    with:
+      graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
+      artifact: 'grandtheatre-qc-ca'
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+      PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
