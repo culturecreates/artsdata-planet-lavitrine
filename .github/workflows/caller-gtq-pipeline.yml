@@ -2,9 +2,7 @@ name: GTQ LaVitrine Pipeline
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 1 * * *'  # Runs daily at 1 AM UTC, which is 9 PM EST
-
+    
 jobs:
   grandtheatre-qc-ca:
     uses: ./.github/workflows/pipeline.yml
