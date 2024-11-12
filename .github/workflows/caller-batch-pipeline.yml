@@ -17,6 +17,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   dia-logGraphs:
     needs: placedesarts-com
+    if: always() # This ensures the job runs regardless if the previous job failed
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/resource/dia-logGraphs'
@@ -27,6 +28,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   hector-charland:
     needs: dia-logGraphs
+    if: always()
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/hector-charland-com'
@@ -37,6 +39,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   theatredumarais-com:
     needs: hector-charland
+    if: always()
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/footlight/theatredumarais-com'
@@ -48,6 +51,7 @@ jobs:
   tout-culture:
     needs: theatredumarais-com
     uses: ./.github/workflows/pipeline.yml
+    if: always()
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/tout-culture'
       artifact: 'tout-culture-cms-events'
@@ -57,6 +61,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   signe-laval:
     needs: tout-culture
+    if: always()
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/signe-laval'
@@ -67,6 +72,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   culture-mauricie:
     needs: signe-laval
+    if: always()
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-footlight/culture-mauricie'
@@ -77,6 +83,7 @@ jobs:
       PUBLISHER: ${{ secrets.PUBLISHER_URI_GREGORY }}
   grandtheatre-qc-ca:
     needs: culture-mauricie
+    if: always()
     uses: ./.github/workflows/pipeline.yml
     with:
       graph_url: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
