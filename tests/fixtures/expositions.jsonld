@@ -1,0 +1,12 @@
+[
+  {
+    "@context": "http://schema.org",
+    "@type": "Event",
+    "name": "Some Event"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "ExhibitionEvent",
+    "name": "Big Exhibition"
+  }
+]

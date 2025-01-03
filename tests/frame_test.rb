@@ -30,7 +30,14 @@ class FrameTest < Minitest::Test
     assert !framed_json["representation"][0]["offers"]["offers"]["bad"]
   end
 
-
+  def test_exposition_frame
+    frame = JSON.parse(File.read('./frame/lavitrine_exposition_frame.jsonld'))
+    input = JSON.parse(File.read('./tests/fixtures/expositions.jsonld'))
+    options = {:omitGraph => false}
+    framed_json = JSON::LD::API.frame(input, frame, **options)
+    # pp framed_json
+    assert framed_json["@graph"].class == Array
+  end
 
 
 end

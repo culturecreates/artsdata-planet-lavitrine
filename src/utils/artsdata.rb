@@ -74,13 +74,14 @@ class ArtsdataPipeline
 
   def frame(frame_list)
     frame_list = [frame_list] unless frame_list.is_a?(Array)
-    @framed_json = {"@context" => [], "@graph" => []}
+    @framed_json = {"@context" => {}, "@graph" => []}
+    options = {:omitGraph => false}
     frame_list.each do |frame|
       frame = JSON.parse(File.read(frame))
       input = JSON.parse(@graph.dump(:jsonld))
-      framed_json = JSON::LD::API.frame(input, frame)
-      @framed_json["@context"] = framed_json["@context"]
-      @framed_json["@graph"] += framed_json["@graph"]
+      framed_json = JSON::LD::API.frame(input, frame, **options)
+      @framed_json["@context"] =  @framed_json["@context"].merge(framed_json["@context"])
+      @framed_json["@graph"] += Array(framed_json["@graph"])
     end
     
   end
