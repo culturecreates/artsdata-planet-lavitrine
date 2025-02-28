@@ -60,7 +60,11 @@ def LavitrinePipeline(**args)
 
 
   pipeline.dump("../output/transformed-#{artifact}.json")
-
+  
+  if pipeline.graph_empty?
+    abort("Graph is empty. Aborting to signal to GitHub Actions that the workflow should be halted to avoid uploading empty data.")
+  end
+  
   #### pipeline.load(file: "../output/transformed-#{graph.split("/").last}.json" )
 
   puts "#{Time.now}: Framing..."

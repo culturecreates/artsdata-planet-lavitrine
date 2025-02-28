@@ -86,6 +86,10 @@ class ArtsdataPipeline
     
   end
 
+  def graph_empty?
+    @graph.empty?
+  end
+
   def dump(file)
     if @framed_json
       File.write(file, @framed_json.to_json)
