@@ -20,6 +20,7 @@ where {
     {
         select * where {
             <graph_placeholder> schema:hasPart | schema:hasPart/schema:hasPart ?graph .
+            filter exists { adr:LaVitrineSources schema:hasPart ?graph } # had pick graphs for LaVitrine
             graph ?graph {
                 {
                     select ?event 
