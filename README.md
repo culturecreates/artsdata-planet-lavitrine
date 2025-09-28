@@ -15,10 +15,14 @@ View the history of daily workflow dumps [here](https://github.com/culturecreate
 
 
 ### External websites
-Click on any of the following artifacts to get a link to download the JSON data **file**.
+
+The following websites are included:
+http://kg.artsdata.ca/resource/LaVitrineSources
+
+Websites are packaged into the following 8 artifacts. Click on any of the following artifacts to get a link to download the JSON data **file**.
 * [grandtheatre-qc-ca](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fgrandtheatre-qc-ca) - Website events from https://grandtheatre.qc.ca
 * [placedesarts-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fplacedesarts-com) - Website events from https://placedesarts.com
-* [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - 21 Quebec websites that are [part of dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
+* [dia-logGraphs](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fdia-logGraphs) - Selection of websites from  [dia-log](https://kg.artsdata.ca/resource/dia-logGraphs) 
 * [hector-charland-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Fhector-charland-com) - Website events from https://hector-charland.com
 * [theatredumarais-com](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftheatredumarais-com) - Website events from https://theatredumarais.com
 * [tout-culture-cms-events](https://api.artsdata.ca/databus/artifact/latest?artifact=http%3A%2F%2Fkg.artsdata.ca%2Fdatabus%2Fculture-creates%2Fartsdata-planet-lavitrine%2Ftout-culture-cms-events) - Outaouais region events from https://toutculture.ca 
