@@ -34,7 +34,13 @@ class ArtsdataPipeline
         sparql_str = sparql.sub("limit 10 offset 0", "limit #{args[:limit]} offset #{i * args[:limit]}")
         puts "Loading #{args[:limit]} events from offset #{i * args[:limit]}"
         result = sparql_client.query(sparql_str)
-        puts "Loaded #{result.count} triples"
+        begin
+          puts "Loaded #{result.count} triples"
+        rescue
+          puts "Skipping events #{i * args[:limit]} to #{i * args[:limit] + args[:limit]} due to error counting results. One reason could be a schema:description starting with 'VERSION' which triggers specific behaviors."
+          i += 1
+          next 
+        end
         add_to_graph(result)
         if @graph.count == previous_count || i > 40
           puts "Done loading."
