@@ -236,7 +236,7 @@ DEPENDENCIES
   csv
   linkeddata
   minitest
-  multi_json (= 1.18.0)
+  multi_json (~> 1.18.0)
   rake
 
 BUNDLED WITH
