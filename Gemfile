@@ -13,3 +13,4 @@ gem "linkeddata"
 gem 'minitest'
 gem 'rake'
 gem 'csv'
+gem 'multi_json', '1.18.0'
