@@ -12,3 +12,4 @@ gem "linkeddata"
 # gem "rdf-vocab"
 gem 'minitest'
 gem 'rake'
+gem 'csv'
