@@ -9,7 +9,7 @@ class ShaclTest < Minitest::Test
   end
 
   def test_full_event_should_pass
-    graph = RDF::Graph.load("./tests/fixtures/places_to_test_artsdata_ids.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/places_to_test_artsdata_ids.jsonld")
     # puts graph.dump(:jsonld)
     report =  @shacl.execute(graph)  
     

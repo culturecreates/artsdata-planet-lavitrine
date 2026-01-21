@@ -11,42 +11,42 @@ class ShaclTest < Minitest::Test
   end
 
   def test_full_event_should_pass
-    graph = RDF::Graph.load("./tests/fixtures/full_event.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/full_event.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
     assert report.conform?
   end
 
   def test_minimal_event_should_pass
-    graph = RDF::Graph.load("./tests/fixtures/minimal_event.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/minimal_event.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
     assert report.conform?
   end
 
   def test_no_subevent_fail
-    graph = RDF::Graph.load("./tests/fixtures/missing_subevent.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/missing_subevent.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
     assert !report.conform?
   end
 
   def test_no_performer_pass
-    graph = RDF::Graph.load("./tests/fixtures/missing_performer.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/missing_performer.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
     assert report.conform?
   end
 
   def test_two_offers_fails
-    graph = RDF::Graph.load("./tests/fixtures/two_offers.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/two_offers.jsonld")
     report =  @shacl.execute(graph)  
     # puts report
     assert !report.conform?
   end
 
   def test_led_zepplin
-    graph = RDF::Graph.load("./tests/fixtures/output_led_zepplin.jsonld")
+    graph = RDF::Graph.load("./test/fixtures/output_led_zepplin.jsonld")
     # pp JSON.parse(graph.dump(:jsonld, standard_prefixes: true))
     report =  @shacl.execute(graph)  
     # puts report
