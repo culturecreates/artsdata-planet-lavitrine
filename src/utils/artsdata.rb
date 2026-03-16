@@ -8,6 +8,11 @@ require 'rdf/turtle'
 require 'linkeddata'
 require 'json/ld'
 
+# Maximum number of batches. 
+# Batch size is passed as a parameter to the load method. 
+# This is a safeguard to prevent infinite loops.
+MAX_BATCH_COUNT = 80
+
 class ArtsdataPipeline
   attr_accessor :sparql_client, :graph, :framed_json, :report, :adid
   def initialize
@@ -45,7 +50,7 @@ class ArtsdataPipeline
           next 
         end
         add_to_graph(result)
-        if @graph.count == previous_count || i > 40
+        if @graph.count == previous_count || i > MAX_BATCH_COUNT
           puts "Done loading."
           puts @adid.inspect
           break

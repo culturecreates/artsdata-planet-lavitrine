@@ -2,6 +2,9 @@
 
 require_relative './utils/artsdata'
 
+# Batch size constant
+BATCH_SIZE = 5
+
 ############
 # LavitrinePipeline class
 # 
@@ -21,7 +24,7 @@ def LavitrinePipeline(**args)
     graph = args[:graph]
     artifact = args[:artifact] ||= graph.split("/").last
     puts "#{Time.now}: Downloading #{artifact} data..."
-    pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: 5, graph: graph)
+    pipeline.load(sparql: "./sparql/load_artsdata_events.sparql", limit: BATCH_SIZE, graph: graph)
     pipeline.dump("../output/raw-#{artifact}.json")
   else
     file = args[:file]
