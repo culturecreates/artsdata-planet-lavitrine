@@ -11,7 +11,10 @@ require 'json/ld'
 class ArtsdataPipeline
   attr_accessor :sparql_client, :graph, :framed_json, :report, :adid
   def initialize
-    @sparql_client = SPARQL::Client.new("http://db.artsdata.ca/repositories/artsdata")
+    @sparql_client = SPARQL::Client.new(
+      "http://db.artsdata.ca/repositories/artsdata",
+      headers: { 'Accept-Encoding' => 'identity' }
+    )
     @graph = RDF::Graph.new
     @adid = []
   end
