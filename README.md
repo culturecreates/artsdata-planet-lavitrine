@@ -8,7 +8,8 @@ The LaVitrine data model differs slightly from the Artsdata data model. This pip
 ## Artifacts
 This repo generates the following artifacts derived from Artsdata and refreshes them on a daily schedule. An artifact is a versioned dump of all events on a website including nested places, people, organizations and event types.
 
-Table of [sources crawled for La Vitrine](https://kg.artsdata.ca/fr/query/show?sparql=https://raw.githubusercontent.com/artsdata-stewards/artsdata-actions/main/queries/lavitrine_pipeline.sparql&title=Sources+moissonnées+pour+La+Vitrine)
+Table of [sources crawled for La Vitrine](https://kg.artsdata.ca/fr/query/show?sparql=https://raw.githubusercontent.com/artsdata-stewards/artsdata-actions/main/queries/lavitrine_pipeline.sparql&title=Sources+moissonnées+pour+La+Vitrine). 
+
 View the history of daily workflow dumps [here](https://github.com/culturecreates/artsdata-planet-lavitrine/actions).
 
 
