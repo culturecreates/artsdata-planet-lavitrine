@@ -7,7 +7,7 @@ on:
         description: 'Graph URL'
         type: string
         required: true
-        default: 'http://kg.artsdata.ca/culture-creates/huginn/derived-grandtheatre-qc-ca'
+        default: 'http://kg.artsdata.ca/culture-creates/artsdata-planet-gtq/derived-grandtheatre-qc-ca'
       artifact:
         description: 'Artifact'
         type: string
